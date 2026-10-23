@@ -29,11 +29,11 @@ const hoverSpring = { type: "spring" as const, stiffness: 380, damping: 32 }
 export default function Header() {
     const [hoveredLink, setHoveredLink] = useState<keyof typeof Links | null>(null);
     return (
-        <header className="flex w-full items-center justify-between gap-6 px-6 py-4">
-            <h1 className="text-lg font-medium">QUBENIX</h1>
+        <header className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 sm:py-4">
+            <h1 className="text-base font-medium sm:text-lg">QUBENIX</h1>
             <LayoutGroup>
                 <nav
-                    className="flex items-center gap-1"
+                    className="order-3 flex w-full flex-wrap items-center justify-center gap-1 md:order-none md:w-auto md:flex-nowrap md:justify-start"
                     onMouseLeave={() => setHoveredLink(null)}
                 >
                     {Object.entries(Links).map(([key, value]) => {
@@ -43,7 +43,7 @@ export default function Header() {
                             <Link
                                 href={value}
                                 key={key}
-                                className="relative whitespace-nowrap px-4 py-2.5 text-sm font-medium"
+                                className="relative whitespace-nowrap px-3 py-2 text-sm font-medium sm:px-4 sm:py-2.5"
                                 onMouseEnter={() => setHoveredLink(name)}
                             >
                                 {active && (
