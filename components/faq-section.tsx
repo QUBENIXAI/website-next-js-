@@ -198,16 +198,18 @@ export default function FaqSection() {
     };
 
     return (
-        <div className="flex w-full max-w-3xl flex-col gap-10 px-6 py-16">
-            <section className="flex flex-col text-center">
-                <h1 className="text-3xl font-medium">Frequently Asked Questions</h1>
-                <p className="text-md text-gray-500">
+        <div className="flex w-full max-w-3xl flex-col gap-8 px-4 py-10 sm:gap-10 sm:px-6 sm:py-16">
+            <section className="flex flex-col gap-2 text-center">
+                <h1 className="text-2xl font-medium sm:text-3xl">
+                    Frequently Asked Questions
+                </h1>
+                <p className="text-sm text-gray-500 sm:text-base">
                     Find answers to common questions about QUBENIX’s services and
                     capabilities.
                 </p>
             </section>
 
-            <div className="flex flex-col gap-8 px-6">
+            <div className="flex flex-col gap-5 px-3 sm:gap-8 sm:px-6">
                 {Questions.map((item) => (
                     <FaqRow
                         key={item.question}
@@ -253,7 +255,7 @@ export default function FaqSection() {
                 {customQuestions.length < MAX_CUSTOM_QUESTIONS ? (
                     <form
                         onSubmit={addQuestion}
-                        className="rounded-[18px] border border-[#e4e4e4] px-6 py-5"
+                        className="rounded-2xl border border-[#e4e4e4] px-4 py-4 sm:rounded-[18px] sm:px-6 sm:py-5"
                     >
                         <input
                             value={draft}
@@ -261,7 +263,7 @@ export default function FaqSection() {
                             placeholder="Add your own question"
                             aria-label="Add your own question"
                             disabled={loadingQuestion !== null}
-                            className="w-full bg-transparent text-[18px] font-medium text-black outline-none placeholder:font-medium placeholder:text-[#a3a3a3] disabled:opacity-60"
+                            className="w-full bg-transparent text-base font-medium text-black outline-none placeholder:font-medium placeholder:text-[#a3a3a3] disabled:opacity-60 sm:text-lg"
                         />
                     </form>
                 ) : null}
@@ -289,16 +291,16 @@ function FaqRow({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.28, ease }}
-                    className="pointer-events-none absolute -inset-x-3 -inset-y-2.5 z-10"
+                    className="pointer-events-none absolute -inset-x-2 -inset-y-2 z-10 sm:-inset-x-3 sm:-inset-y-2.5"
                 >
-                    <span className="absolute top-0 -right-8 -left-8 border-t border-dashed border-[#b5b5b5]" />
-                    <span className="absolute bottom-0 -right-8 -left-8 border-t border-dashed border-[#b5b5b5]" />
-                    <span className="absolute left-0 -top-5 -bottom-5 border-l border-dashed border-[#b5b5b5]" />
-                    <span className="absolute right-0 -top-5 -bottom-5 border-l border-dashed border-[#b5b5b5]" />
+                    <span className="absolute top-0 -right-3 -left-3 border-t border-dashed border-[#b5b5b5] sm:-right-8 sm:-left-8" />
+                    <span className="absolute bottom-0 -right-3 -left-3 border-t border-dashed border-[#b5b5b5] sm:-right-8 sm:-left-8" />
+                    <span className="absolute -top-3 -bottom-3 left-0 border-l border-dashed border-[#b5b5b5] sm:-top-5 sm:-bottom-5" />
+                    <span className="absolute -top-3 -bottom-3 right-0 border-l border-dashed border-[#b5b5b5] sm:-top-5 sm:-bottom-5" />
                 </motion.div>
             ) : null}
             <div
-                className={`relative rounded-[18px] px-6 py-5 transition-colors duration-300 ${
+                className={`relative rounded-2xl px-4 py-4 transition-colors duration-300 sm:rounded-[18px] sm:px-6 sm:py-5 ${
                     open ? "bg-white" : "border border-[#e4e4e4]"
                 }`}
             >
@@ -306,9 +308,9 @@ function FaqRow({
                     type="button"
                     aria-expanded={open}
                     onClick={onToggle}
-                    className="flex w-full cursor-pointer items-center justify-between gap-6 text-left"
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 text-left sm:gap-6"
                 >
-                    <span className="text-[18px] font-medium tracking-tight text-black">
+                    <span className="text-base font-medium leading-snug tracking-tight text-black sm:text-lg">
                         {question}
                     </span>
                     <motion.span
@@ -317,7 +319,7 @@ function FaqRow({
                         transition={{ duration: 0.35, ease }}
                         className="shrink-0 text-black"
                     >
-                        <CaretDown size={18} weight="bold" />
+                        <CaretDown className="h-4 w-4 sm:h-[18px] sm:w-[18px]" weight="bold" />
                     </motion.span>
                 </button>
                 <div
@@ -330,7 +332,7 @@ function FaqRow({
                             initial={false}
                             animate={{ opacity: open ? 1 : 0, y: open ? 0 : -4 }}
                             transition={{ duration: 0.35, ease }}
-                            className="pt-3 text-[15.5px] leading-7 text-[#6a6a6a]"
+                            className="pt-2.5 text-sm leading-6 text-[#6a6a6a] sm:pt-3 sm:text-base sm:leading-7"
                         >
                             {answer}
                         </motion.p>
