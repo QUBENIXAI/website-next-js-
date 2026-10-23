@@ -1,6 +1,10 @@
+"use client"
+
 import { GlobeAnalytics } from "../globe";
+import { useState } from "react";
 
 export default function Card1() {
+    const [isHovered, setIsHovered] = useState(false);
     return (
         <div className="relative h-[350px] w-[350px] overflow-hidden bg-white p-4">
             <div className="relative z-10 flex max-w-[15rem] flex-col gap-2">
