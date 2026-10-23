@@ -7,7 +7,6 @@ import { LayoutGroup, motion } from "motion/react";
 import { useState } from "react";
 
 const Links = {
-    Home: "/",
     Products: "/products",
     Blog: "/blog",
     OurTeam: "/our-team",
@@ -16,7 +15,6 @@ const Links = {
 }
 
 const labels: Record<keyof typeof Links, string> = {
-    Home: "Home",
     Products: "Products",
     Blog: "Blog",
     OurTeam: "Our Team",
@@ -30,10 +28,11 @@ export default function Header() {
     const [hoveredLink, setHoveredLink] = useState<keyof typeof Links | null>(null);
     return (
         <header className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 sm:py-4">
-            <h1 className="text-base font-medium sm:text-lg">QUBENIX</h1>
+            <Link href="/" className="text-base font-medium sm:text-lg">QUBENIX</Link>
             <LayoutGroup>
+                <div className="fixed bottom-3 left-1/2 z-50 w-max max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-full bg-[#d7d7d7] p-0.5 shadow-[0_8px_30px_rgba(0,0,0,0.1)] md:static md:w-auto md:max-w-none md:translate-x-0 md:bg-transparent md:p-0 md:shadow-none">
                 <nav
-                    className="order-3 flex w-full flex-wrap items-center justify-center gap-1 md:order-none md:w-auto md:flex-nowrap md:justify-start"
+                    className="flex items-center gap-0.5 overflow-x-auto rounded-full bg-white px-2.5 py-2 backdrop-blur-md [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-1 md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:backdrop-blur-none"
                     onMouseLeave={() => setHoveredLink(null)}
                 >
                     {Object.entries(Links).map(([key, value]) => {
@@ -43,7 +42,7 @@ export default function Header() {
                             <Link
                                 href={value}
                                 key={key}
-                                className="relative whitespace-nowrap px-3 py-2 text-sm font-medium sm:px-4 sm:py-2.5"
+                                className="relative whitespace-nowrap px-4 py-2.5 text-xs font-medium sm:text-sm md:px-4 md:py-2.5"
                                 onMouseEnter={() => setHoveredLink(name)}
                             >
                                 {active && (
@@ -69,6 +68,7 @@ export default function Header() {
                         )
                     })}
                 </nav>
+                </div>
             </LayoutGroup>
             <CtaButton label="Get Started" icon={<ArrowBendUpRightIcon />} />
         </header>
