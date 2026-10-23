@@ -200,7 +200,7 @@ export default function FaqSection() {
     return (
         <div className="flex w-full max-w-3xl flex-col gap-8 px-4 py-10 sm:gap-10 sm:px-6 sm:py-16">
             <section className="flex flex-col gap-2 text-center">
-                <h1 className="text-2xl font-medium sm:text-3xl">
+                <h1 className="text-2xl sm:text-3xl">
                     Frequently Asked Questions
                 </h1>
                 <p className="text-sm text-gray-500 sm:text-base">

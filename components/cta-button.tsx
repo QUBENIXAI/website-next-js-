@@ -27,7 +27,7 @@ export default function CtaButton({label, icon, onClick}: CtaButtonProps) {
                 <p className='text-center text-sm font-medium text-white'>{label}</p>
                 {icon && (
                     <motion.span
-                        className='flex'
+                        className='flex text-white'
                         variants={{
                             rest: { x: 0 },
                             hover: { x: 4 },
