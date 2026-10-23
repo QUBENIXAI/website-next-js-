@@ -252,21 +252,6 @@ export default function FaqSection() {
                         }
                     />
                 ) : null}
-                {customQuestions.length < MAX_CUSTOM_QUESTIONS ? (
-                    <form
-                        onSubmit={addQuestion}
-                        className="rounded-2xl border border-[#e4e4e4] px-4 py-4 sm:rounded-[18px] sm:px-6 sm:py-5"
-                    >
-                        <input
-                            value={draft}
-                            onChange={(event) => setDraft(event.target.value)}
-                            placeholder="Add your own question"
-                            aria-label="Add your own question"
-                            disabled={loadingQuestion !== null}
-                            className="w-full bg-transparent text-base font-medium text-black outline-none placeholder:font-medium placeholder:text-[#a3a3a3] disabled:opacity-60 sm:text-lg"
-                        />
-                    </form>
-                ) : null}
             </div>
         </div>
     );
