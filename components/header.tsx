@@ -70,7 +70,7 @@ export default function Header() {
                 </nav>
                 </div>
             </LayoutGroup>
-            <CtaButton label="Get Started" icon={<ArrowBendUpRightIcon />} />
+            <CtaButton label="Get in Touch" icon={<ArrowBendUpRightIcon />} />
         </header>
     )
 }
