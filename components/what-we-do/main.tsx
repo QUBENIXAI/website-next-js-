@@ -5,9 +5,9 @@ import Card3 from "./Card3";
 
 export default function WhatWeProvide() {
     return (
-        <div className="flex w-full flex-col items-center px-4 sm:px-6 mt-5">
+        <div id="what-we-do" className="flex w-full flex-col items-center px-4 sm:px-6 mt-5">
             <section className="flex w-full max-w-2xl flex-col items-center justify-center gap-2 text-center">
-            <SectionHeading className="text-2xl font-semibold sm:text-4xl">
+            <SectionHeading className="text-2xl font-medium sm:text-4xl">
                     What We Do
                 </SectionHeading>
                 <p className="text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
