@@ -204,7 +204,7 @@ export default function FaqSection() {
                 <SectionHeading className="text-2xl font-semibold sm:text-4xl">
                     Frequently Asked Questions
                 </SectionHeading>
-                <p className="text-sm text-gray-500 sm:text-base">
+                <p className="text-xs leading-5 text-gray-500 sm:text-base sm:leading-6">
                     Find answers to common questions about QUBENIX’s services and
                     capabilities.
                 </p>
