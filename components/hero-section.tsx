@@ -3,11 +3,12 @@
 import { motion } from "motion/react"
 import CtaButton from "./cta-button"
 import { ArrowBendUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 
 export default function HeroSection() {
     return (
-        <div className="w-full">
-            <section className="mx-auto flex h-screen w-full max-w-6xl flex-col items-start justify-center px-4 sm:px-6">
+        <div className="w-full overflow-x-hidden">
+            <section className="mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-10 sm:px-6 sm:pt-16">
                 <h1 className="text-4xl font-semibold">Build Smarter Systems, 
                     <br />
                     Make Room for growth
@@ -19,7 +20,16 @@ export default function HeroSection() {
                     </button>
                 </div>
             </section>
-
+            <div className="mx-auto flex w-full max-w-6xl justify-center px-4 sm:px-6">
+                <Image
+                    src="/image.png"
+                    alt="Hero Image"
+                    width={4712}
+                    height={2956}
+                    priority
+                    className="h-auto w-full"
+                />
+            </div>
         </div>
     )
 }

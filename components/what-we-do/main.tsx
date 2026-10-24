@@ -4,7 +4,7 @@ import Card3 from "./Card3";
 
 export default function WhatWeProvide() {
     return (
-        <div className="flex w-full flex-col items-center px-4 sm:px-6">
+        <div className="flex w-full flex-col items-center px-4 sm:px-6 mt-5">
             <section className="flex w-full max-w-2xl flex-col items-center justify-center gap-2 text-center">
             <h1 className="text-2xl sm:text-3xl">
                     What We Do

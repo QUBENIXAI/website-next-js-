@@ -27,7 +27,7 @@ const hoverSpring = { type: "spring" as const, stiffness: 380, damping: 32 }
 export default function Header() {
     const [hoveredLink, setHoveredLink] = useState<keyof typeof Links | null>(null);
     return (
-        <header className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6 sm:py-4">
+        <header className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
             <Link href="/" className="text-base font-medium sm:text-lg">QUBENIX</Link>
             <LayoutGroup>
                 <div className="fixed bottom-3 left-1/2 z-50 w-max max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-full bg-[#d7d7d7] p-0.5 shadow-[0_8px_30px_rgba(0,0,0,0.1)] md:static md:w-auto md:max-w-none md:translate-x-0 md:bg-transparent md:p-0 md:shadow-none">
