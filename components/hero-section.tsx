@@ -36,7 +36,7 @@ export default function HeroSection() {
                 </g>
             </svg>
             <section className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-10 sm:px-6 sm:pt-16">
-                <h1 className="text-5xl font-semibold">Build Smarter Systems, 
+                <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl">Build Smarter Systems, 
                     <br />
                     Make Room for growth
                 </h1>
