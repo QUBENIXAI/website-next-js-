@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react"
 import CtaButton from "./cta-button"
-import { ArrowBendUpRightIcon } from "@phosphor-icons/react/dist/ssr";
+import { ArrowBendUpRightIcon, BrainIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import PillLayer from "./pill-layer";
 
 export default function HeroSection() {
     return (
@@ -20,23 +21,52 @@ export default function HeroSection() {
                         const dashed = index % 3 === 1
                         const doubled = index % 3 === 0
                         const lines = doubled ? [y, y + 10] : [y]
-                        return lines.map((lineY) => (
-                            <line
-                                key={lineY}
-                                x1="-500"
-                                y1={lineY}
-                                x2="1940"
-                                y2={lineY}
-                                stroke="rgba(23,23,23,0.2)"
-                                strokeWidth="1.25"
-                                strokeDasharray={dashed ? "10 14" : undefined}
-                            />
-                        ))
+                        const pulse = index % 3 === 2 || index === 0 || index === 4
+                        return (
+                            <g key={index}>
+                                {lines.map((lineY) => (
+                                    <line
+                                        key={lineY}
+                                        x1="-500"
+                                        y1={lineY}
+                                        x2="1940"
+                                        y2={lineY}
+                                        stroke="rgba(23,23,23,0.2)"
+                                        strokeWidth="1.25"
+                                        strokeDasharray={dashed ? "10 14" : undefined}
+                                    />
+                                ))}
+                                {pulse && (
+                                    <motion.line
+                                        x1="-500"
+                                        y1={y}
+                                        x2="1940"
+                                        y2={y}
+                                        stroke="#2F6BFF"
+                                        strokeOpacity={0.55}
+                                        strokeWidth="1.75"
+                                        strokeLinecap="round"
+                                        strokeDasharray="72 2440"
+                                        animate={{ strokeDashoffset: [2440, -72] }}
+                                        transition={{
+                                            duration: 3.6,
+                                            repeat: Infinity,
+                                            ease: "linear",
+                                            delay: index * 0.7,
+                                            repeatDelay: 1.2,
+                                        }}
+                                    />
+                                )}
+                            </g>
+                        )
                     })}
                 </g>
             </svg>
             <section className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-10 sm:px-6 sm:pt-16">
-                <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl">Build Smarter Systems, 
+                <div className="mb-2">
+                    <PillLayer label="Intelligence meets Automation" icon={<BrainIcon />} />
+                </div>
+                <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-4xl xl:text-6xl">Build Smarter Systems, 
                     <br />
                     Make Room for growth
                 </h1>
@@ -50,7 +80,13 @@ export default function HeroSection() {
                     </button>
                 </div>
             </section>
-            <div className="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-4 sm:px-6">
+            <motion.div
+                className="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-4 sm:px-6"
+                initial={{ filter: "blur(18px)", opacity: 0.65 }}
+                whileInView={{ filter: "blur(0px)", opacity: 1 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            >
                 <Image
                     src="/image.png"
                     alt="Hero Image"
@@ -59,7 +95,7 @@ export default function HeroSection() {
                     priority
                     className="h-auto w-full"
                 />
-            </div>
+            </motion.div>
         </div>
     )
 }
