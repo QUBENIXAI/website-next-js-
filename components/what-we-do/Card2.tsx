@@ -9,7 +9,7 @@ export default function Card2() {
             <div className="relative z-10 flex max-w-[16rem] flex-col gap-2">
                 <h1 className="text-xl font-medium leading-snug sm:text-2xl">Startups & Scaleups</h1>
                 <p className="text-sm leading-6 text-[#616161]">
-                    Expert guidance to help you navigate global opportunities, make informed decisions, and move forward with confidence.
+                    Hands-on support for startups and scaleups to grow faster, simplify operations, and build systems that keep up with the team.
                 </p>
             </div>
 

@@ -9,7 +9,7 @@ export default function Card3() {
             <div className="relative z-10 flex max-w-[16rem] flex-col gap-2">
                 <h1 className="text-xl font-medium sm:text-2xl">Coorporates</h1>
                 <p className="text-sm leading-6 text-[#616161]">
-                    Expert guidance to help you navigate global opportunities, make informed decisions, and move forward with confidence.
+                    Systems and guidance that help corporate teams align work, streamline operations, and move complex programs forward with clarity.
                 </p>
             </div>
             <div className="absolute inset-x-0 bottom-15 flex justify-center">
