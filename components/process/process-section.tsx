@@ -1,0 +1,19 @@
+import SectionHeading from "../section-heading";
+import ProcessCard1 from "./process-card1";
+
+export default function ProcessSection() {
+    return (
+        <div id="our-process" className="flex w-full flex-col items-center px-4 sm:px-6 mt-5">
+        <section className="flex w-full max-w-2xl flex-col items-center justify-center gap-2 text-center">
+            <SectionHeading className="text-2xl font-medium sm:text-4xl">
+                Our Process
+            </SectionHeading>
+            <p className="text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
+        </section>
+
+        <div className="mt-8 flex w-full max-w-6xl justify-center sm:mt-10">
+            <ProcessCard1 />
+        </div>
+    </div>
+    )
+}

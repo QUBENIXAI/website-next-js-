@@ -1,7 +1,7 @@
 "use client"
 
-import { animate, useInView, useMotionValue } from "motion/react"
-import { useEffect, useRef } from "react"
+import { animate, useInView } from "motion/react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Card2() {
     return (
@@ -28,50 +28,61 @@ const bars = [
 ]
 
 function RisingBar({ bar, delay, active }: { bar: (typeof bars)[number]; delay: number; active: boolean }) {
-    const topRef = useRef<SVGRectElement>(null)
-    const leftRef = useRef<SVGRectElement>(null)
-    const rightRef = useRef<SVGRectElement>(null)
-    const height = useMotionValue(0)
+    const [value, setValue] = useState(0)
+    const valueRef = useRef(0)
 
     useEffect(() => {
-        const draw = (value: number) => {
-            const shift = bar.height - value
-            topRef.current?.setAttribute(
-                "transform",
-                `matrix(0.866025 0.5 -0.866025 0.5 ${bar.top[0]} ${bar.top[1] + shift})`,
-            )
-            leftRef.current?.setAttribute("height", String(value))
-            leftRef.current?.setAttribute(
-                "transform",
-                `matrix(0.866025 0.5 0 1 ${bar.left[0]} ${bar.left[1] + shift})`,
-            )
-            rightRef.current?.setAttribute("height", String(value))
-            rightRef.current?.setAttribute(
-                "transform",
-                `matrix(0.866025 -0.5 0 1 ${bar.right[0]} ${bar.right[1] + shift})`,
-            )
+        if (!active) {
+            valueRef.current = 0
+            setValue(0)
+            return
         }
 
-        draw(0)
-        if (!active) return
+        const from = valueRef.current
+        if (from >= bar.height) return
 
-        const unsubscribe = height.on("change", draw)
-        const controls = animate(height, bar.height, {
+        let stopped = false
+        const controls = animate(from, bar.height, {
             duration: 0.55 + bar.height / 180,
             ease: [0.22, 1, 0.36, 1],
             delay,
+            onUpdate: (next) => {
+                if (stopped) return
+                valueRef.current = next
+                setValue(next)
+            },
         })
+
         return () => {
+            stopped = true
             controls.stop()
-            unsubscribe()
         }
-    }, [active, bar, delay, height])
+    }, [active, bar.height, delay])
+
+    const shift = bar.height - value
 
     return (
         <g>
-            <rect ref={topRef} width="30" height="30" fill="white" stroke={bar.stroke} strokeWidth="0.2" />
-            <rect ref={leftRef} width="30" height="0" fill="#F6F6F6" />
-            <rect ref={rightRef} width="30" height="0" fill="#CDCDCD" />
+            <rect
+                width="30"
+                height="30"
+                fill="white"
+                stroke={bar.stroke}
+                strokeWidth="0.2"
+                transform={`matrix(0.866025 0.5 -0.866025 0.5 ${bar.top[0]} ${bar.top[1] + shift})`}
+            />
+            <rect
+                width="30"
+                height={value}
+                fill="#F6F6F6"
+                transform={`matrix(0.866025 0.5 0 1 ${bar.left[0]} ${bar.left[1] + shift})`}
+            />
+            <rect
+                width="30"
+                height={value}
+                fill="#CDCDCD"
+                transform={`matrix(0.866025 -0.5 0 1 ${bar.right[0]} ${bar.right[1] + shift})`}
+            />
         </g>
     )
 }

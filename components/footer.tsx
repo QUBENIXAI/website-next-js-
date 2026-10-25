@@ -91,7 +91,7 @@ export default function Footer() {
                     <p className="mt-3 max-w-xs text-xs leading-relaxed text-neutral-500 sm:mt-4 sm:text-sm">
                         Qubenix designs intelligent business systems that connect AI, automation, software and data into one operating layer.
                     </p>
-                    <a href="#" className="mt-6 inline-flex rounded-lg bg-black px-3.5 py-2 text-xs font-medium text-white sm:px-4 sm:py-2.5 sm:text-sm">
+                    <a href="#" className="mt-6 inline-flex rounded-md bg-black px-3.5 py-2 text-xs font-medium text-white sm:px-4 sm:py-2.5 sm:text-sm">
                         Get Qubenix today
                     </a>
                     <div className="mt-6 flex gap-2">
