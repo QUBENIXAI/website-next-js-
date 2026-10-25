@@ -5,11 +5,22 @@ import Image from "next/image"
 
 export default function ProcessCard1() {
     return (
-        <div className="relative w-full max-w-[380px] overflow-hidden bg-white pb-8">
+        <div className="relative h-[430px] w-full max-w-[380px] overflow-hidden bg-white pt-6">
             <Visual />
-            <div className="px-5">
-                <p className="text-xl font-semibold tracking-tight">01. Understanding</p>
-                <p className="mt-1 text-sm text-[#9a9a9a]">Content</p>
+            <div className="absolute inset-x-0 bottom-0 px-5 pt-10 pb-8">
+                <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 backdrop-blur-xl"
+                    style={{
+                        background: "linear-gradient(to top, rgba(255,255,255,0.96) 55%, rgba(255,255,255,0.55) 100%)",
+                        maskImage: "linear-gradient(to top, black 62%, transparent)",
+                        WebkitMaskImage: "linear-gradient(to top, black 62%, transparent)",
+                    }}
+                />
+                <div className="relative">
+                    <p className="text-xl font-medium tracking-tight">01. Understanding</p>
+                    <p className="mt-1 text-sm text-[#9a9a9a]">Content</p>
+                </div>
             </div>
         </div>
     )
@@ -22,7 +33,7 @@ export const Visual = () => {
                 src="/Understanding.png"
                 alt="Understanding"
                 width={1152}
-                height={969}
+                height={900}
                 className="h-auto w-full"
             />
         </motion.div>
