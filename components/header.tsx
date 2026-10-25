@@ -43,7 +43,7 @@ export default function Header() {
         setMenuOpen(false)
     }, [pathname])
     return (
-        <header className="pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 sm:px-5">
+        <header className="pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 transition-opacity duration-200 in-data-[team-pop=open]:invisible in-data-[team-pop=open]:opacity-0 sm:px-5">
         <motion.div
             className="pointer-events-auto flex w-max max-w-[calc(100vw-1.5rem)] items-center justify-between border px-3 py-2 sm:px-4"
             style={{ backgroundColor, borderColor, backdropFilter, WebkitBackdropFilter: backdropFilter, borderRadius, gap }}

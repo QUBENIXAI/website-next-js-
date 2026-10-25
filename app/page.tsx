@@ -3,6 +3,7 @@ import Card1 from "@/components/what-we-do/Card1";
 import CtaButton from "@/components/cta-button";
 import WhatWeProvide from "@/components/what-we-do/main";
 import HeroSection from "@/components/hero-section";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <WhatWeProvide />
       <FaqSection />
+      <Footer/>
     </div>
   );
 }

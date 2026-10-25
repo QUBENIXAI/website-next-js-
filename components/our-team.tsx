@@ -172,6 +172,15 @@ export default function OurTeam() {
     const popScale = usePopScale()
 
     useEffect(() => {
+        const root = document.documentElement
+        if (poppedMember) root.dataset.teamPop = "open"
+        else delete root.dataset.teamPop
+        return () => {
+            delete root.dataset.teamPop
+        }
+    }, [poppedMember])
+
+    useEffect(() => {
         if (!poppedMember) return
         const card = document.querySelector<HTMLElement>(
             `[data-team-card="${CSS.escape(poppedMember.name)}"]`,
