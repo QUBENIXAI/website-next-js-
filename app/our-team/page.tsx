@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function OurTeamPage() {
     return (
-        <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center px-4 py-16 sm:px-6">
+        <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
             <OurTeam />
         </main>
     );
