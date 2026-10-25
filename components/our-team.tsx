@@ -147,9 +147,20 @@ function TeamCard({
                         className="object-cover object-top"
                     />
                     {popped ? (
-                        <div className="absolute inset-x-0 bottom-0 bg-[#cfcfcf]/90 px-2.5 py-2.5 sm:px-4 sm:py-4">
-                            <p className="text-sm font-semibold text-[#171717] sm:text-base">{member.name}</p>
-                            <p className="mt-1 line-clamp-3 text-xs leading-4 text-[#4a4a4a] sm:line-clamp-4 sm:text-sm sm:leading-5">{member.description}</p>
+                        <div className="absolute inset-x-0 bottom-0">
+                            <div
+                                aria-hidden
+                                className="absolute inset-0 backdrop-blur-md"
+                                style={{
+                                    background: "linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.38) 48%, transparent)",
+                                    WebkitMaskImage: "linear-gradient(to top, #000 22%, transparent)",
+                                    maskImage: "linear-gradient(to top, #000 22%, transparent)",
+                                }}
+                            />
+                            <div className="relative px-3 pt-12 pb-3 sm:px-4 sm:pt-16 sm:pb-4">
+                                <p className="text-sm font-medium text-white sm:text-lg">{member.name}</p>
+                                <p className="mt-0.5 line-clamp-2 text-xs leading-4 text-white sm:text-base sm:leading-5">{member.description}</p>
+                            </div>
                         </div>
                     ) : (
                         <div className="absolute inset-x-0 bottom-0 bg-white px-2.5 py-2 sm:px-4 sm:py-3">
