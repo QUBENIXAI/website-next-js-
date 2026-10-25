@@ -1,6 +1,6 @@
 "use client"
 
-import { animate, useMotionValue } from "motion/react"
+import { animate, useInView, useMotionValue } from "motion/react"
 import { useEffect, useRef } from "react"
 
 export default function Card2() {
@@ -27,7 +27,7 @@ const bars = [
     { height: 20, stroke: "#B2B2B2", top: [26.154, 150.1], left: [0.173218, 165.1], right: [26.154, 180.1] },
 ]
 
-function RisingBar({ bar, delay }: { bar: (typeof bars)[number]; delay: number }) {
+function RisingBar({ bar, delay, active }: { bar: (typeof bars)[number]; delay: number; active: boolean }) {
     const topRef = useRef<SVGRectElement>(null)
     const leftRef = useRef<SVGRectElement>(null)
     const rightRef = useRef<SVGRectElement>(null)
@@ -53,6 +53,8 @@ function RisingBar({ bar, delay }: { bar: (typeof bars)[number]; delay: number }
         }
 
         draw(0)
+        if (!active) return
+
         const unsubscribe = height.on("change", draw)
         const controls = animate(height, bar.height, {
             duration: 0.55 + bar.height / 180,
@@ -63,7 +65,7 @@ function RisingBar({ bar, delay }: { bar: (typeof bars)[number]; delay: number }
             controls.stop()
             unsubscribe()
         }
-    }, [bar, delay, height])
+    }, [active, bar, delay, height])
 
     return (
         <g>
@@ -75,10 +77,13 @@ function RisingBar({ bar, delay }: { bar: (typeof bars)[number]; delay: number }
 }
 
 const Card2Visual = () => {
+    const ref = useRef<SVGSVGElement>(null)
+    const inView = useInView(ref, { once: true, amount: 0.4 })
+
     return (
-        <svg width="177" height="201" viewBox="0 0 177 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg ref={ref} width="177" height="201" viewBox="0 0 177 201" fill="none" xmlns="http://www.w3.org/2000/svg">
             {bars.map((bar, index) => (
-                <RisingBar key={bar.height} bar={bar} delay={(bars.length - 1 - index) * 0.08} />
+                <RisingBar key={bar.height} bar={bar} delay={(bars.length - 1 - index) * 0.08} active={inView} />
             ))}
         </svg>
     )
