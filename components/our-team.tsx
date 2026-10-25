@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 interface OurTeamProps {
     name: string
@@ -106,22 +106,15 @@ function TeamCard({
     popScale: number
     onToggle: () => void
 }) {
-    const ref = useRef<HTMLButtonElement>(null)
-
-    useEffect(() => {
-        if (!popped) return
-        ref.current?.scrollIntoView({ block: "center", behavior: "smooth" })
-    }, [popped])
-
     return (
         <motion.button
-            ref={ref}
             type="button"
+            data-team-card={member.name}
             onClick={onToggle}
             aria-expanded={popped}
             animate={{ scale: popped ? popScale : 1 }}
             transition={popSpring}
-            className={`relative w-full min-w-0 cursor-pointer scroll-mt-28 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2F6BFF] ${popped ? "z-50" : ""} ${blurred ? "blur-xl sm:blur-2xl" : ""}`}
+            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2F6BFF] ${popped ? "z-50" : ""} ${blurred ? "blur-xl sm:blur-2xl" : ""}`}
         >
             <div className="relative border border-dashed border-[#2F6BFF] bg-white">
                 <FrameCorners />
@@ -180,11 +173,93 @@ export default function OurTeam() {
 
     useEffect(() => {
         if (!poppedMember) return
+        const card = document.querySelector<HTMLElement>(
+            `[data-team-card="${CSS.escape(poppedMember.name)}"]`,
+        )
+        const body = document.body
+        const html = document.documentElement
+        const previous = {
+            position: body.style.position,
+            top: body.style.top,
+            left: body.style.left,
+            right: body.style.right,
+            width: body.style.width,
+            overflow: html.style.overflow,
+        }
+        let locked = false
+        let lockedScrollY = window.scrollY
+        let frame = 0
+
+        const lock = () => {
+            if (locked) return
+            locked = true
+            window.cancelAnimationFrame(frame)
+            lockedScrollY = window.scrollY
+            html.style.overflow = "hidden"
+            body.style.position = "fixed"
+            body.style.top = `-${lockedScrollY}px`
+            body.style.left = "0"
+            body.style.right = "0"
+            body.style.width = "100%"
+        }
+
+        const preventScroll = (event: Event) => event.preventDefault()
         const onKey = (event: KeyboardEvent) => {
             if (event.key === "Escape") setPoppedMember(null)
+            if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) {
+                event.preventDefault()
+            }
         }
         window.addEventListener("keydown", onKey)
-        return () => window.removeEventListener("keydown", onKey)
+
+        const distanceFromCenter = () => {
+            if (!card) return 0
+            const rect = card.getBoundingClientRect()
+            return rect.top + rect.height / 2 - window.innerHeight / 2
+        }
+
+        const holdStill = () => {
+            if (locked) return
+            lock()
+            window.addEventListener("wheel", preventScroll, { passive: false })
+            window.addEventListener("touchmove", preventScroll, { passive: false })
+        }
+
+        if (!card || Math.abs(distanceFromCenter()) < 28) {
+            holdStill()
+        } else {
+            const started = performance.now()
+            let last = distanceFromCenter()
+            let stableFrames = 0
+            card.scrollIntoView({ behavior: "smooth", block: "center" })
+            const watch = () => {
+                const next = distanceFromCenter()
+                stableFrames = Math.abs(next - last) < 0.5 ? stableFrames + 1 : 0
+                last = next
+                const settled = stableFrames > 6 && performance.now() - started > 120
+                if (Math.abs(next) < 28 || settled || performance.now() - started > 1500) {
+                    holdStill()
+                    return
+                }
+                frame = window.requestAnimationFrame(watch)
+            }
+            frame = window.requestAnimationFrame(watch)
+        }
+
+        return () => {
+            window.cancelAnimationFrame(frame)
+            window.removeEventListener("wheel", preventScroll)
+            window.removeEventListener("touchmove", preventScroll)
+            window.removeEventListener("keydown", onKey)
+            if (!locked) return
+            body.style.position = previous.position
+            body.style.top = previous.top
+            body.style.left = previous.left
+            body.style.right = previous.right
+            body.style.width = previous.width
+            html.style.overflow = previous.overflow
+            window.scrollTo(0, lockedScrollY)
+        }
     }, [poppedMember])
 
     return (

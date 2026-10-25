@@ -19,7 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-background pb-24 font-sans text-foreground md:pb-0">
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <Header />
         {children}
       </body>

@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CtaButton from "./cta-button";
-import { ArrowBendUpRightIcon } from "@phosphor-icons/react/dist/ssr";
-import { LayoutGroup, motion, useScroll, useTransform } from "motion/react";
-import { useState } from "react";
+import { ArrowBendUpRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
+import { AnimatePresence, LayoutGroup, motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useState } from "react";
 
 const Links = {
     Products: "/products",
@@ -28,6 +28,7 @@ const hoverSpring = { type: "spring" as const, stiffness: 380, damping: 32 }
 export default function Header() {
     const pathname = usePathname();
     const [hoveredLink, setHoveredLink] = useState<keyof typeof Links | null>(null);
+    const [menuOpen, setMenuOpen] = useState(false);
     const currentLink = (Object.keys(Links) as (keyof typeof Links)[]).find(
         (name) => pathname === Links[name]
     ) ?? null;
@@ -38,17 +39,32 @@ export default function Header() {
     const backdropFilter = useTransform(scrollY, [0, 72], ["blur(0px)", "blur(20px)"]);
     const borderRadius = useTransform(scrollY, [0, 72], [0, 8]);
     const gap = useTransform(scrollY, [0, 72], ["2.75rem", "0.5rem"]);
+    useEffect(() => {
+        setMenuOpen(false)
+    }, [pathname])
     return (
-        <header className="pointer-events-none sticky top-4 z-40 flex w-full justify-center px-3 sm:px-5">
+        <header className="pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 sm:px-5">
         <motion.div
             className="pointer-events-auto flex w-max max-w-[calc(100vw-1.5rem)] items-center justify-between border px-3 py-2 sm:px-4"
             style={{ backgroundColor, borderColor, backdropFilter, WebkitBackdropFilter: backdropFilter, borderRadius, gap }}
         >
-            <Link href="/" className="text-base font-medium sm:text-lg">QUBENIX</Link>
+            <div className="flex items-center gap-1">
+                <Link href="/" className="text-base font-medium sm:text-lg">QUBENIX</Link>
+                <button
+                    type="button"
+                    className="inline-flex size-9 items-center justify-center text-[#171717] md:hidden"
+                    aria-expanded={menuOpen}
+                    aria-controls="mobile-nav"
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    {menuOpen ? <XIcon size={22} /> : <ListIcon size={22} />}
+                </button>
+            </div>
             <LayoutGroup>
-                <div className="fixed bottom-3 left-1/2 z-50 w-max max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-full bg-[#d7d7d7] p-0.5 shadow-[0_8px_30px_rgba(0,0,0,0.1)] md:static md:w-auto md:max-w-none md:translate-x-0 md:bg-transparent md:p-0 md:shadow-none">
+                <div className="hidden md:block">
                 <nav
-                    className="flex items-center gap-0.5 overflow-x-auto rounded-full bg-white px-2.5 py-2 backdrop-blur-md [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-1 md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:backdrop-blur-none"
+                    className="flex items-center gap-1"
                     onMouseLeave={() => setHoveredLink(null)}
                 >
                     {Object.entries(Links).map(([key, value]) => {
@@ -87,8 +103,41 @@ export default function Header() {
                 </nav>
                 </div>
             </LayoutGroup>
-            <CtaButton label="Get in Touch" icon={<ArrowBendUpRightIcon />} />
+            <div className="hidden md:block">
+                <CtaButton label="Get in Touch" icon={<ArrowBendUpRightIcon />} />
+            </div>
         </motion.div>
+        <AnimatePresence>
+            {menuOpen && (
+                <motion.nav
+                    id="mobile-nav"
+                    className="pointer-events-auto mt-2 flex w-full max-w-xs flex-col border border-black/10 bg-background/95 p-2 backdrop-blur-xl md:hidden"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    {Object.entries(Links).map(([key, value]) => {
+                        const name = key as keyof typeof Links
+                        const active = currentLink === name
+                        return (
+                            <Link
+                                href={value}
+                                key={key}
+                                aria-current={active ? "page" : undefined}
+                                className={`px-3 py-2.5 text-sm font-medium ${active ? "text-[#2F6BFF]" : "text-[#171717]"}`}
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {labels[name]}
+                            </Link>
+                        )
+                    })}
+                    <div className="px-2 pt-2 pb-1">
+                        <CtaButton label="Get in Touch" icon={<ArrowBendUpRightIcon />} onClick={() => setMenuOpen(false)} />
+                    </div>
+                </motion.nav>
+            )}
+        </AnimatePresence>
         </header>
     )
 }
