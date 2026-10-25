@@ -13,7 +13,7 @@ export default function ProcessSection() {
             <p className="text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
         </section>
 
-        <div className="mt-8 flex w-full max-w-6xl items-stretch justify-center gap-5 sm:mt-10">
+        <div className="mt-8 flex w-full max-w-6xl flex-col items-center gap-5 sm:mt-10 lg:flex-row lg:items-stretch lg:justify-center">
             <ProcessCard1 />
             <ProcessCard2 />
             <ProcessCard3 />

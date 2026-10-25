@@ -19,7 +19,7 @@ export default function ProcessCard1() {
                 />
                 <div className="relative">
                     <p className="text-xl font-medium tracking-tight">01. Understanding</p>
-                    <p className="mt-1 text-sm text-[#9a9a9a]">Content</p>
+                    <p className="mt-1 text-sm text-[#9a9a9a]">We begin with your goals, existing processes, and technical requirements to understand what actually needs to change.</p>
                 </div>
             </div>
         </div>

@@ -20,8 +20,8 @@ export default function ProcessCard3() {
                     }}
                 />
                 <div className="relative">
-                    <p className="text-xl font-medium tracking-tight">01. Understanding</p>
-                    <p className="mt-1 text-sm text-[#9a9a9a]">Content</p>
+                    <p className="text-xl font-medium tracking-tight">03. Build & Scale</p>
+                    <p className="mt-1 text-sm text-[#9a9a9a]">We develop and connect the agreed solution with functionality and maintainability in focus, supporting evolution as requirements grow.</p>
                 </div>
             </div>
         </div>
