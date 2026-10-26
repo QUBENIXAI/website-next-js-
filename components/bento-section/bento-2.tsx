@@ -1,6 +1,6 @@
 export default function Bento2() {
     return (
-        <div className="grid h-fit w-full min-w-0 flex-1 grid-cols-1 items-stretch gap-4 self-start sm:grid-cols-2">
+        <div className="grid h-fit w-full min-w-0 shrink-0 grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
             <article className="flex h-full flex-col rounded-lg bg-white p-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:p-4">
                 <div className="flex h-[168px] shrink-0 items-center justify-center rounded-lg bg-[#F1F1F1]">
                     <Visual2 />
