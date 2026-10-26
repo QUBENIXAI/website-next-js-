@@ -6,13 +6,13 @@ import { motion } from "motion/react"
 export default function Bento2() {
     return (
         <div className="grid h-fit w-full min-w-0 shrink-0 grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
-            <article className="flex h-full flex-col rounded-lg bg-white p-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:p-4">
-                <div className="relative flex h-[168px] shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#F1F1F1]">
+            <article className="flex h-full min-w-0 flex-col rounded-lg bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:p-4">
+                <div className="relative flex h-[148px] shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#F1F1F1] sm:h-[168px]">
                     <FlowDots />
                     <Visual2 />
                 </div>
                 <div className="flex flex-1 flex-col gap-1.5 px-1.5 pt-4 pb-1">
-                    <h2 className="text-[17px] font-medium tracking-tight text-black">
+                    <h2 className="text-base font-medium tracking-tight text-black sm:text-[17px]">
                         CRM, ERP & Business Systems
                     </h2>
                     <p className="text-sm leading-6 text-[#1a1a1a]">
@@ -21,12 +21,12 @@ export default function Bento2() {
                 </div>
             </article>
 
-            <article className="flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-                <div className="relative h-[196px] shrink-0">
+            <article className="flex h-full min-w-0 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+                <div className="relative h-[168px] shrink-0 sm:h-[196px]">
                     <Visual3 />
                 </div>
-                <div className="flex flex-1 flex-col gap-1.5 px-5 pt-1 pb-4">
-                    <h2 className="text-[17px] font-medium tracking-tight text-black">
+                <div className="flex flex-1 flex-col gap-1.5 px-4 pt-1 pb-4 sm:px-5">
+                    <h2 className="text-base font-medium tracking-tight text-black sm:text-[17px]">
                         Industry Specific AI Solutions
                     </h2>
                     <p className="text-sm leading-6 text-[#1a1a1a]">
@@ -189,7 +189,7 @@ const HUB_CAPS = [
 
 const Visual3 = () => {
     return (
-        <svg className="h-full w-full" viewBox="0 0 330 207" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="h-full w-full" viewBox="0 0 330 207" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="128" y="93" width="74" height="74" rx="10" fill="url(#bento-visual3-robot)"/>
             <path d="M172.875 121.25H165.875V117.75C165.875 117.518 165.783 117.295 165.619 117.131C165.455 116.967 165.232 116.875 165 116.875C164.768 116.875 164.545 116.967 164.381 117.131C164.217 117.295 164.125 117.518 164.125 117.75V121.25H157.125C156.197 121.25 155.307 121.619 154.65 122.275C153.994 122.932 153.625 123.822 153.625 124.75V137C153.625 137.928 153.994 138.818 154.65 139.475C155.307 140.131 156.197 140.5 157.125 140.5H172.875C173.803 140.5 174.693 140.131 175.35 139.475C176.006 138.818 176.375 137.928 176.375 137V124.75C176.375 123.822 176.006 122.932 175.35 122.275C174.693 121.619 173.803 121.25 172.875 121.25ZM174.625 137C174.625 137.464 174.441 137.909 174.112 138.237C173.784 138.566 173.339 138.75 172.875 138.75H157.125C156.661 138.75 156.216 138.566 155.888 138.237C155.559 137.909 155.375 137.464 155.375 137V124.75C155.375 124.286 155.559 123.841 155.888 123.513C156.216 123.184 156.661 123 157.125 123H172.875C173.339 123 173.784 123.184 174.112 123.513C174.441 123.841 174.625 124.286 174.625 124.75V137ZM168.938 130.875H161.062C160.25 130.875 159.471 131.198 158.897 131.772C158.323 132.346 158 133.125 158 133.938C158 134.75 158.323 135.529 158.897 136.103C159.471 136.677 160.25 137 161.062 137H168.938C169.75 137 170.529 136.677 171.103 136.103C171.677 135.529 172 134.75 172 133.938C172 133.125 171.677 132.346 171.103 131.772C170.529 131.198 169.75 130.875 168.938 130.875ZM166.312 132.625V135.25H163.688V132.625H166.312ZM159.75 133.938C159.75 133.589 159.888 133.256 160.134 133.009C160.381 132.763 160.714 132.625 161.062 132.625H161.938V135.25H161.062C160.714 135.25 160.381 135.112 160.134 134.866C159.888 134.619 159.75 134.286 159.75 133.938ZM168.938 135.25H168.062V132.625H168.938C169.286 132.625 169.619 132.763 169.866 133.009C170.112 133.256 170.25 133.589 170.25 133.938C170.25 134.286 170.112 134.619 169.866 134.866C169.619 135.112 169.286 135.25 168.938 135.25ZM158.875 127.812C158.875 127.553 158.952 127.299 159.096 127.083C159.24 126.867 159.445 126.699 159.685 126.6C159.925 126.501 160.189 126.475 160.444 126.525C160.698 126.576 160.932 126.701 161.116 126.884C161.299 127.068 161.424 127.302 161.475 127.556C161.525 127.811 161.499 128.075 161.4 128.315C161.301 128.555 161.133 128.76 160.917 128.904C160.701 129.048 160.447 129.125 160.188 129.125C159.839 129.125 159.506 128.987 159.259 128.741C159.013 128.494 158.875 128.161 158.875 127.812ZM168.5 127.812C168.5 127.553 168.577 127.299 168.721 127.083C168.865 126.867 169.07 126.699 169.31 126.6C169.55 126.501 169.814 126.475 170.069 126.525C170.323 126.576 170.557 126.701 170.741 126.884C170.924 127.068 171.049 127.302 171.1 127.556C171.15 127.811 171.124 128.075 171.025 128.315C170.926 128.555 170.758 128.76 170.542 128.904C170.326 129.048 170.072 129.125 169.812 129.125C169.464 129.125 169.131 128.987 168.884 128.741C168.638 128.494 168.5 128.161 168.5 127.812Z" fill="white"/>
             {HUB_LINES.map((d) => (

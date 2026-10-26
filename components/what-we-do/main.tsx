@@ -5,7 +5,7 @@ import Card3 from "./Card3";
 
 export default function WhatWeProvide() {
     return (
-        <div id="what-we-do" className="flex w-full flex-col items-center px-4 sm:px-6 mt-5">
+        <div id="what-we-do" className="flex w-full flex-col items-center px-4 sm:px-6">
             <section className="flex w-full max-w-2xl flex-col items-center justify-center gap-2 text-center">
             <SectionHeading className="text-2xl font-medium sm:text-4xl">
                     What We Do

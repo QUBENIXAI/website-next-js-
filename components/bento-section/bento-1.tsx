@@ -4,19 +4,19 @@ import { motion } from "motion/react";
 
 export default function Bento1() {
     return (
-        <div className="w-[418px] h-[695px] bg-gradient-to-b from-[#8DAFFF] to-[#0E42FF] px-3 py-3 rounded-2xl">
-    <div className="relative overflow-hidden rounded-2xl bg-white px-4 py-8">
+        <div className="flex w-full flex-col rounded-2xl bg-gradient-to-b from-[#8DAFFF] to-[#0E42FF] px-3 py-3 sm:px-3.5 sm:py-3.5 xl:h-[695px] xl:w-[418px] xl:shrink-0">
+    <div className="relative flex min-h-[240px] flex-1 items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-6 sm:min-h-[280px] sm:rounded-2xl sm:px-4 sm:py-8">
         <DotGrid />
-        <div className="relative z-10">
+        <div className="relative z-10 w-full">
             <BentoVisual1 />
         </div>
     </div>
 
-    <div className="flex flex-col mt-5 gap-2">
-        <h1 className="font-medium text-white">
+    <div className="mt-4 flex flex-col gap-2 sm:mt-5 mb-2">
+        <h2 className="text-base font-medium text-white sm:text-lg">
             Web/Apps & Digital Experience
-        </h1>
-        <p className="text-white text-sm">
+        </h2>
+        <p className="text-sm leading-6 text-white">
             We design and build high-performance websites, scalable applications, and seamless digital experiences tailored to your brand, your customers, and your business goals. From intuitive user interfaces to robust digital solutions, we combine thoughtful design and modern technology.
         </p>
     </div>
@@ -60,7 +60,7 @@ function DotGrid() {
 
 const BentoVisual1 = () => {
     return (
-        <svg width="333" height="297" viewBox="0 0 333 297" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="mx-auto h-auto w-full max-w-[333px]" viewBox="0 0 333 297" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="51" width="282" height="297" rx="10" fill="#E5E5E5"/>
             <rect x="65" y="28" width="254" height="184" rx="10" fill="white"/>
             <circle cx="70" cy="13" r="4" fill="white"/>

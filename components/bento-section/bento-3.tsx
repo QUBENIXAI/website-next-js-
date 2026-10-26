@@ -2,12 +2,12 @@
 
 export default function Bento3() {
     return (
-        <article className="flex min-h-[300px] flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] xl:min-h-0">
-            <div className="relative min-h-[148px] flex-1">
+        <article className="flex min-h-[220px] w-full min-w-0 flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:min-h-[260px] xl:min-h-0">
+            <div className="relative min-h-[120px] flex-1 sm:min-h-[148px]">
                 <Visual3 />
             </div>
-            <div className="px-5 pt-1 pb-5">
-                <h2 className="text-[17px] font-medium tracking-tight text-black">
+            <div className="px-4 pt-1 pb-4 sm:px-5 sm:pb-5">
+                <h2 className="text-base font-medium tracking-tight text-black sm:text-[17px]">
                     AI Voice Agents & Calling
                 </h2>
                 <p className="mt-1.5 text-sm leading-6 text-[#1a1a1a]">
@@ -20,7 +20,7 @@ export default function Bento3() {
 
 const Visual3 = () => {
     return (
-        <svg className="absolute top-1/2 right-0 h-[162px] w-auto -translate-y-1/2" viewBox="0 0 532 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute top-1/2 right-0 h-[118px] w-auto -translate-y-1/2 sm:h-[142px] lg:h-[162px]" viewBox="0 0 532 162" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="330" width="253" height="162" rx="10" fill="url(#paint0_linear_240_59)"/>
 <rect x="339" y="9" width="200" height="143" rx="10" fill="white"/>
 <rect x="349" y="18.5" width="64" height="4" rx="2" fill="#D9D9D9"/>
