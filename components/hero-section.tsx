@@ -68,7 +68,7 @@ export default function HeroSection() {
                 </div>
                 <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-4xl xl:text-6xl">Build Smarter Systems, 
                     <br />
-                    Make Room for growth
+                    Make Room for Growth
                 </h1>
                 <p className="mt-2 max-w-xl text-center text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">
                     We are a team of experts who are passionate about helping you grow your business, build smarter systems, and make room for what comes next.
@@ -81,7 +81,7 @@ export default function HeroSection() {
                 </div>
             </section>
             <motion.div
-                className="relative z-10 mx-auto flex w-full max-w-7xl justify-center px-4 sm:px-6"
+                className="relative z-10 mx-auto flex w-full max-w-7xl justify-center sm:px-6"
                 initial={{ filter: "blur(18px)", opacity: 0.65 }}
                 whileInView={{ filter: "blur(0px)", opacity: 1 }}
                 viewport={{ once: true, amount: 0.35 }}
@@ -93,7 +93,7 @@ export default function HeroSection() {
                     width={4712}
                     height={2956}
                     priority
-                    className="h-auto w-full"
+                    className="h-auto w-[112%] max-w-none sm:w-full"
                 />
             </motion.div>
         </div>

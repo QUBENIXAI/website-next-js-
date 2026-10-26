@@ -48,7 +48,7 @@ export default function Header() {
             className="pointer-events-auto flex w-max max-w-[calc(100vw-1.5rem)] items-center justify-between border px-3 py-2 sm:px-4"
             style={{ backgroundColor, borderColor, backdropFilter, WebkitBackdropFilter: backdropFilter, borderRadius, gap }}
         >
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-60 md:gap-1">
                 <Link href="/" className="text-base font-medium sm:text-lg">QUBENIX</Link>
                 <button
                     type="button"
