@@ -136,6 +136,7 @@ function TeamCard({
                         src={member.profileImage}
                         alt={member.name}
                         fill
+                        loading="lazy"
                         sizes="(min-width: 768px) 30vw, 45vw"
                         className="object-cover object-top"
                     />
