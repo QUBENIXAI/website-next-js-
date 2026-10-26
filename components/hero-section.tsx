@@ -66,7 +66,7 @@ export default function HeroSection() {
                 <div className="mb-2">
                     <PillLayer label="Intelligence meets Automation" icon={<BrainIcon />} />
                 </div>
-                <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-4xl xl:text-6xl">Build Smarter Systems, 
+                <h1 className="text-3xl font-medium leading-tight sm:text-4xl lg:text-4xl xl:text-6xl">Build Smarter Systems, 
                     <br />
                     Make Room for Growth
                 </h1>

@@ -37,8 +37,8 @@ export default function CtaButton({label, icon, onClick}: CtaButtonProps) {
             whileHover="hover"
             whileTap={{scale: 0.98}}
         >
-            <div className='flex items-center justify-center gap-2 rounded-sm bg-linear-to-b from-[#77B0FF] to-[#036DFF] px-4 py-2'>
-                <p className="overflow-hidden text-center text-sm font-medium text-white">
+            <div className='flex items-center justify-center gap-1.5 rounded-sm bg-linear-to-b from-[#77B0FF] to-[#036DFF] px-3 py-1.5 sm:gap-2 sm:px-4 sm:py-2'>
+                <p className="overflow-hidden text-center text-xs font-medium text-white sm:text-sm">
                     {words.map((word, index) => (
                         <motion.span
                             key={`${word}-${index}`}
@@ -50,7 +50,7 @@ export default function CtaButton({label, icon, onClick}: CtaButtonProps) {
                     ))}
                 </p>
                 {icon && (
-                    <span className='flex text-white'>
+                    <span className='flex text-white [&_svg]:size-3.5 sm:[&_svg]:size-4'>
                         {icon}
                     </span>
                 )}
