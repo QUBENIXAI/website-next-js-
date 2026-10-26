@@ -5,9 +5,9 @@ import {motion} from 'motion/react';
 
 export default function ProcessCard2() {
     return (
-        <div className="relative h-[430px] w-full max-w-[380px] overflow-hidden bg-white pt-6">
+        <div className="relative h-[300px] w-full max-w-[320px] overflow-hidden bg-white pt-4 sm:h-[430px] sm:max-w-[380px] sm:pt-6">
             <Visual2 />
-            <div className="absolute inset-x-0 bottom-0 px-5 pt-10 pb-8">
+            <div className="absolute inset-x-0 bottom-0 px-4 pt-6 pb-4 sm:px-5 sm:pt-10 sm:pb-8">
                 <div
                     aria-hidden
                     className="pointer-events-none absolute inset-0 backdrop-blur-xl"
@@ -18,8 +18,8 @@ export default function ProcessCard2() {
                     }}
                 />
                 <div className="relative">
-                    <p className="text-xl font-medium tracking-tight">02. Plan</p>
-                    <p className="mt-1 text-sm text-[#9a9a9a]">We identify the right approach, define the scope, and select technologies that fit the problem and available resources.</p>
+                    <p className="text-base font-medium tracking-tight sm:text-xl">02. Plan</p>
+                    <p className="mt-1 text-xs leading-5 text-[#9a9a9a] sm:text-sm sm:leading-normal">We identify the right approach, define the scope, and select technologies that fit the problem and available resources.</p>
                 </div>
             </div>
         </div>

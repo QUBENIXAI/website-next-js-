@@ -5,15 +5,15 @@ import { useEffect, useRef, useState } from "react"
 
 export default function Card2() {
     return (
-        <div className="relative h-[350px] w-full max-w-[350px] overflow-hidden bg-white p-4 sm:p-5">
-            <div className="relative z-10 flex max-w-[16rem] flex-col gap-2">
-                <h1 className="text-xl font-medium leading-snug sm:text-2xl">Startups & Scaleups</h1>
-                <p className="text-sm leading-6 text-[#616161]">
+        <div className="relative h-[250px] w-full max-w-[300px] overflow-hidden bg-white p-4 sm:h-[350px] sm:max-w-[350px] sm:p-5">
+            <div className="relative z-10 flex max-w-[16rem] flex-col gap-1.5 sm:gap-2">
+                <h1 className="text-lg font-medium leading-snug sm:text-2xl">Startups & Scaleups</h1>
+                <p className="text-xs leading-5 text-[#616161] sm:text-sm sm:leading-6">
                     Hands-on support for startups and scaleups to grow faster, simplify operations, and build systems that keep up with the team.
                 </p>
             </div>
 
-            <div className="absolute right-8 bottom-6">
+            <div className="absolute right-3 bottom-2 sm:right-8 sm:bottom-6">
                 <Card2Visual />
             </div>
         </div>
@@ -92,7 +92,7 @@ const Card2Visual = () => {
     const inView = useInView(ref, { once: true, amount: 0.4 })
 
     return (
-        <svg ref={ref} width="177" height="201" viewBox="0 0 177 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg ref={ref} className="h-auto w-[120px] sm:w-[177px]" viewBox="0 0 177 201" fill="none" xmlns="http://www.w3.org/2000/svg">
             {bars.map((bar, index) => (
                 <RisingBar key={bar.height} bar={bar} delay={(bars.length - 1 - index) * 0.08} active={inView} />
             ))}
