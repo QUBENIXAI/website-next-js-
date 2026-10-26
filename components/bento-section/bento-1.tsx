@@ -17,7 +17,7 @@ export default function Bento1() {
             Web/Apps & Digital Experience
         </h2>
         <p className="text-sm leading-6 text-white">
-            We design and build high-performance websites, scalable applications, and seamless digital experiences tailored to your brand, your customers, and your business goals. From intuitive user interfaces to robust digital solutions, we combine thoughtful design and modern technology.
+            We design and build high-performance websites, scalable applications, and seamless digital experiences tailored to your brand, your customers, and your business goals. 
         </p>
     </div>
 </div>

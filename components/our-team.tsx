@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState } from "react"
+import CtaButton from "./cta-button"
+import { CirclesThreePlusIcon } from "@phosphor-icons/react"
 
 interface OurTeamProps {
     name: string
@@ -288,13 +290,16 @@ export default function OurTeam() {
                 )}
             </AnimatePresence>
             <div className={`w-full max-w-2xl ${poppedMember ? "blur-2xl" : ""}`}>
-                <h1 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+                <h1 className="text-center text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
                     Meet Our Team
                 </h1>
                 <p className="mt-3 text-center text-sm leading-6 text-[#6b6b6b] sm:mt-4 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
                     We bring together strategy, design, and engineering to turn complex
                     challenges into meaningful digital products.
                 </p>
+                <div className="flex items-center justify-center mt-5">
+                    <CtaButton label="Be a part of us" icon={<CirclesThreePlusIcon />} />
+                </div>
             </div>
             <div className="mt-8 grid w-full grid-cols-2 gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3 md:gap-8">
                 {TeamMembers.map((member) => (
