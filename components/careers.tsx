@@ -240,14 +240,16 @@ export default function Careers() {
         >
             <CornerDotGrids corners="top" />
             <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
-            <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-12 sm:pt-32 sm:pb-16">
-                <h1 className="max-w-[12ch] shrink-0 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-6xl">
+            <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:pt-32 sm:pb-16">
+                <h1 className="text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
                     Join us
                     <br />
                     to build what&apos;s next.
                 </h1>
-                <p className="max-w-sm text-sm leading-6 text-[#616161] sm:pb-1 sm:text-right sm:text-base sm:leading-7">
-                    Open roles for people who want to build smarter systems with the Qubenix team. All of them are remote.
+                <p className="max-w-xl text-sm leading-6 text-[#616161] sm:max-w-md sm:pb-1 sm:text-right sm:text-base sm:leading-7 lg:max-w-lg">
+                    Open roles for people who want to build smarter systems
+                    <br />
+                    with the Qubenix team. All of them are remote.
                 </p>
             </section>
 

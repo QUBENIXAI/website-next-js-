@@ -309,7 +309,7 @@ export default function OurTeam() {
                             challenges into meaningful digital products.
                         </p>
                         <div className="flex items-center justify-center mt-5">
-                            <CtaButton label="Be a part of us" icon={<CirclesThreePlusIcon />} />
+                            <CtaButton label="Be a part of us" icon={<CirclesThreePlusIcon />} href="mailto:info@qubenix.in" />
                         </div>
                     </div>
                     <div className="mt-8 grid w-full grid-cols-2 gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3 md:gap-8">
