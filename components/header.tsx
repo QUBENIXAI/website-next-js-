@@ -42,6 +42,7 @@ export default function Header() {
     useEffect(() => {
         setMenuOpen(false)
     }, [pathname])
+    if (pathname.startsWith("/blog/")) return null
     return (
         <header className="pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 transition-opacity duration-200 in-data-[team-pop=open]:invisible in-data-[team-pop=open]:opacity-0 sm:px-5">
         <motion.div

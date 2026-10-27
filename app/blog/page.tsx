@@ -1,19 +1,49 @@
-import SectionHeading from "@/components/section-heading";
-import type { Metadata } from "next";
+import { getPosts } from "@/lib/blog"
+import type { Metadata } from "next"
+import Link from "next/link"
 
 export const metadata: Metadata = {
     title: "Blog",
-};
+}
 
 export default function BlogPage() {
+    const posts = getPosts()
+
     return (
-        <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-4 py-16 sm:px-6">
-            <SectionHeading className="text-3xl font-semibold sm:text-4xl">
-                Blog
-            </SectionHeading>
-            <p className="mt-4 max-w-xl text-center text-sm leading-6 text-[#616161] sm:text-base sm:leading-7">
-                Notes on building smarter systems, from the work happening inside Qubenix.
-            </p>
+        <main className="relative flex w-full flex-1 flex-col px-5 pt-10 pb-4 sm:px-8">
+            <section>
+                <h1 className="text-3xl font-medium tracking-tight text-black sm:text-4xl">
+                    From the Qubenix blog.
+                </h1>
+                <p className="mt-3 text-sm leading-6 text-[#8a8a8a] sm:text-base sm:leading-7">
+                    Notes on AI automation, agents, and the systems we build for growing teams.
+                </p>
+            </section>
+
+            <section className="mt-10 border-t border-[#e4e4e4]">
+                {posts.map((post) => (
+                    <Link
+                        key={post.slug}
+                        href={`/blog/${post.slug}`}
+                        className="block border-b border-[#e4e4e4] py-7"
+                    >
+                        <p className="text-xs text-[#8a8a8a] sm:text-sm">
+                            <span className="text-black">Editorial</span>
+                            <span className="px-2">·</span>
+                            {post.date}
+                        </p>
+                        <h2 className="mt-3 text-lg font-medium tracking-tight text-black sm:text-2xl">{post.title}</h2>
+                        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#616161] sm:text-base sm:leading-7">
+                            {post.description}
+                        </p>
+                        <p className="mt-4 text-xs text-[#8a8a8a] sm:text-sm">
+                            {post.author}
+                            <span className="px-2">·</span>
+                            {post.readingTime}
+                        </p>
+                    </Link>
+                ))}
+            </section>
         </main>
-    );
+    )
 }
