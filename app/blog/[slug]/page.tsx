@@ -1,5 +1,5 @@
 import BlogBody from "@/components/blog/blog-body"
-import { BlogArticleHeader, BlogFrame } from "@/components/blog/blog-chrome"
+import { BlogArticleHeader, BlogFrame, BlogRule } from "@/components/blog/blog-chrome"
 import { getPost, getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -59,6 +59,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
                 <BlogBody content={post.content} />
             </article>
             </BlogFrame>
+            <BlogRule />
         </main>
     )
 }

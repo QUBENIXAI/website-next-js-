@@ -29,12 +29,8 @@ function ColumnLines({ className }: { className: string }) {
     )
 }
 
-export function BlogRule({ cross = false }: { cross?: boolean }) {
-    return (
-        <div aria-hidden className={`relative h-px bg-[#c8c8c8] ${cross ? "z-10" : ""}`}>
-            {cross ? <ColumnLines className="-top-4 h-10" /> : null}
-        </div>
-    )
+export function BlogRule() {
+    return <div aria-hidden className="h-px bg-[#c8c8c8]" />
 }
 
 export function BlogArticleHeader({ nextHref }: { nextHref?: string }) {

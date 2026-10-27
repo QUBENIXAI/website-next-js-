@@ -239,19 +239,20 @@ export default function Careers() {
             onAnimationComplete={() => setRevealed(true)}
         >
             <CornerDotGrids />
-            <section className="relative mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-12 sm:px-6 sm:pt-32 sm:pb-16">
+            <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
+            <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-12 sm:pt-32 sm:pb-16">
                 <h1 className="max-w-[12ch] shrink-0 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-6xl">
                     Join us
                     <br />
                     to build what&apos;s next.
                 </h1>
-                <p className="max-w-sm text-sm leading-6 text-[#616161] sm:pb-1 sm:text-base sm:leading-7">
+                <p className="max-w-sm text-sm leading-6 text-[#616161] sm:pb-1 sm:text-right sm:text-base sm:leading-7">
                     Open roles for people who want to build smarter systems with the Qubenix team. All of them are remote.
                 </p>
             </section>
 
-            <section id="positions" className="relative scroll-mt-24 px-4 pb-4 sm:px-6">
-                <div className="mx-auto grid w-full max-w-6xl overflow-hidden border border-[#ececec] bg-white md:grid-cols-[240px_1fr]">
+            <section id="positions" className="scroll-mt-24 pb-4">
+                <div className="grid w-full overflow-hidden border border-[#ececec] bg-white md:grid-cols-[240px_1fr]">
                     <aside className="border-[#ececec] md:border-r" onPointerDown={(event) => event.stopPropagation()}>
                         <FilterSelect
                             label="Location"
@@ -298,6 +299,7 @@ export default function Careers() {
                     </div>
                 </div>
             </section>
+            </div>
         </motion.div>
     )
 }
