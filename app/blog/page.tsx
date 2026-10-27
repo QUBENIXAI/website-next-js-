@@ -11,7 +11,7 @@ export default async function BlogPage() {
 
     return (
         <div className="flex flex-1 justify-center px-6">
-        <main className="flex w-full max-w-5xl flex-col bg-white px-5 pt-10 pb-4 sm:px-8">
+        <main className="flex w-full max-w-5xl flex-col  px-5 pt-10 pb-4 sm:px-8">
             <section>
                 <h1 className="text-3xl font-medium tracking-tight text-black sm:text-4xl">
                     From the Qubenix blog.

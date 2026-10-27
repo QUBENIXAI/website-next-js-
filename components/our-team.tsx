@@ -117,7 +117,7 @@ function TeamCard({
             aria-expanded={popped}
             animate={{ scale: popped ? popScale : 1 }}
             transition={popSpring}
-            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2F6BFF] ${popped ? "z-50" : ""} ${blurred ? "blur-xl sm:blur-2xl" : ""}`}
+            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2F6BFF] ${popped ? "z-50" : ""} ${blurred ? "blur-sm sm:blur-md" : ""}`}
         >
             <div className="relative border border-dashed border-[#2F6BFF] bg-white">
                 <FrameCorners />
@@ -300,7 +300,7 @@ export default function OurTeam() {
             >
                 <CornerDotGrids />
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
-                    <div className={`w-full max-w-2xl ${poppedMember ? "blur-2xl" : ""}`}>
+                    <div className={`w-full max-w-2xl ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
                         <h1 className="text-center text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
                             Meet Our Team
                         </h1>
