@@ -1,7 +1,9 @@
 "use client"
 
 import { CaretDown } from "@phosphor-icons/react"
+import { motion } from "motion/react"
 import { useEffect, useState } from "react"
+import CornerDotGrids from "./corner-dot-grids"
 
 interface Position {
     title: string
@@ -210,6 +212,7 @@ export default function Careers() {
     const [location, setLocation] = useState("All")
     const [department, setDepartment] = useState("All")
     const [openFilter, setOpenFilter] = useState<"location" | "department" | null>(null)
+    const [revealed, setRevealed] = useState(false)
 
     const locations = ["All", ...new Set(positions.map((position) => position.location))]
     const departmentOptions = ["All", ...new Set(positions.map((position) => departments[position.title]))]
@@ -228,8 +231,15 @@ export default function Careers() {
     }, [openFilter])
 
     return (
-        <div className="w-full">
-            <section className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-12 sm:px-6 sm:pt-32 sm:pb-16">
+        <motion.div
+            className="relative w-full"
+            initial={{ filter: "blur(18px)", opacity: 0.65 }}
+            animate={revealed ? { filter: "none", opacity: 1 } : { filter: "blur(0px)", opacity: 1 }}
+            transition={revealed ? { duration: 0 } : { duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            onAnimationComplete={() => setRevealed(true)}
+        >
+            <CornerDotGrids />
+            <section className="relative mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-12 sm:px-6 sm:pt-32 sm:pb-16">
                 <h1 className="max-w-[12ch] shrink-0 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-6xl">
                     Join us
                     <br />
@@ -240,7 +250,7 @@ export default function Careers() {
                 </p>
             </section>
 
-            <section id="positions" className="scroll-mt-24 px-4 pb-4 sm:px-6">
+            <section id="positions" className="relative scroll-mt-24 px-4 pb-4 sm:px-6">
                 <div className="mx-auto grid w-full max-w-6xl overflow-hidden border border-[#ececec] bg-white md:grid-cols-[240px_1fr]">
                     <aside className="border-[#ececec] md:border-r" onPointerDown={(event) => event.stopPropagation()}>
                         <FilterSelect
@@ -288,7 +298,7 @@ export default function Careers() {
                     </div>
                 </div>
             </section>
-        </div>
+        </motion.div>
     )
 }
 

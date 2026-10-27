@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function OurTeamPage() {
     return (
-        <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
+        <main className="flex w-full flex-1 flex-col items-center bg-background">
             <OurTeam />
-            <div className="mt-20">
+            <div className="mt-16 w-full sm:mt-24">
                 <Footer />
             </div>
         </main>
