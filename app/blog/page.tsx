@@ -10,7 +10,7 @@ export default async function BlogPage() {
     const posts = await getPosts()
 
     return (
-        <div className="flex flex-1 justify-center px-6">
+        <div className="flex flex-1 justify-center px-6 mt-10">
         <main className="flex w-full max-w-5xl flex-col  px-5 pt-10 pb-4 sm:px-8">
             <section>
                 <h1 className="text-3xl font-medium tracking-tight text-black sm:text-4xl">
@@ -21,27 +21,33 @@ export default async function BlogPage() {
                 </p>
             </section>
 
-            <section className="mt-10 border-t border-[#e4e4e4]">
+            <section className="mt-12 border-t border-[#e6e6e6]">
                 {posts.map((post) => (
                     <Link
                         key={post.slug}
                         href={`/blog/${post.slug}`}
-                        className="block border-b border-[#e4e4e4] py-7"
+                        className="group flex items-center justify-between gap-6 border-b border-[#e6e6e6] py-8 sm:gap-10"
                     >
-                        <p className="text-xs text-[#8a8a8a] sm:text-sm">
-                            <span className="text-black">Editorial</span>
-                            <span className="px-2">·</span>
-                            {post.date}
-                        </p>
-                        <h2 className="mt-3 text-lg font-medium tracking-tight text-black sm:text-2xl">{post.title}</h2>
-                        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#616161] sm:text-base sm:leading-7">
-                            {post.description}
-                        </p>
-                        <p className="mt-4 text-xs text-[#8a8a8a] sm:text-sm">
-                            {post.author}
-                            <span className="px-2">·</span>
-                            {post.readingTime}
-                        </p>
+                        <div className="min-w-0">
+                            <h2 className="text-xl font-medium tracking-tight text-black sm:text-2xl">{post.title}</h2>
+                            <p className="mt-2 max-w-2xl text-sm leading-6 text-[#616161] sm:text-base sm:leading-7">
+                                {post.description}
+                            </p>
+                        </div>
+                        <svg
+                            aria-hidden
+                            viewBox="0 0 20 20"
+                            className="size-5 shrink-0 text-black transition-transform duration-200 group-hover:translate-x-1"
+                        >
+                            <path
+                                d="M4 10h12M12 6l4 4-4 4"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
                     </Link>
                 ))}
             </section>

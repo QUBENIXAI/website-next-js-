@@ -75,7 +75,7 @@ export default function HeroSection() {
                 </p>
                 <div className="mt-4 flex items-center justify-start gap-4">
                     <CtaButton label="Explore Our Work" icon={<ArrowBendUpRightIcon />} />
-                    <button className="bg-white text-black px-4 py-2 rounded-md">
+                    <button className="rounded-md bg-white px-3.5 py-2 text-xs leading-4 text-black sm:px-4 sm:py-2 sm:text-base sm:leading-6">
                         About Us
                     </button>
                 </div>
@@ -93,7 +93,11 @@ export default function HeroSection() {
                     width={4712}
                     height={2956}
                     priority
-                    className="h-auto w-[112%] max-w-none sm:w-full"
+                    className="h-auto w-[148%] max-w-none sm:w-full"
+                />
+                <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background via-background/80 to-transparent sm:hidden"
                 />
             </motion.div>
         </div>
