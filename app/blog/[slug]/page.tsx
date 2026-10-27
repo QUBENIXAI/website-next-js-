@@ -1,4 +1,5 @@
 import BlogBody from "@/components/blog/blog-body"
+import BlogReveal from "@/components/blog/blog-reveal"
 import { BlogArticleHeader, BlogFrame, BlogRule } from "@/components/blog/blog-chrome"
 import { getPost, getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
@@ -47,7 +48,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
         <main className="relative flex flex-1 flex-col">
             <BlogArticleHeader nextHref={next ? `/blog/${next.slug}` : undefined} />
             <BlogFrame>
-            <article className="w-full px-5 py-8 sm:px-8">
+            <BlogReveal>
                 <p className="text-sm text-[#8a8a8a]">{post.date}</p>
                 <h1 className="mt-3 text-3xl font-medium tracking-tight text-black sm:text-4xl">{post.title}</h1>
                 <p className="mt-4 text-base leading-7 text-[#616161]">{post.description}</p>
@@ -57,7 +58,7 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
                     {post.readingTime}
                 </p>
                 <BlogBody content={post.content} />
-            </article>
+            </BlogReveal>
             </BlogFrame>
             <BlogRule />
         </main>
