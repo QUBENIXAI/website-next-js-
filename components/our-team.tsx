@@ -298,7 +298,7 @@ export default function OurTeam() {
                 transition={revealed ? { duration: 0 } : { duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 onAnimationComplete={() => setRevealed(true)}
             >
-                <CornerDotGrids />
+                <CornerDotGrids corners="top" />
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
                     <div className={`w-full max-w-2xl ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
                         <h1 className="text-center text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">

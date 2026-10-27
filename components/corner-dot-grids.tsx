@@ -5,10 +5,14 @@ const cornerMasks = [
     { className: "bottom-0 right-0", mask: "radial-gradient(ellipse at 100% 100%, black 0%, black 36%, transparent 78%)" },
 ] as const
 
-export default function CornerDotGrids() {
+export default function CornerDotGrids({ corners = "all" }: { corners?: "all" | "top" | "bottom" }) {
+    const masks = corners === "all"
+        ? cornerMasks
+        : cornerMasks.filter((corner) => corner.className.startsWith(corners))
+
     return (
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-            {cornerMasks.map((corner) => (
+            {masks.map((corner) => (
                 <div
                     key={corner.className}
                     className={`absolute size-64 sm:size-80 lg:size-96 ${corner.className}`}

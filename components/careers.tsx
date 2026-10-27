@@ -238,7 +238,7 @@ export default function Careers() {
             transition={revealed ? { duration: 0 } : { duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             onAnimationComplete={() => setRevealed(true)}
         >
-            <CornerDotGrids />
+            <CornerDotGrids corners="top" />
             <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
             <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-12 sm:pt-32 sm:pb-16">
                 <h1 className="max-w-[12ch] shrink-0 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-6xl">

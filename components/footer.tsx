@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import CornerDotGrids from "./corner-dot-grids"
 import CtaButton from "./cta-button"
 import { ArrowBendUpRightIcon, FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react"
 
@@ -46,7 +47,8 @@ const socials = [
 
 export default function Footer() {
     return (
-        <footer className="flex w-full flex-col items-center px-4 pb-16 sm:px-6">
+        <footer className="relative flex w-full flex-col items-center px-4 pb-16 sm:px-6">
+            <CornerDotGrids corners="bottom" />
             <section
                 className="flex w-full max-w-6xl flex-col items-center rounded-3xl px-4 py-10 text-center sm:rounded-[1.75rem] sm:px-6 sm:py-14 lg:py-16"
                 style={{
