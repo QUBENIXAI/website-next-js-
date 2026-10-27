@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache"
 import fs from "fs"
 import path from "path"
 
@@ -61,7 +62,9 @@ function toPost(slug: string, raw: string): Post {
     }
 }
 
-export function getPosts(): Post[] {
+export async function getPosts(): Promise<Post[]> {
+    "use cache"
+    cacheLife("hours")
     return fs
         .readdirSync(blogDir)
         .filter((file) => file.endsWith(".md"))
@@ -73,8 +76,8 @@ export function getPosts(): Post[] {
         .sort((a, b) => a.order - b.order)
 }
 
-export function getPost(slug: string) {
-    const posts = getPosts()
+export async function getPost(slug: string) {
+    const posts = await getPosts()
     const index = posts.findIndex((post) => post.slug === slug)
     if (index === -1) return null
     return {

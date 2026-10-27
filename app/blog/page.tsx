@@ -6,8 +6,8 @@ export const metadata: Metadata = {
     title: "Blog",
 }
 
-export default function BlogPage() {
-    const posts = getPosts()
+export default async function BlogPage() {
+    const posts = await getPosts()
 
     return (
         <main className="relative flex w-full flex-1 flex-col px-5 pt-10 pb-4 sm:px-8">

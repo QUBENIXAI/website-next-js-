@@ -3,9 +3,11 @@ import { BlogArticleHeader } from "@/components/blog/blog-chrome"
 import { getPost, getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { Suspense } from "react"
 
-export function generateStaticParams() {
-    return getPosts().map((post) => ({ slug: post.slug }))
+export async function generateStaticParams() {
+    const posts = await getPosts()
+    return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({
@@ -14,7 +16,7 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>
 }): Promise<Metadata> {
     const { slug } = await params
-    const found = getPost(slug)
+    const found = await getPost(slug)
     if (!found) return { title: "Blog" }
     return {
         title: found.post.title,
@@ -22,13 +24,21 @@ export async function generateMetadata({
     }
 }
 
-export default async function BlogArticlePage({
+export default function BlogArticlePage({
     params,
 }: {
     params: Promise<{ slug: string }>
 }) {
+    return (
+        <Suspense fallback={<ArticleFallback />}>
+            <Article params={params} />
+        </Suspense>
+    )
+}
+
+async function Article({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
-    const found = getPost(slug)
+    const found = await getPost(slug)
     if (!found) notFound()
 
     const { post, next } = found
@@ -48,5 +58,15 @@ export default async function BlogArticlePage({
                 <BlogBody content={post.content} />
             </article>
         </main>
+    )
+}
+
+function ArticleFallback() {
+    return (
+        <div className="w-full px-5 py-8 sm:px-8">
+            <div className="h-4 w-28 bg-[#f3f3f3]" />
+            <div className="mt-4 h-10 w-4/5 bg-[#f3f3f3]" />
+            <div className="mt-4 h-16 w-full bg-[#f3f3f3]" />
+        </div>
     )
 }
