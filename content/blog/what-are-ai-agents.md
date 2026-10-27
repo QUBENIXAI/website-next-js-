@@ -4,12 +4,12 @@ description: "A technical and commercial breakdown of autonomous agents: how the
 date: "October 18, 2026"
 author: "Qubenix Editorial Team"
 readingTime: "9 min read"
-image: "/blog/ai-agents.webp"
-imageAlt: "An abstract view of an AI agent reasoning across tools"
+image: "/blog/ai-agents.png"
+imageAlt: "Illustration of connected devices and business tools"
 order: 2
 ---
 
-![An abstract view of an AI agent reasoning across tools](/blog/ai-agents.webp)
+![Illustration of connected devices and business tools](/blog/ai-agents.png)
 
 "AI agent" is now one of the most used, and least precise, phrases in enterprise software. Vendors put the label on chatbots, auto-responders, and short scripts. That makes it hard to tell what you are actually buying.
 

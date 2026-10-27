@@ -63,11 +63,19 @@ function toPost(slug: string, raw: string): Post {
 }
 
 export async function getPosts(): Promise<Post[]> {
-    "use cache"
-    cacheLife("hours")
-    return fs
+    const stamp = fs
         .readdirSync(blogDir)
         .filter((file) => file.endsWith(".md"))
+        .map((file) => fs.statSync(path.join(blogDir, file)).mtimeMs)
+        .join(":")
+    return readPosts(stamp)
+}
+
+async function readPosts(_stamp: string): Promise<Post[]> {
+    "use cache"
+    cacheLife("hours")
+    const files = fs.readdirSync(blogDir).filter((file) => file.endsWith(".md"))
+    return files
         .map((file) => {
             const slug = file.replace(/\.md$/, "")
             const raw = fs.readFileSync(path.join(blogDir, file), "utf8")

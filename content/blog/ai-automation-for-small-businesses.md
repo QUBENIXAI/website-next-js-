@@ -4,12 +4,12 @@ description: "How growing businesses eliminate operational bottlenecks, reduce m
 date: "October 18, 2026"
 author: "Qubenix Editorial Team"
 readingTime: "8 min read"
-image: "/blog/ai-automation.webp"
+image: "/blog/ai-automation.jpg"
 imageAlt: "Connected automation workflows across business tools"
 order: 1
 ---
 
-![Connected automation workflows across business tools](/blog/ai-automation.webp)
+![Connected automation workflows across business tools](/blog/ai-automation.jpg)
 
 For small and medium-sized businesses, growth rarely stalls because the market disappeared. More often, the ceiling is operational. Founders and key staff spend a large share of the week copying data between spreadsheets, chasing invoices, drafting the same customer emails, and updating the CRM by hand.
 

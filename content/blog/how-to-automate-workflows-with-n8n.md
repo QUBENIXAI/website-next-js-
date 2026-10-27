@@ -4,12 +4,12 @@ description: "A technical blueprint for designing, deploying, and maintaining re
 date: "October 18, 2026"
 author: "Qubenix Editorial Team"
 readingTime: "10 min read"
-image: "/blog/n8n-workflows.webp"
+image: "/blog/n8n-workflows.jpg"
 imageAlt: "Workflow nodes connecting business systems"
 order: 3
 ---
 
-![Workflow nodes connecting business systems](/blog/n8n-workflows.webp)
+![Workflow nodes connecting business systems](/blog/n8n-workflows.jpg)
 
 Once a company is running Stripe, a CRM, Slack, Jira, and a Postgres database, the hard problem stops being "can we build the feature" and becomes "can information move without a person carrying it." Data stuck in one tool has to cause a reliable action in another.
 
