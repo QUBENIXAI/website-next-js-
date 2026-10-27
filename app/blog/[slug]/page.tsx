@@ -1,5 +1,5 @@
 import BlogBody from "@/components/blog/blog-body"
-import { BlogArticleHeader } from "@/components/blog/blog-chrome"
+import { BlogArticleHeader, BlogFrame } from "@/components/blog/blog-chrome"
 import { getPost, getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -44,8 +44,9 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
     const { post, next } = found
 
     return (
-        <main className="relative flex-1">
+        <main className="relative flex flex-1 flex-col">
             <BlogArticleHeader nextHref={next ? `/blog/${next.slug}` : undefined} />
+            <BlogFrame>
             <article className="w-full px-5 py-8 sm:px-8">
                 <p className="text-sm text-[#8a8a8a]">{post.date}</p>
                 <h1 className="mt-3 text-3xl font-medium tracking-tight text-black sm:text-4xl">{post.title}</h1>
@@ -57,16 +58,19 @@ async function Article({ params }: { params: Promise<{ slug: string }> }) {
                 </p>
                 <BlogBody content={post.content} />
             </article>
+            </BlogFrame>
         </main>
     )
 }
 
 function ArticleFallback() {
     return (
+        <BlogFrame>
         <div className="w-full px-5 py-8 sm:px-8">
             <div className="h-4 w-28 bg-[#f3f3f3]" />
             <div className="mt-4 h-10 w-4/5 bg-[#f3f3f3]" />
             <div className="mt-4 h-16 w-full bg-[#f3f3f3]" />
         </div>
+        </BlogFrame>
     )
 }

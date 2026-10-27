@@ -1,3 +1,4 @@
+import { BlogFrame } from "@/components/blog/blog-chrome"
 import { getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -10,6 +11,7 @@ export default async function BlogPage() {
     const posts = await getPosts()
 
     return (
+        <BlogFrame>
         <main className="relative flex w-full flex-1 flex-col px-5 pt-10 pb-4 sm:px-8">
             <section>
                 <h1 className="text-3xl font-medium tracking-tight text-black sm:text-4xl">
@@ -45,5 +47,6 @@ export default async function BlogPage() {
                 ))}
             </section>
         </main>
+        </BlogFrame>
     )
 }
