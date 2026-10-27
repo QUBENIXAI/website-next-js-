@@ -12,7 +12,7 @@ const spring = { type: "spring" as const, stiffness: 380, damping: 30 }
 export default function PillLayer({ label, icon }: PillProps) {
     return (
         <motion.div
-            className="inline-flex items-center overflow-hidden rounded-full bg-linear-to-t from-[#0E6EFF] to-[#79B1FF] py-[0.45em] text-xs font-medium text-white sm:text-sm xl:text-base"
+            className="inline-flex items-center overflow-hidden rounded-full bg-[#B3B3B3] py-[0.45em] text-xs font-medium text-white sm:text-sm xl:text-base"
             initial="closed"
             whileInView="open"
             viewport={{ once: true, amount: 0.8 }}

@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 
 export default function ProcessCard3() {
     return (
-        <div className="relative h-[300px] w-full max-w-[320px] overflow-hidden bg-white pt-4 sm:h-[430px] sm:max-w-[380px] sm:pt-6">
+        <div className="rounded-lg relative h-[300px] w-full max-w-[320px] overflow-hidden bg-white pt-4 sm:h-[430px] sm:max-w-[380px] sm:pt-6">
             <DotField />
             <div className="absolute inset-x-0 top-4 bottom-24 flex items-center justify-center sm:top-6 sm:bottom-32">
                 <Visual3 />

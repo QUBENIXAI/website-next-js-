@@ -76,14 +76,14 @@ export default function Footer() {
                 </p>
 
                 <div className="mt-8">
-                    <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} />
+                    <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" />
                 </div>
             </section>
 
             <div className="mt-16 grid w-full max-w-6xl gap-12 lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-16">
                 <div>
                     <p className="text-base font-semibold tracking-tight sm:text-lg">QUBENIX</p>
-                    <h2 className="mt-6 text-xl font-semibold leading-tight tracking-tight sm:mt-8 sm:text-2xl">
+                    <h2 className="mt-6 text-xl font-medium leading-tight tracking-tight sm:mt-8 sm:text-2xl">
                         Automate. Integrate.
                         <br />
                         Elevate.
@@ -91,9 +91,7 @@ export default function Footer() {
                     <p className="mt-3 max-w-xs text-xs leading-relaxed text-neutral-500 sm:mt-4 sm:text-sm">
                         Qubenix designs intelligent business systems that connect AI, automation, software and data into one operating layer.
                     </p>
-                    <a href="#" className="mt-6 inline-flex rounded-md bg-black px-3.5 py-2 text-xs font-medium text-white sm:px-4 sm:py-2.5 sm:text-sm">
-                        Get Qubenix today
-                    </a>
+
                     <div className="mt-6 flex gap-2">
                         {socials.map(({ label, icon: Icon }) => (
                             <a
