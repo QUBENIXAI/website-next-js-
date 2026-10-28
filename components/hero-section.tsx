@@ -6,6 +6,45 @@ import { ArrowBendUpRightIcon, BrainIcon } from "@phosphor-icons/react/dist/ssr"
 import Image from "next/image";
 import PillLayer from "./pill-layer";
 
+const highlightSpring = { type: "spring" as const, stiffness: 320, damping: 28 }
+
+function GrowthHighlight() {
+    return (
+        <motion.span
+            className="relative inline-block"
+            initial="rest"
+            whileInView="active"
+            viewport={{ once: true, amount: 0.8 }}
+        >
+            <motion.span
+                aria-hidden
+                className="pointer-events-none absolute -inset-x-1.5 -inset-y-1 border border-dashed border-[#2F6BFF] bg-white"
+                style={{ originX: 0, originY: 0 }}
+                variants={{
+                    rest: { scale: 0, opacity: 0 },
+                    active: { scale: 1, opacity: 1 },
+                }}
+                transition={highlightSpring}
+            >
+                <span className="absolute -top-1 -left-1 size-2 bg-[#2F6BFF]" />
+                <span className="absolute -top-1 -right-1 size-2 bg-[#2F6BFF]" />
+                <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F6BFF]" />
+                <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F6BFF]" />
+            </motion.span>
+            <motion.span
+                className="relative"
+                variants={{
+                    rest: { color: "#171717" },
+                    active: { color: "#2F6BFF" },
+                }}
+                transition={{ duration: 0.25, delay: 0.12 }}
+            >
+                Growth
+            </motion.span>
+        </motion.span>
+    )
+}
+
 export default function HeroSection() {
     return (
         <div className="relative w-full overflow-x-hidden ">
@@ -66,9 +105,9 @@ export default function HeroSection() {
                 <div className="mb-2">
                     <PillLayer label="Intelligence meets Automation" icon={<BrainIcon />} />
                 </div>
-                <h1 className="text-3xl font-medium leading-tight sm:text-4xl lg:text-4xl xl:text-6xl">Build Smarter Systems, 
+                <h1 className="text-3xl font-medium leading-[1.35] sm:text-4xl lg:text-4xl xl:text-6xl">Build Smarter Systems, 
                     <br />
-                    Make Room for Growth
+                    Make Room for <GrowthHighlight />
                 </h1>
                 <p className="mt-2 max-w-xl text-center text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">
                     We are a team of experts who are passionate about helping you grow your business, build smarter systems, and make room for what comes next.
@@ -87,6 +126,7 @@ export default function HeroSection() {
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             >
+                <ArrowText />
                 <Image
                     src="/image.png"
                     alt="Hero Image"
@@ -100,6 +140,38 @@ export default function HeroSection() {
                     className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background via-background/80 to-transparent sm:hidden"
                 />
             </motion.div>
+        </div>
+    )
+}
+
+const ArrowText = () => {
+    return (
+        <div className="pointer-events-none absolute -top-2 right-[5%] z-20 hidden w-48 md:block lg:right-[12%] lg:w-46">
+            <svg viewBox="0 0 260 168" className="h-auto w-full overflow-visible text-[#171717]" fill="none" aria-hidden>
+                <text
+                    x="168"
+                    y="36"
+                    textAnchor="middle"
+                    className="fill-current font-caveat"
+                    style={{ fontFamily: "var(--font-caveat-family), cursive" }}
+                    fontSize="34"
+                    transform="rotate(-8 168 36)"
+                >
+                    your dashboard
+                </text>
+                <path
+                    d="M154 50c8 28-6 46-34 62-26 15-58 28-86 40"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                />
+                <path
+                    d="M34 152c8-1 14 1 18 5M34 152c2-9 6-14 14-17"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                />
+            </svg>
         </div>
     )
 }

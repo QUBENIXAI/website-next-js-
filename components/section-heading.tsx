@@ -13,7 +13,7 @@ export default function SectionHeading({
 }) {
     return (
         <motion.h1
-            className={`relative mx-auto w-fit px-3 py-1.5 sm:px-4 sm:py-2 ${className}`}
+            className={`relative mx-auto w-fit px-3 py-1.5 sm:px-4 sm:py-2 bg-white ${className}`}
             initial="rest"
             whileInView="active"
             viewport={{ amount: 0.7 }}
