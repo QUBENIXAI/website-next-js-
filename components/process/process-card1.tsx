@@ -28,7 +28,13 @@ export default function ProcessCard1() {
 
 export const Visual = () => {
     return (
-        <motion.div className="relative w-full">
+        <motion.div
+            className="relative w-full"
+            initial={{ filter: "blur(16px)", opacity: 0.5, y: 18 }}
+            whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.45 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
             <Image
                 src="/Understanding.png"
                 alt="Understanding"
