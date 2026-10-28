@@ -305,8 +305,7 @@ export default function OurTeam() {
                             Meet Our Team
                         </h1>
                         <p className="mt-3 text-center text-sm leading-6 text-[#6b6b6b] sm:mt-4 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
-                            We bring together strategy, design, and engineering to turn complex
-                            challenges into meaningful digital products.
+                            The people bringing thoughtful ideas to life through technology, creativity, and collaboration.
                         </p>
                         <div className="flex items-center justify-center mt-5">
                             <CtaButton label="Be a part of us" icon={<CirclesThreePlusIcon />} href="mailto:info@qubenix.in" />

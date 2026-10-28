@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import { useState } from "react"
 import CtaButton from "./cta-button"
 import { ArrowBendUpRightIcon, BrainIcon } from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import PillLayer from "./pill-layer";
 
@@ -47,6 +48,7 @@ function GrowthHighlight() {
 }
 
 export default function HeroSection() {
+    const router = useRouter();
     return (
         <div className="relative w-full overflow-x-hidden ">
             <svg
@@ -114,7 +116,9 @@ export default function HeroSection() {
                     We are a team of experts who are passionate about helping you grow your business, build smarter systems, and make room for what comes next.
                 </p>
                 <div className="mt-4 flex items-center justify-start gap-4">
-                    <CtaButton label="Explore Our Work" icon={<ArrowBendUpRightIcon />} />
+                    <CtaButton label="Explore Our Work" icon={<ArrowBendUpRightIcon />} onClick={() => {
+                        router.push("/products");
+                    }}/>
                     {/* <button className="rounded-md bg-white px-3.5 py-2 text-xs leading-4 text-black sm:px-4 sm:py-2 sm:text-base sm:leading-6">
                         About Us
                     </button> */}

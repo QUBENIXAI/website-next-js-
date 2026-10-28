@@ -78,7 +78,9 @@ export default function Footer() {
                 </p>
 
                 <div className="mt-8">
-                    <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" />
+                    <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" onClick={() => {
+                        window.open("https://calendly.com/qubenix-info/30min", "_blank")
+                    }}/>
                 </div>
             </section>
 
