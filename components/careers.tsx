@@ -376,7 +376,7 @@ function RoleRow({
                     type="button"
                     aria-expanded={open}
                     onClick={onToggle}
-                    className="shrink-0 rounded-full border border-[#e4e4e4] px-3 py-1.5 text-xs text-black sm:px-3.5 sm:text-sm"
+                    className="shrink-0 rounded-md border border-[#e4e4e4] px-3 py-1.5 text-xs text-black sm:px-3.5 sm:text-sm"
                 >
                     {open ? "Close" : "Read more"}
                 </button>

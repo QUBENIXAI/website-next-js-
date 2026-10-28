@@ -115,7 +115,7 @@ function FlowPulse({ d }: { d: string }) {
             d={d}
             fill="none"
             stroke="#2F6BFF"
-            strokeWidth={1.15}
+            strokeWidth={0.7}
             strokeLinecap="round"
             pathLength={1}
             strokeDasharray="0.1 0.9"
@@ -128,8 +128,8 @@ function FlowPulse({ d }: { d: string }) {
 const Visual2 = () => {
     return (
         <svg className="relative z-10 h-auto w-[72%] max-w-[250px] max-sm:h-[120px] max-sm:w-auto" viewBox="-4 -4 175 109" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.4999 23.5L11.3171 52.5H72.4999" strokeWidth="1" strokeLinecap="round" stroke="black"/>
-            <path d="M154.803 92L155 53H89" strokeWidth="1" strokeLinecap="round" stroke="black"/>
+            <path d="M11.4999 23.5L11.3171 52.5H72.4999" strokeWidth="0.65" strokeLinecap="round" stroke="#C4C4C4"/>
+            <path d="M154.803 92L155 53H89" strokeWidth="0.65" strokeLinecap="round" stroke="#C4C4C4"/>
             {FLOW_LINES.map((d) => (
                 <FlowPulse key={d} d={d} />
             ))}
