@@ -1,5 +1,74 @@
 "use client"
 
+import { motion } from "motion/react"
+
+const TEXT_LINES = [
+    { x: 349, y: 18.5, w: 64 },
+    { x: 349, y: 41, w: 154 },
+    { x: 349, y: 50, w: 96 },
+    { x: 349, y: 59, w: 172 },
+    { x: 349, y: 80, w: 154 },
+    { x: 349, y: 89, w: 96 },
+    { x: 349, y: 98, w: 172 },
+]
+
+const DOTS = [
+    { cx: 69, cy: 80, delay: 0 },
+    { cx: 130, cy: 80, delay: 0.4 },
+    { cx: 193, cy: 30, delay: 0.8 },
+    { cx: 259, cy: 133, delay: 1.2 },
+]
+
+function DotArc({ cx, cy, delay }: { cx: number, cy: number, delay: number }) {
+    return (
+        <g>
+            <motion.circle
+                cx={cx}
+                cy={cy}
+                r={12}
+                fill="none"
+                stroke="#0E72FF"
+                strokeWidth="1"
+                animate={{ r: [11, 17, 24], opacity: [0, 0.4, 0] }}
+                transition={{ duration: 2.8, delay, repeat: Infinity, ease: [0.4, 0, 0.2, 1], times: [0, 0.35, 1] }}
+            />
+            <motion.circle
+                cx={cx}
+                cy={cy}
+                r={15}
+                fill="none"
+                stroke="#0E72FF"
+                strokeWidth="1.35"
+                strokeLinecap="round"
+                strokeDasharray="18 76"
+                animate={{ strokeDashoffset: [0, -94], opacity: [0.45, 0.85, 1, 0.85, 0.45] }}
+                transition={{ duration: 3.6, delay, repeat: Infinity, ease: "linear", times: [0, 0.25, 0.5, 0.75, 1] }}
+            />
+        </g>
+    )
+}
+
+function TextLine({ x, y, w, index }: { x: number, y: number, w: number, index: number }) {
+    return (
+        <motion.rect
+            x={x}
+            y={y}
+            height={4}
+            rx={2}
+            fill="#D9D9D9"
+            initial={{ width: 0 }}
+            animate={{ width: [0, w, w, 0] }}
+            transition={{
+                duration: 5.2,
+                delay: index * 0.22,
+                repeat: Infinity,
+                ease: "easeInOut",
+                times: [0, 0.42, 0.68, 1],
+            }}
+        />
+    )
+}
+
 export default function Bento3() {
     return (
         <article className="flex min-h-[300px] w-full min-w-0 flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:min-h-0 sm:min-h-[260px] xl:min-h-0">
@@ -24,17 +93,25 @@ function Visual3({ className = "absolute top-1/2 right-0 h-[168px] w-auto -trans
         <svg className={className} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="330" width="253" height="162" rx="10" fill={`url(#paint0_linear_${id})`}/>
 <rect x="339" y="9" width="200" height="143" rx="10" fill="white"/>
-<rect x="349" y="18.5" width="64" height="4" rx="2" fill="#D9D9D9"/>
-<rect x="418" y="17" width="7" height="7" rx="3.5" fill="#D9D9D9"/>
-<rect x="349" y="41" width="154" height="4" rx="2" fill="#D9D9D9"/>
-<rect x="349" y="50" width="96" height="4" rx="2" fill="#D9D9D9"/>
-<rect x="349" y="59" width="172" height="4" rx="2" fill="#D9D9D9"/>
-<rect x="349" y="80" width="154" height="4" rx="2" fill="#D9D9D9"/>
-<rect x="349" y="89" width="96" height="4" rx="2" fill="#D9D9D9"/>
-<rect x="349" y="98" width="172" height="4" rx="2" fill="#D9D9D9"/>
+{TEXT_LINES.map((line, index) => (
+    <TextLine key={`${line.y}-${line.w}`} {...line} index={index} />
+))}
+<motion.rect
+    x="418"
+    y="17"
+    width="7"
+    height="7"
+    rx="3.5"
+    fill="#D9D9D9"
+    animate={{ opacity: [0, 1, 1, 0] }}
+    transition={{ duration: 5.2, delay: 0.4, repeat: Infinity, ease: "easeInOut", times: [0, 0.16, 0.68, 1] }}
+/>
 <path d="M140 29.5H330" stroke={`url(#paint1_linear_${id})`}/>
 <path d="M0 80.5L330 80.5" stroke={`url(#paint2_linear_${id})`}/>
 <path d="M218 132.5L330 132.5" stroke={`url(#paint3_linear_${id})`}/>
+{DOTS.map((dot) => (
+    <DotArc key={`${dot.cx}-${dot.cy}`} {...dot} />
+))}
 <rect x="59" y="70" width="20" height="20" rx="10" fill="black"/>
 <rect x="59" y="70" width="20" height="20" rx="10" fill="black"/>
 <rect x="59" y="70" width="20" height="20" rx="10" fill="#0E72FF"/>
