@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
+import { useState } from "react"
 import CtaButton from "./cta-button"
 import { ArrowBendUpRightIcon, BrainIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
@@ -70,7 +71,7 @@ export default function HeroSection() {
                                         y1={lineY}
                                         x2="1940"
                                         y2={lineY}
-                                        stroke="rgba(23,23,23,0.2)"
+                                        stroke="#ddd"
                                         strokeWidth="1.25"
                                         strokeDasharray={dashed ? "10 14" : undefined}
                                     />
@@ -114,37 +115,41 @@ export default function HeroSection() {
                 </p>
                 <div className="mt-4 flex items-center justify-start gap-4">
                     <CtaButton label="Explore Our Work" icon={<ArrowBendUpRightIcon />} />
-                    <button className="rounded-md bg-white px-3.5 py-2 text-xs leading-4 text-black sm:px-4 sm:py-2 sm:text-base sm:leading-6">
+                    {/* <button className="rounded-md bg-white px-3.5 py-2 text-xs leading-4 text-black sm:px-4 sm:py-2 sm:text-base sm:leading-6">
                         About Us
-                    </button>
+                    </button> */}
                 </div>
             </section>
-            <motion.div
-                className="relative z-10 mx-auto flex w-full max-w-7xl justify-center sm:px-6"
-                initial={{ filter: "blur(18px)", opacity: 0.65 }}
-                whileInView={{ filter: "blur(0px)", opacity: 1 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <div className="relative z-10 mx-auto flex w-full max-w-7xl justify-center sm:px-6">
                 <ArrowText />
-                <Image
-                    src="/image.png"
-                    alt="Hero Image"
-                    width={4712}
-                    height={2956}
-                    priority
-                    className="h-auto w-[148%] max-w-none sm:w-full"
-                />
-                <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background via-background/80 to-transparent sm:hidden"
-                />
-            </motion.div>
+                <motion.div
+                    className="relative flex w-full justify-center"
+                    initial={{ filter: "blur(18px)", opacity: 0.65 }}
+                    whileInView={{ filter: "blur(0px)", opacity: 1 }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <Image
+                        src="/image.png"
+                        alt="Hero Image"
+                        width={4712}
+                        height={2956}
+                        priority
+                        className="h-auto w-[148%] max-w-none sm:w-full"
+                    />
+                    <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background via-background/80 to-transparent sm:hidden"
+                    />
+                </motion.div>
+            </div>
         </div>
     )
 }
 
 const ArrowText = () => {
+    const [showText, setShowText] = useState(false)
+
     return (
         <div className="pointer-events-none absolute -top-2 right-[5%] z-20 hidden w-48 md:block lg:right-[12%] lg:w-46">
             <svg viewBox="0 0 260 168" className="h-auto w-full overflow-visible text-[#171717]" fill="none" aria-hidden>
@@ -153,23 +158,36 @@ const ArrowText = () => {
                     y="36"
                     textAnchor="middle"
                     className="fill-current font-caveat"
-                    style={{ fontFamily: "var(--font-caveat-family), cursive" }}
+                    style={{
+                        fontFamily: "var(--font-caveat-family), cursive",
+                        opacity: showText ? 1 : 0,
+                        transition: "opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
                     fontSize="34"
                     transform="rotate(-8 168 36)"
                 >
-                    your dashboard
+                    From Insight to Action
                 </text>
-                <path
+                <motion.path
                     d="M154 50c8 28-6 46-34 62-26 15-58 28-86 40"
                     stroke="currentColor"
                     strokeWidth="1.7"
                     strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <path
+                <motion.path
                     d="M34 152c8-1 14 1 18 5M34 152c2-9 6-14 14-17"
                     stroke="currentColor"
                     strokeWidth="1.7"
                     strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.3, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                    onAnimationComplete={() => setShowText(true)}
                 />
             </svg>
         </div>

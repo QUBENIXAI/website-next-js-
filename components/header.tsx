@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CtaButton from "./cta-button";
-import { ArrowBendUpRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
+import { ArrowBendUpRightIcon, ListIcon, XIcon, ArrowBendRightDownIcon } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, LayoutGroup, motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -105,7 +105,7 @@ export default function Header() {
                 </div>
             </LayoutGroup>
             <div className="hidden md:block">
-                <CtaButton label="Get in Touch" icon={<ArrowBendUpRightIcon />} />
+                <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} />
             </div>
         </motion.div>
         <AnimatePresence>
