@@ -5,14 +5,14 @@ import { motion } from "motion/react";
 export default function Bento1() {
     return (
         <div className="flex w-full flex-col rounded-2xl bg-gradient-to-b from-[#8DAFFF] to-[#0E42FF] px-3 py-3 sm:px-3.5 sm:py-3.5 xl:h-[695px] xl:w-[418px] xl:shrink-0">
-    <div className="relative flex min-h-[240px] flex-1 items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-6 sm:min-h-[280px] sm:rounded-2xl sm:px-4 sm:py-8">
+    <div className="relative flex items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-8 sm:rounded-2xl sm:px-4 sm:py-10">
         <DotGrid />
         <div className="relative z-10 w-full">
             <BentoVisual1 />
         </div>
     </div>
 
-    <div className="mt-4 flex flex-col gap-2 sm:mt-5 mb-2">
+    <div className="mt-5 flex flex-col gap-3 px-1.5 pb-3">
         <h2 className="text-base font-medium text-white sm:text-lg">
             Web/Apps & Digital Experience
         </h2>

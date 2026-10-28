@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 export default function Bento2() {
     return (
         <div className="grid h-fit w-full min-w-0 shrink-0 grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
-            <article className="flex h-full min-w-0 flex-col rounded-lg bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:p-4">
+            <article className="flex h-full min-w-0 flex-col rounded-lg bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:order-2 sm:p-4">
                 <div className="relative flex h-[148px] shrink-0 items-center justify-center overflow-hidden bg-[#F5F5F5] sm:h-[168px]">
                     <FlowDots />
                     <Visual2 />
@@ -21,7 +21,7 @@ export default function Bento2() {
                 </div>
             </article>
 
-            <article className="flex h-full min-w-0 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+            <article className="flex h-full min-w-0 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:order-1">
                 <div className="relative h-[168px] shrink-0 sm:h-[196px]">
                     <Visual3 />
                 </div>
@@ -127,7 +127,7 @@ function FlowPulse({ d }: { d: string }) {
 
 const Visual2 = () => {
     return (
-        <svg className="relative z-10 h-auto w-[72%] max-w-[250px]" viewBox="0 0 167 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="relative z-10 h-auto w-[72%] max-w-[250px] max-sm:h-[120px] max-sm:w-auto" viewBox="-4 -4 175 109" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.4999 23.5L11.3171 52.5H72.4999" strokeWidth="1" strokeLinecap="round" stroke="black"/>
             <path d="M154.803 92L155 53H89" strokeWidth="1" strokeLinecap="round" stroke="black"/>
             {FLOW_LINES.map((d) => (

@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CtaButton from "./cta-button";
-import { ArrowBendUpRightIcon, ListIcon, XIcon, ArrowBendRightDownIcon } from "@phosphor-icons/react/dist/ssr";
+import { ListIcon, XIcon, ArrowBendRightDownIcon } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, LayoutGroup, motion, useScroll, useTransform } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Links = {
     Products: "/products",
@@ -39,6 +39,11 @@ export default function Header() {
     const backdropFilter = useTransform(scrollY, [0, 72], ["blur(0px)", "blur(20px)"]);
     const borderRadius = useTransform(scrollY, [0, 72], [0, 8]);
     const gap = useTransform(scrollY, [0, 72], ["2.75rem", "0.5rem"]);
+    const footerRef = useRef<HTMLElement | null>(null)
+    const scrollToFooter = () => {
+        footerRef.current = document.getElementById("footer")
+        footerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
     useEffect(() => {
         setMenuOpen(false)
     }, [pathname])
@@ -105,7 +110,7 @@ export default function Header() {
                 </div>
             </LayoutGroup>
             <div className="hidden md:block">
-                <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} />
+                <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} onClick={scrollToFooter}/>
             </div>
         </motion.div>
         <AnimatePresence>
@@ -134,7 +139,7 @@ export default function Header() {
                         )
                     })}
                     <div className="px-2 pt-2 pb-1">
-                        <CtaButton label="Get in Touch" icon={<ArrowBendUpRightIcon />} onClick={() => setMenuOpen(false)} />
+                        <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} onClick={() => { setMenuOpen(false); scrollToFooter() }} />
                     </div>
                 </motion.nav>
             )}

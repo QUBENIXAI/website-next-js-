@@ -2,8 +2,9 @@
 
 export default function Bento3() {
     return (
-        <article className="flex min-h-[300px] w-full min-w-0 flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:min-h-[260px] xl:min-h-0">
-            <div className="relative min-h-[180px] flex-1 sm:min-h-[148px]">
+        <article className="flex min-h-[300px] w-full min-w-0 flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:min-h-0 sm:min-h-[260px] xl:min-h-0">
+            <div className="relative min-h-[180px] flex-1 max-sm:min-h-0 max-sm:flex-none sm:min-h-[148px]">
+                <Visual3 className="h-auto w-full sm:hidden" viewBox="0 0 532 162" id="240_59m" />
                 <Visual3 />
             </div>
             <div className="px-4 pt-1 pb-4 sm:px-5 sm:pb-5">
@@ -18,10 +19,10 @@ export default function Bento3() {
     )
 }
 
-const Visual3 = () => {
+function Visual3({ className = "absolute top-1/2 right-0 h-[168px] w-auto -translate-y-1/2 max-sm:hidden sm:h-[142px] lg:h-[162px]", viewBox = "0 0 532 162", id = "240_59" }: { className?: string, viewBox?: string, id?: string }) {
     return (
-        <svg className="absolute top-1/2 right-0 h-[168px] w-auto -translate-y-1/2 sm:h-[142px] lg:h-[162px]" viewBox="0 0 532 162" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="330" width="253" height="162" rx="10" fill="url(#paint0_linear_240_59)"/>
+        <svg className={className} viewBox={viewBox} fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="330" width="253" height="162" rx="10" fill={`url(#paint0_linear_${id})`}/>
 <rect x="339" y="9" width="200" height="143" rx="10" fill="white"/>
 <rect x="349" y="18.5" width="64" height="4" rx="2" fill="#D9D9D9"/>
 <rect x="418" y="17" width="7" height="7" rx="3.5" fill="#D9D9D9"/>
@@ -31,9 +32,9 @@ const Visual3 = () => {
 <rect x="349" y="80" width="154" height="4" rx="2" fill="#D9D9D9"/>
 <rect x="349" y="89" width="96" height="4" rx="2" fill="#D9D9D9"/>
 <rect x="349" y="98" width="172" height="4" rx="2" fill="#D9D9D9"/>
-<path d="M140 29.5H330" stroke="url(#paint1_linear_240_59)"/>
-<path d="M0 80.5L330 80.5" stroke="url(#paint2_linear_240_59)"/>
-<path d="M218 132.5L330 132.5" stroke="url(#paint3_linear_240_59)"/>
+<path d="M140 29.5H330" stroke={`url(#paint1_linear_${id})`}/>
+<path d="M0 80.5L330 80.5" stroke={`url(#paint2_linear_${id})`}/>
+<path d="M218 132.5L330 132.5" stroke={`url(#paint3_linear_${id})`}/>
 <rect x="59" y="70" width="20" height="20" rx="10" fill="black"/>
 <rect x="59" y="70" width="20" height="20" rx="10" fill="black"/>
 <rect x="59" y="70" width="20" height="20" rx="10" fill="#0E72FF"/>
@@ -51,19 +52,19 @@ const Visual3 = () => {
 <rect x="249" y="123" width="20" height="20" rx="10" fill="#0E72FF"/>
 <path d="M258.5 129.031C257.616 129.031 256.752 129.293 256.017 129.784C255.282 130.275 254.71 130.973 254.371 131.79C254.033 132.606 253.945 133.505 254.117 134.372C254.29 135.239 254.715 136.035 255.34 136.66C255.965 137.285 256.761 137.71 257.628 137.883C258.495 138.055 259.394 137.967 260.21 137.629C261.027 137.29 261.725 136.718 262.216 135.983C262.707 135.248 262.969 134.384 262.969 133.5C262.968 132.315 262.496 131.179 261.659 130.341C260.821 129.504 259.685 129.033 258.5 129.031ZM258.5 137.281C257.752 137.281 257.021 137.059 256.399 136.644C255.777 136.229 255.293 135.638 255.007 134.947C254.72 134.256 254.646 133.496 254.791 132.762C254.937 132.029 255.297 131.355 255.826 130.826C256.355 130.297 257.029 129.937 257.762 129.791C258.496 129.646 259.256 129.72 259.947 130.007C260.638 130.293 261.229 130.777 261.644 131.399C262.059 132.021 262.281 132.752 262.281 133.5C262.28 134.503 261.881 135.464 261.172 136.172C260.464 136.881 259.503 137.28 258.5 137.281ZM258.5 130.406C257.888 130.406 257.29 130.588 256.781 130.928C256.272 131.268 255.876 131.751 255.642 132.316C255.408 132.881 255.346 133.503 255.466 134.104C255.585 134.704 255.88 135.255 256.312 135.688C256.745 136.12 257.296 136.415 257.896 136.534C258.497 136.654 259.119 136.592 259.684 136.358C260.249 136.124 260.732 135.728 261.072 135.219C261.412 134.71 261.594 134.112 261.594 133.5C261.593 132.68 261.267 131.893 260.687 131.313C260.107 130.733 259.32 130.407 258.5 130.406ZM258.5 135.906C258.024 135.906 257.559 135.765 257.163 135.501C256.767 135.236 256.459 134.861 256.277 134.421C256.095 133.981 256.047 133.497 256.14 133.031C256.233 132.564 256.462 132.135 256.799 131.799C257.135 131.462 257.564 131.233 258.031 131.14C258.497 131.047 258.981 131.095 259.421 131.277C259.861 131.459 260.236 131.767 260.501 132.163C260.765 132.559 260.906 133.024 260.906 133.5C260.906 134.138 260.652 134.75 260.201 135.201C259.75 135.652 259.138 135.906 258.5 135.906Z" fill="white"/>
 <defs>
-<linearGradient id="paint0_linear_240_59" x1="357" y1="-5.17161e-06" x2="529.5" y2="162" gradientUnits="userSpaceOnUse">
+<linearGradient id={`paint0_linear_${id}`} x1="357" y1="-5.17161e-06" x2="529.5" y2="162" gradientUnits="userSpaceOnUse">
 <stop stopColor="#0E72FF"/>
 <stop offset="1" stopColor="#CFE3FF"/>
 </linearGradient>
-<linearGradient id="paint1_linear_240_59" x1="140" y1="30.5" x2="330" y2="30.5" gradientUnits="userSpaceOnUse">
+<linearGradient id={`paint1_linear_${id}`} x1="140" y1="30.5" x2="330" y2="30.5" gradientUnits="userSpaceOnUse">
 <stop stopColor="white"/>
 <stop offset="1" stopColor="#A5A5A5"/>
 </linearGradient>
-<linearGradient id="paint2_linear_240_59" x1="0" y1="81.5" x2="330" y2="81.5" gradientUnits="userSpaceOnUse">
+<linearGradient id={`paint2_linear_${id}`} x1="0" y1="81.5" x2="330" y2="81.5" gradientUnits="userSpaceOnUse">
 <stop stopColor="white"/>
 <stop offset="1" stopColor="#A5A5A5"/>
 </linearGradient>
-<linearGradient id="paint3_linear_240_59" x1="218" y1="133.5" x2="330" y2="133.5" gradientUnits="userSpaceOnUse">
+<linearGradient id={`paint3_linear_${id}`} x1="218" y1="133.5" x2="330" y2="133.5" gradientUnits="userSpaceOnUse">
 <stop stopColor="white"/>
 <stop offset="1" stopColor="#A5A5A5"/>
 </linearGradient>
