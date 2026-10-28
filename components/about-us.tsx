@@ -19,11 +19,12 @@ const stacks: StackProps[] = [
     }
 ]
 
-export default function Stack() {
+export default function AboutUs() {
 
     return (
-        <div>
-            
-        </div>
+        <main className='w-full bg-blue-500'>
+
+            <h1>Hello</h1>
+        </main>
     )
 }

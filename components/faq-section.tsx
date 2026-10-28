@@ -199,7 +199,7 @@ export default function FaqSection() {
     };
 
     return (
-        <div className="flex w-full max-w-3xl flex-col gap-8 px-4 sm:gap-10 sm:px-6">
+        <div className="mt-6 flex w-full max-w-3xl flex-col gap-8 px-4 sm:mt-8 sm:gap-10 sm:px-6">
             <section className="flex flex-col gap-2 text-center">
                 <SectionHeading className="text-3xl font-medium sm:text-5xl">
                     Frequently Asked Questions
