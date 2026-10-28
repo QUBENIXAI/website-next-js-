@@ -301,10 +301,10 @@ export default function OurTeam() {
                 <CornerDotGrids corners="top" />
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
                     <div className={`w-full max-w-2xl ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
-                        <h1 className="text-center text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+                        <h1 className="text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
                             Meet Our Team
                         </h1>
-                        <p className="mt-3 text-center text-sm leading-6 text-[#6b6b6b] sm:mt-4 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+                        <p className="mt-3 text-center text-base leading-6 text-[#6b6b6b] sm:mt-4 sm:text-lg sm:leading-7 lg:text-xl lg:leading-8">
                             The people bringing thoughtful ideas to life through technology, creativity, and collaboration.
                         </p>
                         <div className="flex items-center justify-center mt-5">

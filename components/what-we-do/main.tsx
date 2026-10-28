@@ -7,10 +7,10 @@ export default function WhatWeProvide() {
     return (
         <div id="what-we-do" className="flex w-full flex-col items-center px-4 sm:px-6">
             <section className="flex w-full max-w-2xl flex-col items-center justify-center gap-2 text-center">
-            <SectionHeading className="text-2xl font-medium sm:text-4xl">
+            <SectionHeading className="text-3xl font-medium sm:text-5xl">
                     What We Do
                 </SectionHeading>
-                <p className="text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
+                <p className="text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
             </section>
 
             <div className="mt-8 flex w-full max-w-6xl flex-col items-center justify-center gap-4 sm:mt-10 md:flex-row md:flex-wrap">

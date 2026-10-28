@@ -15,10 +15,10 @@ export default function Home() {
       <WhatWeProvide />
       <section id="services" className="flex w-full flex-col items-center px-4 sm:px-6">
         <div className="flex w-full max-w-2xl flex-col items-center justify-center gap-2 text-center">
-          <SectionHeading className="text-2xl font-medium sm:text-4xl">
+          <SectionHeading className="text-3xl font-medium sm:text-5xl">
             Our Services
           </SectionHeading>
-          <p className="text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">
+          <p className="text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">
             Websites, business systems, industry AI, and voice agents built around how your team operates.
           </p>
         </div>

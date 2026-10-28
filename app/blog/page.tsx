@@ -13,10 +13,10 @@ export default async function BlogPage() {
         <div className="flex flex-1 justify-center px-6 mt-10">
         <main className="flex w-full max-w-5xl flex-col  px-5 pt-10 pb-4 sm:px-8">
             <section>
-                <h1 className="text-3xl font-medium tracking-tight text-black sm:text-4xl">
+                <h1 className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
                     From the Qubenix blog.
                 </h1>
-                <p className="mt-3 text-sm leading-6 text-[#8a8a8a] sm:text-base sm:leading-7">
+                <p className="mt-3 text-base leading-6 text-[#8a8a8a] sm:text-lg sm:leading-7">
                     Notes on AI automation, agents, and the systems we build for growing teams.
                 </p>
             </section>

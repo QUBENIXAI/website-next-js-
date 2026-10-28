@@ -112,7 +112,7 @@ export default function HeroSection() {
                     <br />
                     Make Room for <GrowthHighlight />
                 </h1>
-                <p className="mt-2 max-w-xl text-center text-xs leading-5 text-[#616161] sm:text-base sm:leading-7">
+                <p className="mt-2 max-w-2xl text-center text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">
                     We are a team of experts who are passionate about helping you grow your business, build smarter systems, and make room for what comes next.
                 </p>
                 <div className="mt-4 flex items-center justify-start gap-4">

@@ -201,10 +201,10 @@ export default function FaqSection() {
     return (
         <div className="flex w-full max-w-3xl flex-col gap-8 px-4 sm:gap-10 sm:px-6">
             <section className="flex flex-col gap-2 text-center">
-                <SectionHeading className="text-2xl font-medium sm:text-4xl">
+                <SectionHeading className="text-3xl font-medium sm:text-5xl">
                     Frequently Asked Questions
                 </SectionHeading>
-                <p className="text-xs leading-5 text-gray-500 sm:text-base sm:leading-6">
+                <p className="text-sm leading-6 text-gray-500 sm:text-lg sm:leading-7">
                     Find answers to common questions about QUBENIX’s services and
                     capabilities.
                 </p>
