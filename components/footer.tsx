@@ -14,7 +14,7 @@ const columns = [
     {
         title: "Company",
         links: [
-            { label: "About", href: "#" },
+            { label: "About", href: "#about" },
             { label: "Team", href: "/our-team" },
             { label: "Work", href: "#" },
             { label: "Consulting", href: "#" },
@@ -28,8 +28,8 @@ const columns = [
             { label: "Verify Certificate", href: "#" },
             { label: "Blog", href: "/blog" },
             { label: "Careers", href: "/careers" },
-            { label: "FAQ", href: "#" },
-            { label: "Get in Touch", href: "#" },
+            { label: "FAQ", href: "#faq" },
+            // { label: "Get in Touch", href: "#" },
         ],
     },
     {
@@ -45,10 +45,10 @@ const columns = [
 ]
 
 const socials = [
-    { label: "Instagram", icon: InstagramLogoIcon },
-    { label: "LinkedIn", icon: LinkedinLogoIcon },
-    { label: "X", icon: XLogoIcon },
-    { label: "Facebook", icon: FacebookLogoIcon },
+    { label: "Instagram", icon: InstagramLogoIcon, link: "https://www.instagram.com/qubenix_ai/" },
+    { label: "LinkedIn", icon: LinkedinLogoIcon, link: "https://www.linkedin.com/company/qubenix" },
+    { label: "X", icon: XLogoIcon, link: "https://x.com/qubenix_?s=11allsocial" },
+    { label: "Facebook", icon: FacebookLogoIcon, link: "https://www.facebook.com/people/Qubenix-AI/61594704904079/" },
 ]
 
 export default function Footer() {
@@ -103,10 +103,11 @@ export default function Footer() {
                     </p>
 
                     <div className="mt-6 flex gap-2">
-                        {socials.map(({ label, icon: Icon }) => (
+                        {socials.map(({ label, icon: Icon, link }) => (
                             <a
                                 key={label}
-                                href="#"
+                                href={link}
+                                target="_blank"
                                 aria-label={label}
                                 className="grid size-9 place-items-center rounded-lg text-white bg-gradient-to-b from-[#77B0FF] to-[#036DFF]"
                             >

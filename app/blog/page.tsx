@@ -16,7 +16,7 @@ export default async function BlogPage() {
         <main className="flex w-full max-w-6xl flex-col px-5 pt-10 pb-4 sm:px-8">
             <section className="flex flex-col items-center text-center">
                 <BlogIcon />
-                <h1 className="mt-4 text-4xl font-medium tracking-tight text-black sm:text-5xl">
+                <h1 className="mt-4 text-4xl font-medium tracking-tight text-black sm:text-6xl">
                     From the Qubenix blog.
                 </h1>
                 <p className="mt-3 max-w-xl text-base leading-6 text-[#8a8a8a] sm:text-lg sm:leading-7">

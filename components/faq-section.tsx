@@ -270,7 +270,7 @@ function FaqRow({
     onToggle: () => void;
 }) {
     return (
-        <div className="relative">
+        <div id="faq" className="relative">
             {open ? (
                 <motion.div
                     aria-hidden

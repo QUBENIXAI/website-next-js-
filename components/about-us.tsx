@@ -52,7 +52,7 @@ const points = [
 
 export default function AboutUs() {
     return (
-        <main className="relative isolate mx-auto h-auto max-w-8xl overflow-hidden rounded-2xl bg-linear-to-l from-[#1100FF] to-[#9AC4FF] p-10 md:p-20">
+        <main id="about" className="relative isolate mx-auto h-auto max-w-8xl overflow-hidden rounded-2xl bg-linear-to-l from-[#1100FF] to-[#9AC4FF] p-10 md:p-20">
             {/* Noise texture */}
             <div
                 aria-hidden="true"
