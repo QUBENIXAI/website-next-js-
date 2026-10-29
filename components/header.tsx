@@ -33,8 +33,15 @@ export default function Header() {
         (name) => pathname === Links[name]
     ) ?? null;
     const highlighted = hoveredLink ?? currentLink;
+    const blogIndex = pathname === "/blog"
     const { scrollY } = useScroll();
-    const backgroundColor = useTransform(scrollY, [0, 72], ["rgba(248,248,248,0)", "rgba(248,248,248,0.82)"]);
+    const backgroundColor = useTransform(
+        scrollY,
+        [0, 72],
+        blogIndex
+            ? ["rgba(244,244,244,0)", "rgba(244,244,244,0.92)"]
+            : ["rgba(248,248,248,0)", "rgba(248,248,248,0.82)"]
+    );
     const borderColor = useTransform(scrollY, [0, 72], ["rgba(0,0,0,0)", "rgba(0,0,0,0.1)"]);
     const backdropFilter = useTransform(scrollY, [0, 72], ["blur(0px)", "blur(20px)"]);
     const borderRadius = useTransform(scrollY, [0, 72], [0, 8]);
@@ -48,7 +55,7 @@ export default function Header() {
     }, [pathname])
     if (pathname.startsWith("/blog/")) return null
     return (
-        <header className="pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 transition-opacity duration-200 in-data-[team-pop=open]:invisible in-data-[team-pop=open]:opacity-0 sm:px-5">
+        <header className={`pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 transition-opacity duration-200 in-data-[team-pop=open]:invisible in-data-[team-pop=open]:opacity-0 sm:px-5 ${blogIndex ? "bg-[#f4f4f4] before:pointer-events-none before:absolute before:inset-x-0 before:-top-4 before:h-4 before:bg-[#f4f4f4]" : ""}`}>
         <motion.div
             className="pointer-events-auto flex w-max max-w-[calc(100vw-1.5rem)] items-center justify-between border px-3 py-2 sm:px-4 md:w-[calc(100%-4rem)] md:max-w-5xl"
             style={{ backgroundColor, borderColor, backdropFilter, WebkitBackdropFilter: backdropFilter, borderRadius }}

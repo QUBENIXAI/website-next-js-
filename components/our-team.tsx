@@ -6,6 +6,8 @@ import { useEffect, useState } from "react"
 import CornerDotGrids from "./corner-dot-grids"
 import CtaButton from "./cta-button"
 import { CirclesThreePlusIcon } from "@phosphor-icons/react"
+import { UsersFourIcon } from "@phosphor-icons/react"
+import IconCraft from "./icon-crafts/main"
 
 interface OurTeamProps {
     name: string
@@ -300,7 +302,8 @@ export default function OurTeam() {
             >
                 <CornerDotGrids corners="top" />
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
-                    <div className={`w-full max-w-2xl ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
+                    <IconCraft icon={<UsersFourIcon />} />
+                    <div className={`w-full max-w-2xl mt-5 ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
                         <h1 className="text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
                             Meet Our Team
                         </h1>
