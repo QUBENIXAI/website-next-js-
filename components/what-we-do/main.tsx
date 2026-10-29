@@ -8,7 +8,7 @@ export default function WhatWeProvide() {
         <div id="what-we-do" className="flex w-full flex-col items-center px-4 sm:px-6">
             <section className="flex w-full max-w-6xl flex-col items-start gap-2 text-left">
             <SectionHeading align="start" className="text-3xl font-medium sm:text-5xl">
-                    What We Do
+                    Whom We Provide
                 </SectionHeading>
                 <p className="max-w-lg text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
             </section>
