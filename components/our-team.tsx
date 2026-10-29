@@ -294,14 +294,14 @@ export default function OurTeam() {
                 )}
             </AnimatePresence>
             <motion.div
-                className="relative w-full"
+                className="relative isolate w-full"
                 initial={{ filter: "blur(18px)", opacity: 0.65 }}
                 animate={revealed ? { filter: "none", opacity: 1 } : { filter: "blur(0px)", opacity: 1 }}
                 transition={revealed ? { duration: 0 } : { duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                 onAnimationComplete={() => setRevealed(true)}
             >
                 <CornerDotGrids corners="top" />
-                <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 py-10 sm:px-6 sm:py-16">
+                <div className="relative z-0 mx-auto flex w-full max-w-6xl flex-col items-center bg-background px-4 py-10 sm:px-6 sm:py-16">
                     <IconCraft icon={<UsersFourIcon />} />
                     <div className={`w-full max-w-2xl mt-5 ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
                         <h1 className="text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">

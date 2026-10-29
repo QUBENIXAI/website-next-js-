@@ -232,14 +232,14 @@ export default function Careers() {
 
     return (
         <motion.div
-            className="relative w-full"
+            className="relative isolate w-full"
             initial={{ filter: "blur(18px)", opacity: 0.65 }}
             animate={revealed ? { filter: "none", opacity: 1 } : { filter: "blur(0px)", opacity: 1 }}
             transition={revealed ? { duration: 0 } : { duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             onAnimationComplete={() => setRevealed(true)}
         >
             <CornerDotGrids corners="top" />
-            <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
+            <div className="relative z-0 mx-auto w-full max-w-6xl bg-background px-4 sm:px-6">
             <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:pt-32 sm:pb-16">
                 <h1 className="text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
                     Join us

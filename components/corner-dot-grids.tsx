@@ -11,7 +11,7 @@ export default function CornerDotGrids({ corners = "all" }: { corners?: "all" | 
         : cornerMasks.filter((corner) => corner.className.startsWith(corners))
 
     return (
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
             {masks.map((corner) => (
                 <div
                     key={corner.className}
