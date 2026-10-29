@@ -13,14 +13,14 @@ export default function WhatWeProvide() {
                 <p className="max-w-lg text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">We offer a range of services to help you grow your business. We are a team of experts who are passionate about helping you grow your business.</p>
             </section>
 
-            <div className="-mx-4 mt-8 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-2 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:mt-10 sm:w-[calc(100%+3rem)] sm:px-6 md:hidden">
-                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start">
+            <div className="-mx-4 mt-8 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-8 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:mt-10 sm:w-[calc(100%+3rem)] sm:px-6 md:hidden">
+                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none">
                     <Card1 />
                 </div>
-                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start">
+                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none">
                     <Card2 />
                 </div>
-                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start">
+                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none">
                     <Card3 />
                 </div>
             </div>
