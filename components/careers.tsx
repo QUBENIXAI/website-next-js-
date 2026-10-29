@@ -241,7 +241,7 @@ export default function Careers() {
             <CornerDotGrids corners="top" />
             <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
             <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:pt-32 sm:pb-16">
-                <h1 className="text-5xl font-medium leading-[1.05] tracking-tight text-black sm:text-6xl xl:text-7xl">
+                <h1 className="text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
                     Join us
                     <br />
                     to build what&apos;s next.

@@ -1,6 +1,7 @@
 import { getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
 import Link from "next/link"
+import BlogIcon from "@/components/icon-crafts/blog-icon"
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -12,6 +13,7 @@ export default async function BlogPage() {
     return (
         <div className="flex flex-1 justify-center px-6 mt-10">
         <main className="flex w-full max-w-5xl flex-col  px-5 pt-10 pb-4 sm:px-8">
+            <BlogIcon />
             <section>
                 <h1 className="text-4xl font-medium tracking-tight text-black sm:text-5xl">
                     From the Qubenix blog.

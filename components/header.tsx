@@ -38,7 +38,6 @@ export default function Header() {
     const borderColor = useTransform(scrollY, [0, 72], ["rgba(0,0,0,0)", "rgba(0,0,0,0.1)"]);
     const backdropFilter = useTransform(scrollY, [0, 72], ["blur(0px)", "blur(20px)"]);
     const borderRadius = useTransform(scrollY, [0, 72], [0, 8]);
-    const gap = useTransform(scrollY, [0, 72], ["2.75rem", "0.5rem"]);
     const footerRef = useRef<HTMLElement | null>(null)
     const scrollToFooter = () => {
         footerRef.current = document.getElementById("footer")
@@ -51,23 +50,12 @@ export default function Header() {
     return (
         <header className="pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 transition-opacity duration-200 in-data-[team-pop=open]:invisible in-data-[team-pop=open]:opacity-0 sm:px-5">
         <motion.div
-            className="pointer-events-auto flex w-max max-w-[calc(100vw-1.5rem)] items-center justify-between border px-3 py-2 sm:px-4"
-            style={{ backgroundColor, borderColor, backdropFilter, WebkitBackdropFilter: backdropFilter, borderRadius, gap }}
+            className="pointer-events-auto flex w-max max-w-[calc(100vw-1.5rem)] items-center justify-between border px-3 py-2 sm:px-4 md:w-[calc(100%-4rem)] md:max-w-5xl"
+            style={{ backgroundColor, borderColor, backdropFilter, WebkitBackdropFilter: backdropFilter, borderRadius }}
         >
-            <div className="flex items-center gap-60 md:gap-1">
+            <div className="flex items-center gap-60 md:gap-6">
                 <Link href="/" className="text-base font-medium sm:text-lg">QUBENIX</Link>
-                <button
-                    type="button"
-                    className="inline-flex size-9 items-center justify-center text-[#171717] md:hidden"
-                    aria-expanded={menuOpen}
-                    aria-controls="mobile-nav"
-                    aria-label={menuOpen ? "Close menu" : "Open menu"}
-                    onClick={() => setMenuOpen((open) => !open)}
-                >
-                    {menuOpen ? <XIcon size={22} /> : <ListIcon size={22} />}
-                </button>
-            </div>
-            <LayoutGroup>
+                <LayoutGroup>
                 <div className="hidden md:block">
                 <nav
                     className="flex items-center gap-1"
@@ -109,6 +97,17 @@ export default function Header() {
                 </nav>
                 </div>
             </LayoutGroup>
+                <button
+                    type="button"
+                    className="inline-flex size-9 items-center justify-center text-[#171717] md:hidden"
+                    aria-expanded={menuOpen}
+                    aria-controls="mobile-nav"
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    {menuOpen ? <XIcon size={22} /> : <ListIcon size={22} />}
+                </button>
+            </div>
             <div className="hidden md:block">
                 <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} onClick={scrollToFooter}/>
             </div>

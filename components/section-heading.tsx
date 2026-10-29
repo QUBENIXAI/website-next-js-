@@ -7,13 +7,15 @@ const spring = { type: "spring" as const, stiffness: 380, damping: 32 }
 export default function SectionHeading({
     children,
     className = "",
+    align = "center",
 }: {
     children: React.ReactNode
     className?: string
+    align?: "center" | "start"
 }) {
     return (
         <motion.h1
-            className={`relative mx-auto w-fit px-3 py-1.5 sm:px-4 sm:py-2 bg-white ${className}`}
+            className={`relative w-fit bg-white px-3 py-1.5 sm:px-4 sm:py-2 ${align === "start" ? "mr-auto ml-0 self-start" : "mx-auto"} ${className}`}
             initial="rest"
             whileInView="active"
             viewport={{ amount: 0.7 }}
