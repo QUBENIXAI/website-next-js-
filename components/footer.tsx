@@ -34,7 +34,13 @@ const columns = [
     },
     {
         title: "Legal",
-        links: ["Privacy Policy", "Terms & Conditions", "Cookie Policy", "Data Protection & Requests", "Refund & Cancellation"],
+        links: [
+            { label: "Privacy Policy", href: "/legal/privacy-policy" },
+            { label: "Terms & Conditions", href: "/legal/terms" },
+            { label: "Cookie Policy", href: "/legal/cookies" },
+            { label: "Data Protection & Requests", href: "/legal/data-protection" },
+            { label: "Refund & Cancellation", href: "/legal/refund-policy" },
+        ],
     },
 ]
 

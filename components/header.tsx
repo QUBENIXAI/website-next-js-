@@ -53,7 +53,7 @@ export default function Header() {
     useEffect(() => {
         setMenuOpen(false)
     }, [pathname])
-    if (pathname.startsWith("/blog/")) return null
+    if (pathname.startsWith("/blog/") || pathname.startsWith("/legal")) return null
     return (
         <header className={`pointer-events-none sticky top-4 z-40 flex w-full flex-col items-center px-3 transition-opacity duration-200 in-data-[team-pop=open]:invisible in-data-[team-pop=open]:opacity-0 sm:px-5 ${blogIndex ? "bg-[#f4f4f4] before:pointer-events-none before:absolute before:inset-x-0 before:-top-4 before:h-4 before:bg-[#f4f4f4]" : ""}`}>
         <motion.div

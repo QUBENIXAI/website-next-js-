@@ -33,12 +33,12 @@ export function BlogRule() {
     return <div aria-hidden className="h-px bg-[#c8c8c8]" />
 }
 
-export function BlogArticleHeader({ nextHref }: { nextHref?: string }) {
+export function BlogArticleHeader({ nextHref, backHref = "/blog" }: { nextHref?: string; backHref?: string }) {
     return (
         <header className="sticky top-0 z-20 bg-[#f4f4f4]">
             <div className="px-6">
                 <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
-                    <Link href="/blog" className="text-sm text-black">
+                    <Link href={backHref} className="text-sm text-black">
                         ← Go back
                     </Link>
                     {nextHref ? (
