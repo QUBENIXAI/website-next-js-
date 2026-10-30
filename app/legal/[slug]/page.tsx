@@ -50,7 +50,7 @@ async function LegalDocument({ params }: { params: Promise<{ slug: string }> }) 
                     <p className="text-sm text-[#8a8a8a]">{page.date}</p>
                     <h1 className="mt-3 text-3xl font-medium tracking-tight text-black sm:text-4xl">{page.title}</h1>
                     <p className="mt-4 text-base leading-7 text-[#616161]">{page.description}</p>
-                    <div className="[&_a[href^='mailto:']]:text-[#2F6BFF] [&_a[href^='mailto:']]:decoration-[#2F6BFF]">
+                    <div className="[&_a]:text-[#2F6BFF] [&_a]:decoration-[#2F6BFF]">
                         <BlogBody content={page.content} />
                     </div>
                 </BlogReveal>

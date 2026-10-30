@@ -4,6 +4,8 @@ import { CaretDown } from "@phosphor-icons/react"
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
 import CornerDotGrids from "./corner-dot-grids"
+import IconCraft from "./icon-crafts/main"
+import { BriefcaseIcon } from "@phosphor-icons/react"
 
 interface Position {
     title: string
@@ -240,18 +242,22 @@ export default function Careers() {
         >
             <CornerDotGrids corners="top" />
             <div className="relative z-0 mx-auto w-full max-w-6xl bg-background px-4 sm:px-6">
-            <section className="flex w-full flex-col gap-4 pt-28 pb-12 sm:flex-row sm:items-end sm:justify-between sm:gap-10 sm:pt-32 sm:pb-16">
-                <h1 className="text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
-                    Join us
-                    <br />
-                    to build what&apos;s next.
-                </h1>
-                <p className="max-w-xl text-base leading-6 text-[#616161] sm:max-w-md sm:pb-1 sm:text-right sm:text-lg sm:leading-7 lg:max-w-lg">
-                    Open roles for people who want to build smarter systems
-                    <br />
-                    with the Qubenix team. All of them are remote.
-                </p>
-            </section>
+            <section className="flex w-full flex-col items-center gap-4 sm:py-16 text-center">
+    <div className="flex flex-col items-center gap-5">
+        <IconCraft icon={<BriefcaseIcon />} />
+        <h1 className="mb-2 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
+            Join us
+            <br />
+            to build what&apos;s next.
+        </h1>
+    </div>
+
+    <p className="max-w-xl text-base leading-6 text-[#616161] sm:text-lg sm:leading-7 ">
+        Open roles for people who want to build smarter systems
+        <br className="hidden sm:block" />
+        with the Qubenix team. All of them are remote.
+    </p>
+</section>
 
             <section id="positions" className="scroll-mt-24 pb-4">
                 <div className="grid w-full overflow-hidden border border-[#ececec] bg-white md:grid-cols-[240px_1fr]">
