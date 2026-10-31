@@ -234,7 +234,7 @@ export default function Careers() {
 
     return (
         <motion.div
-            className="relative isolate w-full"
+            className="relative isolate w-full rounded-md"
             initial={{ filter: "blur(18px)", opacity: 0.65 }}
             animate={revealed ? { filter: "none", opacity: 1 } : { filter: "blur(0px)", opacity: 1 }}
             transition={revealed ? { duration: 0 } : { duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -242,71 +242,71 @@ export default function Careers() {
         >
             <CornerDotGrids corners="top" />
             <div className="relative z-0 mx-auto w-full max-w-6xl bg-background px-4 sm:px-6">
-            <section className="flex w-full flex-col items-center gap-4 sm:py-16 text-center">
-    <div className="flex flex-col items-center gap-5">
-        <IconCraft icon={<BriefcaseIcon />} />
-        <h1 className="mb-2 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
-            Join us
-            <br />
-            to build what&apos;s next.
-        </h1>
-    </div>
-
-    <p className="max-w-xl text-base leading-6 text-[#616161] sm:text-lg sm:leading-7 ">
-        Open roles for people who want to build smarter systems
-        <br className="hidden sm:block" />
-        with the Qubenix team. All of them are remote.
-    </p>
-</section>
-
-            <section id="positions" className="scroll-mt-24 pb-4">
-                <div className="grid w-full overflow-hidden border border-[#ececec] bg-white md:grid-cols-[240px_1fr]">
-                    <aside className="border-[#ececec] md:border-r" onPointerDown={(event) => event.stopPropagation()}>
-                        <FilterSelect
-                            label="Location"
-                            value={location}
-                            options={locations}
-                            open={openFilter === "location"}
-                            onToggle={() => setOpenFilter((current) => (current === "location" ? null : "location"))}
-                            onSelect={(value) => {
-                                setLocation(value)
-                                setOpenFilter(null)
-                            }}
-                        />
-                        <FilterSelect
-                            label="Department"
-                            value={department}
-                            options={departmentOptions}
-                            open={openFilter === "department"}
-                            onToggle={() => setOpenFilter((current) => (current === "department" ? null : "department"))}
-                            onSelect={(value) => {
-                                setDepartment(value)
-                                setOpenFilter(null)
-                            }}
-                        />
-                    </aside>
-
-                    <div>
-                        <h2 className="border-b border-[#ececec] px-4 py-5 text-lg font-medium tracking-tight sm:px-6 sm:text-xl">
-                            Open Positions
-                        </h2>
-                        {visible.length === 0 ? (
-                            <p className="px-4 py-8 text-sm text-[#9a9a9a] sm:px-6">No open roles for this filter.</p>
-                        ) : (
-                            visible.map((position) => (
-                                <RoleRow
-                                    key={position.title}
-                                    position={position}
-                                    open={openTitle === position.title}
-                                    onToggle={() =>
-                                        setOpenTitle((current) => (current === position.title ? null : position.title))
-                                    }
-                                />
-                            ))
-                        )}
+                <section className="flex w-full flex-col items-center gap-4 sm:py-16 text-center">
+                    <div className="flex flex-col items-center gap-5">
+                        <IconCraft icon={<BriefcaseIcon />} />
+                        <h1 className="mb-2 text-4xl font-medium leading-[1.05] tracking-tight text-black sm:text-5xl xl:text-6xl">
+                            Join us
+                            <br />
+                            to build what&apos;s next
+                        </h1>
                     </div>
-                </div>
-            </section>
+
+                    <p className="max-w-xl text-base leading-6 text-[#616161] sm:text-lg sm:leading-7 ">
+                        Open roles for people who want to build smarter systems
+                        <br className="hidden sm:block" />
+                        with the Qubenix team. All of them are remote.
+                    </p>
+                </section>
+
+                <section id="positions" className="scroll-mt-24 pb-4">
+                    <div className="grid w-full overflow-hidden border border-[#ececec] bg-white md:grid-cols-[240px_1fr]">
+                        <aside className="border-[#ececec] md:border-r" onPointerDown={(event) => event.stopPropagation()}>
+                            <FilterSelect
+                                label="Location"
+                                value={location}
+                                options={locations}
+                                open={openFilter === "location"}
+                                onToggle={() => setOpenFilter((current) => (current === "location" ? null : "location"))}
+                                onSelect={(value) => {
+                                    setLocation(value)
+                                    setOpenFilter(null)
+                                }}
+                            />
+                            <FilterSelect
+                                label="Department"
+                                value={department}
+                                options={departmentOptions}
+                                open={openFilter === "department"}
+                                onToggle={() => setOpenFilter((current) => (current === "department" ? null : "department"))}
+                                onSelect={(value) => {
+                                    setDepartment(value)
+                                    setOpenFilter(null)
+                                }}
+                            />
+                        </aside>
+
+                        <div>
+                            <h2 className="border-b border-[#ececec] px-4 py-5 text-lg font-medium tracking-tight sm:px-6 sm:text-xl">
+                                Open Positions
+                            </h2>
+                            {visible.length === 0 ? (
+                                <p className="px-4 py-8 text-sm text-[#9a9a9a] sm:px-6">No open roles for this filter.</p>
+                            ) : (
+                                visible.map((position) => (
+                                    <RoleRow
+                                        key={position.title}
+                                        position={position}
+                                        open={openTitle === position.title}
+                                        onToggle={() =>
+                                            setOpenTitle((current) => (current === position.title ? null : position.title))
+                                        }
+                                    />
+                                ))
+                            )}
+                        </div>
+                    </div>
+                </section>
             </div>
         </motion.div>
     )
@@ -348,9 +348,8 @@ function FilterSelect({
                             <button
                                 type="button"
                                 onClick={() => onSelect(option)}
-                                className={`w-full px-5 py-2.5 text-left text-sm ${
-                                    option === value ? "text-black" : "text-[#616161]"
-                                }`}
+                                className={`w-full px-5 py-2.5 text-left text-sm ${option === value ? "text-black" : "text-[#616161]"
+                                    }`}
                             >
                                 {option}
                             </button>
@@ -388,9 +387,8 @@ function RoleRow({
                 </button>
             </div>
             <div
-                className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                }`}
+                className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
             >
                 <div className="overflow-hidden" inert={open ? undefined : true}>
                     <div className="border-t border-[#f2f2f2] bg-[#fafafa] px-4 py-5 sm:px-6">

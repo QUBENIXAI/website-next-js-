@@ -17,10 +17,10 @@ export default async function BlogPage() {
             <section className="flex flex-col items-center text-center">
                 <BlogIcon />
                 <h1 className="mt-4 text-4xl font-medium tracking-tight text-black sm:text-6xl">
-                    From the Qubenix blog.
+                    From the Qubenix Blogs
                 </h1>
                 <p className="mt-3 max-w-xl text-base leading-6 text-[#8a8a8a] sm:text-lg sm:leading-7">
-                    Notes on AI automation, agents, and the systems we build for growing teams.
+                    We ocasionally post blogs on AI automation, agents, and the systems we build for growing teams.
                 </p>
             </section>
 
