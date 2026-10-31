@@ -53,90 +53,105 @@ const socials = [
 
 export default function Footer() {
     return (
-        <footer id="footer" className="relative isolate scroll-mt-24 flex w-full flex-col items-center px-4 pb-16 sm:px-6">
+        <footer id="footer" className="relative isolate scroll-mt-24 flex w-full flex-col items-center pb-0">
             <CornerDotGrids corners="bottom" />
-            <section
-                className="relative z-0 flex w-full max-w-6xl flex-col items-center rounded-3xl px-4 py-10 text-center sm:rounded-[1.75rem] sm:px-6 sm:py-14 lg:py-16"
-                style={{
-                    backgroundImage: "url('https://i.pinimg.com/736x/0f/ea/10/0fea109fd5925aa4acaa87935e345648.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                }}
-            >
-                <div className="relative isolate grid size-14 place-items-center overflow-hidden rounded-lg border-2 border-white bg-linear-to-b from-[#77B0FF] to-[#036DFF] sm:size-16 sm:rounded-xl md:size-20">
-                    <Image
-                        src="/footerlogo.png"
-                        alt="logo"
-                        width={50}
-                        height={50}
-                        className="relative size-8 mix-blend-screen sm:size-10 md:size-[3.125rem]"
-                    />
-                </div>
+            <div className="flex w-full max-w-6xl flex-col items-center px-4 sm:px-6">
+                <section
+                    className="relative z-0 flex w-full flex-col items-center rounded-3xl px-4 py-10 text-center sm:rounded-[1.75rem] sm:px-6 sm:py-14 lg:py-16"
+                    style={{
+                        backgroundImage: "url('https://i.pinimg.com/736x/0f/ea/10/0fea109fd5925aa4acaa87935e345648.jpg')",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                    }}
+                >
+                    <div className="relative isolate grid size-14 place-items-center overflow-hidden rounded-lg border-2 border-white bg-linear-to-b from-[#77B0FF] to-[#036DFF] sm:size-16 sm:rounded-xl md:size-20">
+                        <Image
+                            src="/footerlogo.png"
+                            alt="logo"
+                            width={50}
+                            height={50}
+                            className="relative size-8 mix-blend-screen sm:size-10 md:size-[3.125rem]"
+                        />
+                    </div>
 
-                <h2 className="mt-6 text-xl font-medium leading-tight text-white sm:mt-8 sm:text-3xl lg:text-4xl">
-                    Every great solution starts
-                    <br />
-                    somewhere
-                </h2>
-                <p className="mt-2 text-sm text-white/80 sm:mt-3 sm:text-base lg:text-lg">
-                    Let&apos;s talk about what we can build together
-                </p>
-
-                <div className="mt-8">
-                    <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" onClick={() => {
-                        window.open("https://calendly.com/qubenix-info/30min", "_blank")
-                    }}/>
-                </div>
-            </section>
-
-            <div className="relative z-0 mt-16 grid w-full max-w-6xl gap-12 bg-background lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-16">
-                <div>
-                    <p className="text-base font-semibold tracking-tight sm:text-lg">QUBENIX</p>
-                    <h2 className="mt-6 text-xl font-medium leading-tight tracking-tight sm:mt-8 sm:text-2xl">
-                        Automate. Integrate.
+                    <h2 className="mt-6 text-xl font-medium leading-tight text-white sm:mt-8 sm:text-3xl lg:text-4xl">
+                        Every great solution starts
                         <br />
-                        Elevate.
+                        somewhere
                     </h2>
-                    <p className="mt-3 max-w-xs text-xs leading-relaxed text-neutral-500 sm:mt-4 sm:text-sm">
-                        Qubenix designs intelligent business systems that connect AI, automation, software and data into one operating layer.
+                    <p className="mt-2 text-sm text-white/80 sm:mt-3 sm:text-base lg:text-lg">
+                        Let&apos;s talk about what we can build together
                     </p>
 
-                    <div className="mt-6 flex gap-2">
-                        {socials.map(({ label, icon: Icon, link }) => (
-                            <a
-                                key={label}
-                                href={link}
-                                target="_blank"
-                                aria-label={label}
-                                className="grid size-9 place-items-center rounded-lg text-white bg-gradient-to-b from-[#77B0FF] to-[#036DFF]"
-                            >
-                                <Icon size={16} />
-                            </a>
+                    <div className="mt-8">
+                        <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" onClick={() => {
+                            window.open("https://calendly.com/qubenix-info/30min", "_blank")
+                        }}/>
+                    </div>
+                </section>
+
+                <div className="relative z-0 mt-16 grid w-full gap-12 bg-background lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-16">
+                    <div>
+                        <p className="text-base font-semibold tracking-tight sm:text-lg">QUBENIX</p>
+                        <h2 className="mt-6 text-xl font-medium leading-tight tracking-tight sm:mt-8 sm:text-2xl">
+                            Automate. Integrate.
+                            <br />
+                            Elevate.
+                        </h2>
+                        <p className="mt-3 max-w-xs text-xs leading-relaxed text-neutral-500 sm:mt-4 sm:text-sm">
+                            Qubenix designs intelligent business systems that connect AI, automation, software and data into one operating layer.
+                        </p>
+
+                        <div className="mt-6 flex gap-2">
+                            {socials.map(({ label, icon: Icon, link }) => (
+                                <a
+                                    key={label}
+                                    href={link}
+                                    target="_blank"
+                                    aria-label={label}
+                                    className="border border-[#ff] shadow-[0_8px_8px_-2px_rgba(0,0,0,0.25)] grid size-9 place-items-center rounded-sm text-white bg-gradient-to-b from-[#77B0FF] to-[#036DFF]"
+                                >
+                                    <Icon size={16} />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+                        {columns.map((column) => (
+                            <div key={column.title}>
+                                <p className="text-xs font-semibold sm:text-sm">{column.title}</p>
+                                <ul className="mt-3 flex flex-col gap-2.5 sm:mt-4 sm:gap-3">
+                                    {column.links.map((item) => {
+                                        const link = typeof item === "string" ? { label: item, href: "#" } : item
+                                        return (
+                                            <li key={link.label}>
+                                                <Link href={link.href} className="text-xs text-neutral-800 sm:text-sm">
+                                                    {link.label}
+                                                </Link>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
                         ))}
                     </div>
                 </div>
-
-                <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-                    {columns.map((column) => (
-                        <div key={column.title}>
-                            <p className="text-xs font-semibold sm:text-sm">{column.title}</p>
-                            <ul className="mt-3 flex flex-col gap-2.5 sm:mt-4 sm:gap-3">
-                                {column.links.map((item) => {
-                                    const link = typeof item === "string" ? { label: item, href: "#" } : item
-                                    return (
-                                        <li key={link.label}>
-                                            <Link href={link.href} className="text-xs text-neutral-800 sm:text-sm">
-                                                {link.label}
-                                            </Link>
-                                        </li>
-                                    )
-                                })}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
             </div>
+            <BigText />
         </footer>
+    )
+}
+
+const BigText = () => {
+    return (
+        <div className="relative mt-16 w-full overflow-hidden select-none sm:mt-20 lg:mt-24">
+            <h1 className="text-center text-[clamp(4.5rem,18vw,16rem)] font-bold leading-[0.75] tracking-[-0.08em] text-blue-500 translate-y-[8%]">
+                Qubenix
+            </h1>
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent backdrop-blur-[2px]" />
+        </div>
     )
 }

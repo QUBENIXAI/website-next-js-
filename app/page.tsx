@@ -34,7 +34,7 @@ export default function Home() {
       </section>
       <ProcessSection />
       <FaqSection />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
