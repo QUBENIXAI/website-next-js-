@@ -56,7 +56,7 @@ export default function CtaButton({
             className={cn(
                 "flex items-center justify-center gap-1.5 rounded-sm px-3 py-2 text-inherit sm:gap-2 sm:px-4 sm:py-3",
                 !customBackground && "bg-linear-to-b from-[#77B0FF] to-[#0353FF] border border-[#fff]",
-                "shadow-[0_8px_8px_-2px_rgba(0,0,0,0.25)]",
+                "shadow-[0_10px_8px_-2px_rgba(0,0,0,0.25)]",
                 className,
             )}
         >

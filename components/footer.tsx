@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import CornerDotGrids from "./corner-dot-grids"
 import CtaButton from "./cta-button"
+import { motion } from 'motion/react'
 import { ArrowBendUpRightIcon, FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react"
 
 const columns = [
@@ -87,7 +88,7 @@ export default function Footer() {
                     <div className="mt-8">
                         <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" onClick={() => {
                             window.open("https://calendly.com/qubenix-info/30min", "_blank")
-                        }}/>
+                        }} />
                     </div>
                 </section>
 
@@ -151,7 +152,13 @@ const BigText = () => {
                 Qubenix
             </h1>
 
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent backdrop-blur-[2px]" />
+            <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent backdrop-blur-[2px]"
+                style={{
+                    maskImage: "linear-gradient(to top, black 0%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 100%)",
+                }}
+            />
         </div>
     )
 }
