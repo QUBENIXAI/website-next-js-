@@ -153,7 +153,7 @@ const BigText = () => {
             </h1>
 
             <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/80 to-transparent backdrop-blur-[2px]"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-background via-background/80 to-transparent backdrop-blur-[2px]"
                 style={{
                     maskImage: "linear-gradient(to top, black 0%, transparent 100%)",
                     WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 100%)",

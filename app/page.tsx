@@ -7,7 +7,7 @@ import SectionHeading from "@/components/section-heading";
 import Bento1 from "@/components/bento-section/bento-1";
 import Bento2 from "@/components/bento-section/bento-2";
 import Bento3 from "@/components/bento-section/bento-3";
-import AboutUs from "@/components/about-us";
+import AboutUs from "@/components/about-us/about-us";
 
 export default function Home() {
   return (
