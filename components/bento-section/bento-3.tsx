@@ -71,7 +71,7 @@ function TextLine({ x, y, w, index }: { x: number, y: number, w: number, index: 
 
 export default function Bento3() {
     return (
-        <article className="flex min-h-[300px] w-full min-w-0 flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:min-h-0 sm:min-h-[260px] xl:min-h-0">
+        <article className="border border-neutral-200 flex min-h-[300px] w-full min-w-0 flex-1 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:min-h-0 sm:min-h-[260px] xl:min-h-0">
             <div className="relative min-h-[180px] flex-1 max-sm:min-h-0 max-sm:flex-none sm:min-h-[148px]">
                 <Visual3 className="h-auto w-full sm:hidden" viewBox="0 0 532 162" id="240_59m" />
                 <Visual3 />

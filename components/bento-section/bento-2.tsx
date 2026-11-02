@@ -5,8 +5,8 @@ import { motion } from "motion/react"
 
 export default function Bento2() {
     return (
-        <div className="grid h-fit w-full min-w-0 shrink-0 grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
-            <article className="flex h-full min-w-0 flex-col rounded-lg bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:order-2 sm:p-4">
+        <div className=" grid h-fit w-full min-w-0 shrink-0 grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
+            <article className="border border-neutral-200 flex h-full min-w-0 flex-col rounded-lg bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:order-2 sm:p-4">
                 <div className="relative flex h-[148px] shrink-0 items-center justify-center overflow-hidden bg-[#F5F5F5] sm:h-[168px]">
                     <FlowDots />
                     <Visual2 />
@@ -21,7 +21,7 @@ export default function Bento2() {
                 </div>
             </article>
 
-            <article className="flex h-full min-w-0 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:order-1">
+            <article className="border border-neutral-200 flex h-full min-w-0 flex-col overflow-hidden rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] max-sm:order-1">
                 <div className="relative h-[168px] shrink-0 sm:h-[196px]">
                     <Visual3 />
                 </div>

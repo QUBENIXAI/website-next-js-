@@ -160,7 +160,7 @@ export default function Header() {
 const HeaderLogo = () => {
     return (
         <main className="flex items-center gap-2">
-            <div className="relative shadow-[0_8px_8px_-2px_rgba(0,0,0,0.25)] isolate grid size-9 shrink-0 place-items-center overflow-hidden rounded-md border border-white bg-linear-to-b from-[#77B0FF] to-[#036DFF] sm:size-10 md:size-11">
+            <div className="relative isolate grid size-9 shrink-0 place-items-center overflow-hidden rounded-md border border-white bg-linear-to-b from-[#77B0FF] to-[#036DFF] sm:size-10 md:size-11">
                 <Image
                     src="/footerlogo.png"
                     alt="Qubenix"

@@ -36,7 +36,7 @@ const gridItems: GridItem[] = [
 
 export default function TeamBrief() {
     return (
-        <div className="relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[1rem] bg-white px-6 sm:px-7">
+        <div className="border border-neutral-200 relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[1rem] bg-white px-6 sm:px-7">
             {/* Top Grid of Tiles with overflow-hidden and -mt to achieve top-edge clipping */}
             <div className="relative w-full overflow-hidden pt-1">
                 <GridVisual />
@@ -63,7 +63,7 @@ export default function TeamBrief() {
 
 const GridVisual = () => {
     const emptyTileStyle =
-        "w-full aspect-square rounded-[14px] sm:rounded-[14px] bg-white shadow-[inset_0_4px_10px_rgba(0,0,0,0.12),inset_0_-2px_6px_rgba(0,0,0,0.04)] border border-black/5 transition-transform duration-200 hover:scale-[1.02]";
+        "w-full aspect-square rounded-[14px] sm:rounded-[14px] bg-white shadow-[inset_0_4px_6px_rgba(0,0,0,0.12),inset_0_-2px_4px_rgba(0,0,0,0.04)] border border-black/5 transition-transform duration-200 hover:scale-[1.02]";
 
     const imageTileStyle =
         "w-full aspect-square rounded-[14px] sm:rounded-[14px] overflow-hidden relative shadow-sm border border-black/5 bg-neutral-100 transition-transform duration-200 hover:scale-[1.03]";

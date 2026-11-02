@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Bento1() {
     return (
-        <div className="flex w-full flex-col rounded-2xl bg-gradient-to-b from-[#8DAFFF] to-[#0E42FF] px-3 py-3 sm:px-3.5 sm:py-3.5 xl:h-[695px] xl:w-[418px] xl:shrink-0">
+        <div className="border border-neutral-200 flex w-full flex-col rounded-2xl bg-gradient-to-b from-[#8DAFFF] to-[#0E42FF] px-3 py-3 sm:px-3.5 sm:py-3.5 xl:h-[695px] xl:w-[418px] xl:shrink-0">
     <div className="relative flex items-center justify-center overflow-hidden rounded-xl bg-white px-3 py-8 sm:rounded-2xl sm:px-4 sm:py-10">
         <DotGrid />
         <div className="relative z-10 w-full">

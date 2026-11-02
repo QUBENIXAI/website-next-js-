@@ -13,8 +13,6 @@ export default function Home() {
   return (
     <div className="flex w-full flex-1 flex-col items-center gap-10 bg-background font-sans sm:gap-16">
       <HeroSection />
-      <AboutUs />
-      <WhatWeProvide />
       <section id="services" className="mt-6 flex w-full flex-col items-center px-4 sm:mt-8 sm:px-6">
         <div className="flex w-full max-w-6xl flex-col items-start gap-2 text-left">
           <SectionHeading align="start" className="text-3xl font-medium sm:text-5xl">
@@ -32,7 +30,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <WhatWeProvide />
       <ProcessSection />
+      <AboutUs />
       <FaqSection />
       <Footer />
     </div>
