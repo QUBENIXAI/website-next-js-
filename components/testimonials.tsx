@@ -4,6 +4,7 @@ import Image from "next/image"
 import { animate, motion, useMotionValue } from "motion/react"
 import { useEffect, useRef } from "react"
 import SectionHeading from "./section-heading"
+import { ProgressiveBlur } from "./progressive-blur"
 
 interface TestimonialProps {
     name: string
@@ -181,9 +182,17 @@ export default function TestimonialSection() {
                 </p>
             </section>
 
-            <section className="mt-10 flex w-full flex-col gap-3 sm:mt-14 sm:gap-4">
-                <TestimonialRow items={firstRow} />
-                <TestimonialRow items={secondRow} reverse />
+        <section className="mt-10 flex w-full flex-col gap-3 sm:mt-14 sm:gap-4">
+                <div className="relative">
+                    <TestimonialRow items={firstRow} />
+                    <ProgressiveBlur direction="left"  className="absolute inset-y-0 left-0 w-24 sm:w-40" blurLayers={6} blurIntensity={0.35} />
+                    <ProgressiveBlur direction="right" className="absolute inset-y-0 right-0 w-24 sm:w-40" blurLayers={6} blurIntensity={0.35} />
+                </div>
+                <div className="relative">
+                    <TestimonialRow items={secondRow} reverse />
+                    <ProgressiveBlur direction="left"  className="absolute inset-y-0 left-0 w-24 sm:w-40" blurLayers={6} blurIntensity={0.35} />
+                    <ProgressiveBlur direction="right" className="absolute inset-y-0 right-0 w-24 sm:w-40" blurLayers={6} blurIntensity={0.35} />
+                </div>
             </section>
         </main>
     )
