@@ -3,9 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import CornerDotGrids from "./corner-dot-grids"
-import CtaButton from "./cta-button"
 import { motion } from 'motion/react'
-import { ArrowBendUpRightIcon, FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react"
+import { ArrowBendUpRightIcon, FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, XLogoIcon, CalendarDotIcon } from "@phosphor-icons/react"
 
 const columns = [
     {
@@ -86,9 +85,18 @@ export default function Footer() {
                     </p>
 
                     <div className="mt-8">
-                        <CtaButton label="Schedule a Call" icon={<ArrowBendUpRightIcon />} className="bg-[#fff] text-black" onClick={() => {
-                            window.open("https://calendly.com/qubenix-info/30min", "_blank")
-                        }} />
+                        <button
+                            type="button"
+                            onClick={() => window.open("https://calendly.com/qubenix-info/30min", "_blank")}
+                            className="rounded-md p-0.5 text-white"
+                        >
+                            <span className="flex items-center justify-center gap-1.5 rounded-sm px-3 py-2 sm:gap-2 sm:px-4 sm:py-3 bg-white border border-neutral-300">
+                                <p className="text-xs sm:text-sm font-medium text-black">Schedule a Call</p>
+                                <span className="flex [&_svg]:size-3.5 sm:[&_svg]:size-4">
+                                    <CalendarDotIcon color="black" />
+                                </span>
+                            </span>
+                        </button>
                     </div>
                 </section>
 

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import CtaButton from "./cta-button";
-import { ListIcon, XIcon, ArrowBendRightDownIcon } from "@phosphor-icons/react/dist/ssr";
+import { ListIcon, XIcon, ArrowBendRightDownIcon } from "@phosphor-icons/react";
+import { CalendarDotIcon } from "@phosphor-icons/react";
 import { AnimatePresence, LayoutGroup, motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -119,7 +119,18 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="hidden md:block">
-                    <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} onClick={scrollToFooter} />
+                    <button
+                        type="button"
+                        onClick={() => window.open("https://calendly.com/qubenix-info/30min", "_blank")}
+                        className="rounded-md p-0.5 text-white"
+                    >
+                        <span className="flex items-center justify-center gap-1.5 rounded-sm px-3 py-2 sm:gap-2 sm:px-4 sm:py-3 bg-white border border-neutral-300">
+                            <p className="text-xs sm:text-sm font-medium text-black">Schedule a Call</p>
+                            <span className="flex [&_svg]:size-3.5 sm:[&_svg]:size-4">
+                                <CalendarDotIcon color="black" />
+                            </span>
+                        </span>
+                    </button>
                 </div>
             </motion.div>
             <AnimatePresence>
@@ -148,7 +159,18 @@ export default function Header() {
                             )
                         })}
                         <div className="px-2 pt-2 pb-1">
-                            <CtaButton label="Let's Talk" icon={<ArrowBendRightDownIcon />} onClick={() => { setMenuOpen(false); scrollToFooter() }} />
+                            <button
+                                type="button"
+                                onClick={() => { setMenuOpen(false); scrollToFooter(); }}
+                                className="rounded-md p-0.5 text-white w-full"
+                            >
+                                <span className="flex items-center justify-center gap-1.5 rounded-sm px-3 py-2 sm:gap-2 sm:px-4 sm:py-3 bg-linear-to-b from-[#77B0FF] to-[#0353FF] border border-white shadow-[0_10px_8px_-2px_rgba(0,0,0,0.25)]">
+                                    <p className="text-xs sm:text-sm font-medium">Schedule a Call</p>
+                                    <span className="flex [&_svg]:size-3.5 sm:[&_svg]:size-4">
+                                        <CalendarDotIcon />
+                                    </span>
+                                </span>
+                            </button>
                         </div>
                     </motion.nav>
                 )}
