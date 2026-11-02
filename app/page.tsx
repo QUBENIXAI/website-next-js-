@@ -8,6 +8,7 @@ import Bento1 from "@/components/bento-section/bento-1";
 import Bento2 from "@/components/bento-section/bento-2";
 import Bento3 from "@/components/bento-section/bento-3";
 import AboutUs from "@/components/about-us/about-us";
+import TestimonialSection from "@/components/testimonials";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
       <WhatWeProvide />
       <ProcessSection />
       <AboutUs />
+      <TestimonialSection />
       <FaqSection />
       <Footer />
     </div>

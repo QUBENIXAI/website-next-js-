@@ -72,8 +72,8 @@ function BlueStatsCard() {
 
             {/* Bottom Statement */}
             <div className="mt-6 sm:mt-8">
-                <p className="text-lg sm:text-2xl text-black leading-snug max-w-[250px]">
-                    End-to-End Connected Business Solution
+                <p className="text-lg sm:text-2xl text-blue-800 leading-snug max-w-[250px] font-medium">
+                    END-TO-END CONNECTED BUSINESS SOLUTION
                 </p>
             </div>
         </div>

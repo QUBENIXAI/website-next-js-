@@ -25,7 +25,7 @@ const positions: Position[] = [
         description: "Help design intelligent workflows that reduce repetitive work and connect business processes.",
         tags: ["Logical Thinking", "APIs & Webhooks", "Automation Tools", "n8n", "AI Agents"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Identify opportunities to automate repetitive tasks.",
             "Design and implement automation workflows.",
@@ -47,7 +47,7 @@ const positions: Position[] = [
         description: "Help build modern websites, web applications, APIs, and business software.",
         tags: ["HTML & CSS", "JavaScript", "TypeScript", "React", "Backend Fundamentals", "Git"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Develop responsive user interfaces.",
             "Implement application features.",
@@ -69,7 +69,7 @@ const positions: Position[] = [
         description: "Explore AI capabilities and help prototype useful AI-powered applications and intelligent systems.",
         tags: ["Analytical Thinking", "Machine Learning", "Generative AI", "Python Fundamentals", "LLM Applications"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Research relevant AI models and techniques.",
             "Evaluate AI tools and APIs.",
@@ -91,7 +91,7 @@ const positions: Position[] = [
         description: "Help communicate Qubenix's ideas, products, and technology through engaging digital content.",
         tags: ["Writing & Communication", "Social Media", "Storytelling", "Video Concepts", "Technology Explaining"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Develop content ideas and content calendars.",
             "Create social media posts and short-form video concepts.",
@@ -113,7 +113,7 @@ const positions: Position[] = [
         description: "Help improve website visibility, organic discovery, and content performance.",
         tags: ["SEO Fundamentals", "Keyword Research", "Content Optimisation", "Google Search Console", "Website Growth"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Research relevant keywords and search intent.",
             "Support on-page SEO improvements.",
@@ -136,7 +136,7 @@ const positions: Position[] = [
         description: "Help create intuitive interfaces and polished visual experiences for Qubenix websites, applications, and digital content.",
         tags: ["Visual Design", "Figma", "Typography & Layout", "Responsive Interfaces", "UI/UX Flows"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Design interface layouts and user flows.",
             "Create wireframes and visual concepts.",
@@ -158,7 +158,7 @@ const positions: Position[] = [
         description: "Help build relationships with students, professionals, communities, educational institutions, and potential partners.",
         tags: ["Interpersonal Skills", "Relationship Building", "Outreach & Coordination", "Community Platforms", "Collaboration"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Support community engagement initiatives.",
             "Research relevant organisations and opportunities.",
@@ -180,7 +180,7 @@ const positions: Position[] = [
         description: "Help coordinate projects, organise workflows, and improve the way teams plan and execute work.",
         tags: ["Organisation & Planning", "Time Management", "Written Communication", "Problem Solving", "Workflow Coordination"],
         location: "Remote",
-        apply_url: "https://forms.gle/",
+        apply_url: "https://forms.gle/Ly42TBuUJ3ybbnFc9",
         key_responsibilities: [
             "Track project tasks and progress.",
             "Maintain documentation and project updates.",
