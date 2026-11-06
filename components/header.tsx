@@ -186,9 +186,9 @@ const HeaderLogo = () => {
                 <Image
                     src="/footerlogo.png"
                     alt="Qubenix"
-                    width={30}
-                    height={30}
-                    className="relative size-6 object-contain mix-blend-screen sm:size-7"
+                    width={48}
+                    height={48}
+                    className="absolute inset-0 m-auto size-11 object-contain mix-blend-screen sm:size-12 md:size-13"
                 />
             </div>
             <h1 className="font-medium text-lg sm:text-xl text-[#3C32AC]">Qubenix</h1>

@@ -29,7 +29,7 @@ export default async function BlogPage() {
                     <Link key={post.slug} href={`/blog/${post.slug}`} className="flex flex-col">
                         <div
                             className="aspect-[4/3] overflow-hidden bg-cover bg-center p-4 sm:p-5"
-                            style={{ backgroundImage: "url('/blog/frame.jpg')" }}
+                            style={{ backgroundImage: "url('https://i.pinimg.com/1200x/75/8b/48/758b48719aa2f37ca9951f7a6da75811.jpg')" }}
                         >
                             <div className="relative h-full w-full bg-white">
                                 <Image

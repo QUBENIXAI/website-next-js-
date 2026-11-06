@@ -37,7 +37,7 @@ function GrowthHighlight() {
                 className="relative"
                 variants={{
                     rest: { color: "#171717" },
-                    active: { color: "#A78BFA" },
+                    active: { color: "#8063D8" },
                 }}
                 transition={{ duration: 0.25, delay: 0.12 }}
             >

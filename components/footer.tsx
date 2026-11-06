@@ -59,7 +59,7 @@ export default function Footer() {
                 <section
                     className="relative z-0 flex w-full flex-col items-center rounded-3xl px-4 py-10 text-center sm:rounded-[1.75rem] sm:px-6 sm:py-14 lg:py-16"
                     style={{
-                        backgroundImage: "url('https://i.pinimg.com/736x/0f/ea/10/0fea109fd5925aa4acaa87935e345648.jpg')",
+                        backgroundImage: "url('https://i.pinimg.com/736x/cc/f0/4d/ccf04d8ffc6ca44c16400478dd1787dd.jpg')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",

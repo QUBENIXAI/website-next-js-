@@ -15,7 +15,7 @@ export default function AboutUs() {
                     Why Choose Us
                 </SectionHeading>
                 <p className="max-w-lg text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">
-                    An AI and technology company helping businesses work smarter through intelligent automation, connected systems, and scalable software.
+                    From streamlining everyday operations to building intelligent solutions, we help businesses turn complex challenges into meaningful progress.
                 </p>
             </div>
             {/* Bento Grid */}

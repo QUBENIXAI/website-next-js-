@@ -49,7 +49,7 @@ const components: Components = {
         return (
             <figure
                 className="mt-8 bg-cover bg-center p-6 sm:p-10"
-                style={{ backgroundImage: "url('/blog/frame.jpg')" }}
+                style={{ backgroundImage: "url('https://i.pinimg.com/1200x/75/8b/48/758b48719aa2f37ca9951f7a6da75811.jpg')" }}
             >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={src} alt={alt ?? ""} className="w-full bg-white" />
