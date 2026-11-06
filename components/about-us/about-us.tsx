@@ -10,15 +10,14 @@ export default function AboutUs() {
     return (
         <section id="about" className="flex w-full flex-col items-center px-4 sm:px-6 sm:mt-8">
             {/* Header: Heading and Subheading */}
-            <div className="flex w-full max-w-6xl flex-col items-start gap-2 text-left">
-                <SectionHeading align="start" className="text-3xl font-medium sm:text-5xl">
+            <div className="flex w-full max-w-6xl flex-col items-center gap-2 text-center">
+                <SectionHeading align="center" className="text-3xl font-medium sm:text-5xl">
                     Why Choose Us
                 </SectionHeading>
                 <p className="max-w-lg text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">
                     An AI and technology company helping businesses work smarter through intelligent automation, connected systems, and scalable software.
                 </p>
             </div>
-
             {/* Bento Grid */}
             <div className="mt-8 flex w-full max-w-6xl flex-col lg:flex-row gap-4 sm:gap-5 items-stretch sm:mt-10">
                 {/* Left Column: Team Brief */}
@@ -47,7 +46,7 @@ export default function AboutUs() {
 
 function BlueStatsCard() {
     return (
-        <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[1rem] bg-gradient-to-bl from-[#558DFF] via-[#7AA8FF] to-[#fff] p-5 sm:p-6">
+        <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[1rem] bg-gradient-to-bl from-[#A78BFA] via-[#D8D0FA] to-[#fff] p-5 sm:p-6">
             <div>
                 {/* 50+ Tools Built */}
                 <div className="rounded-2xl sm:rounded-[22px] bg-white p-5 sm:p-6 shadow-sm border border-black/[0.04]">
@@ -72,7 +71,7 @@ function BlueStatsCard() {
 
             {/* Bottom Statement */}
             <div className="mt-6 sm:mt-8">
-                <p className="text-lg sm:text-2xl text-blue-800 leading-snug max-w-[250px] font-medium">
+                <p className="text-lg sm:text-2xl text-[#3F46B5] leading-snug max-w-[250px] font-medium">
                     END-TO-END CONNECTED BUSINESS SOLUTION
                 </p>
             </div>
@@ -106,7 +105,7 @@ function ChairImageCard() {
 function QuoteCard() {
     return (
         <div className="border border-neutral-200 relative flex min-h-[130px] sm:min-h-[140px] flex-1 flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[1rem] bg-white p-5 sm:p-6">
-            <h3 className="relative z-10 text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-[#1668E8] leading-tight max-w-[320px]">
+            <h3 className="relative z-10 text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-[#3F46B5] leading-tight max-w-[320px]">
                 &ldquo;Good Technology should make work feel simpler&rdquo;
             </h3>
 
@@ -114,21 +113,21 @@ function QuoteCard() {
                 <svg viewBox="0 0 200 80" fill="none" className="w-full h-full">
                     <path
                         d="M 10 75 C 70 72, 130 55, 195 15"
-                        stroke="url(#blue-curve-gradient)"
+                        stroke="url(#purple-blue-curve-gradient)"
                         strokeWidth="7"
                         strokeLinecap="round"
                     />
                     <defs>
-                        <linearGradient id="blue-curve-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#4A88FF" stopOpacity="0.3" />
-                            <stop offset="50%" stopColor="#2563EB" stopOpacity="0.9" />
-                            <stop offset="100%" stopColor="#0284C7" stopOpacity="1" />
+                        <linearGradient id="purple-blue-curve-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#A78BFA" stopOpacity="0.3" />
+                            <stop offset="50%" stopColor="#7164E8" stopOpacity="0.9" />
+                            <stop offset="100%" stopColor="#3F46B5" stopOpacity="1" />
                         </linearGradient>
                     </defs>
                 </svg>
             </div>
 
-            <div className="pointer-events-none absolute -bottom-6 -right-6 size-24 rounded-full bg-blue-500/15 blur-2xl" />
+            <div className="pointer-events-none absolute -bottom-6 -right-6 size-24 rounded-full bg-[#7164E8]/15 blur-2xl" />
         </div>
     )
 }

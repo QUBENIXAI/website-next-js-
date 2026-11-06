@@ -26,7 +26,7 @@ const components: Components = {
         </a>
     ),
     blockquote: ({ children }) => (
-        <blockquote className="mt-6 border-l-2 border-[#2F6BFF] pl-4 text-[15px] leading-7 text-[#3a3a3a] sm:text-base sm:leading-8">
+        <blockquote className="mt-6 border-l-2 border-[#A78BFA] pl-4 text-[15px] leading-7 text-[#3a3a3a] sm:text-base sm:leading-8">
             {children}
         </blockquote>
     ),

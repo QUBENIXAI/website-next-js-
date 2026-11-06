@@ -85,18 +85,18 @@ export default function Header() {
                                             {active && (
                                                 <motion.span
                                                     layoutId="nav-hover"
-                                                    className="pointer-events-none absolute inset-0 border border-dashed border-[#2F6BFF]"
+                                                    className="pointer-events-none absolute inset-0 border border-dashed border-[#8063D8]"
                                                     transition={hoverSpring}
                                                 >
-                                                    <span className="absolute -top-1 -left-1 size-2 bg-[#2F6BFF]" />
-                                                    <span className="absolute -top-1 -right-1 size-2 bg-[#2F6BFF]" />
-                                                    <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F6BFF]" />
-                                                    <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F6BFF]" />
+                                                    <span className="absolute -top-1 -left-1 size-2 bg-[#8063D8]" />
+                                                    <span className="absolute -top-1 -right-1 size-2 bg-[#8063D8]" />
+                                                    <span className="absolute -bottom-1 -left-1 size-2 bg-[#8063D8]" />
+                                                    <span className="absolute -right-1 -bottom-1 size-2 bg-[#8063D8]" />
                                                 </motion.span>
                                             )}
                                             <motion.span
                                                 className="relative"
-                                                animate={{ color: active ? "#2F6BFF" : "#171717" }}
+                                                animate={{ color: active ? "#8063D8" : "#171717" }}
                                                 transition={{ duration: 0.2 }}
                                             >
                                                 {labels[name]}
@@ -151,7 +151,7 @@ export default function Header() {
                                     href={value}
                                     key={key}
                                     aria-current={active ? "page" : undefined}
-                                    className={`px-3 py-2.5 text-sm font-medium ${active ? "text-[#2F6BFF]" : "text-[#171717]"}`}
+                                    className={`px-3 py-2.5 text-sm font-medium ${active ? "text-[#8063D8]" : "text-[#171717]"}`}
                                     onClick={() => setMenuOpen(false)}
                                 >
                                     {labels[name]}
@@ -164,7 +164,7 @@ export default function Header() {
                                 onClick={() => { setMenuOpen(false); scrollToFooter(); }}
                                 className="rounded-md p-0.5 text-white w-full"
                             >
-                                <span className="flex items-center justify-center gap-1.5 rounded-sm px-3 py-2 sm:gap-2 sm:px-4 sm:py-3 bg-linear-to-b from-[#77B0FF] to-[#0353FF] border border-white shadow-[0_10px_8px_-2px_rgba(0,0,0,0.25)]">
+                                <span className="flex items-center justify-center gap-1.5 rounded-sm px-3 py-2 sm:gap-2 sm:px-4 sm:py-3 bg-linear-to-b from-[#A78BFA] to-[#3C32AC] border border-white shadow-[0_10px_8px_-2px_rgba(0,0,0,0.25)]">
                                     <p className="text-xs sm:text-sm font-medium">Schedule a Call</p>
                                     <span className="flex [&_svg]:size-3.5 sm:[&_svg]:size-4">
                                         <CalendarDotIcon />
@@ -182,7 +182,7 @@ export default function Header() {
 const HeaderLogo = () => {
     return (
         <main className="flex items-center gap-2">
-            <div className="relative isolate grid size-9 shrink-0 place-items-center overflow-hidden rounded-md border border-white bg-linear-to-b from-[#77B0FF] to-[#036DFF] sm:size-10 md:size-11">
+            <div className="relative isolate grid size-9 shrink-0 place-items-center overflow-hidden rounded-md border border-white bg-linear-to-b from-[#A78BFA] to-[#3C32AC] sm:size-10 md:size-11">
                 <Image
                     src="/footerlogo.png"
                     alt="Qubenix"
@@ -191,7 +191,7 @@ const HeaderLogo = () => {
                     className="relative size-6 object-contain mix-blend-screen sm:size-7"
                 />
             </div>
-            <h1 className="font-medium text-lg sm:text-xl text-blue-500">Qubenix</h1>
+            <h1 className="font-medium text-lg sm:text-xl text-[#3C32AC]">Qubenix</h1>
         </main>
     )
 }

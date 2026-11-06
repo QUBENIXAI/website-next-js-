@@ -20,7 +20,7 @@ function GrowthHighlight() {
         >
             <motion.span
                 aria-hidden
-                className="pointer-events-none absolute -inset-x-1.5 -inset-y-1 border border-dashed border-[#2F6BFF] bg-white"
+                className="pointer-events-none absolute -inset-x-1.5 -inset-y-1 border border-dashed border-[#A78BFA] bg-white"
                 style={{ originX: 0, originY: 0 }}
                 variants={{
                     rest: { scale: 0, opacity: 0 },
@@ -28,16 +28,16 @@ function GrowthHighlight() {
                 }}
                 transition={highlightSpring}
             >
-                <span className="absolute -top-1 -left-1 size-2 bg-[#2F6BFF]" />
-                <span className="absolute -top-1 -right-1 size-2 bg-[#2F6BFF]" />
-                <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F6BFF]" />
-                <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F6BFF]" />
+                <span className="absolute -top-1 -left-1 size-2 bg-[#A78BFA]" />
+                <span className="absolute -top-1 -right-1 size-2 bg-[#A78BFA]" />
+                <span className="absolute -bottom-1 -left-1 size-2 bg-[#A78BFA]" />
+                <span className="absolute -right-1 -bottom-1 size-2 bg-[#A78BFA]" />
             </motion.span>
             <motion.span
                 className="relative"
                 variants={{
                     rest: { color: "#171717" },
-                    active: { color: "#2F6BFF" },
+                    active: { color: "#A78BFA" },
                 }}
                 transition={{ duration: 0.25, delay: 0.12 }}
             >
@@ -84,7 +84,7 @@ export default function HeroSection() {
                                         y1={y}
                                         x2="1940"
                                         y2={y}
-                                        stroke="#2F6BFF"
+                                        stroke="#A78BFA"
                                         strokeOpacity={0.55}
                                         strokeWidth="1.75"
                                         strokeLinecap="round"

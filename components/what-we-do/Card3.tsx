@@ -67,7 +67,7 @@ const LinePulse = ({d, startsAtCenter, play}: {d: string, startsAtCenter: boolea
                 <motion.path
                     d={d}
                     fill="none"
-                    stroke="#2F6BFF"
+                    stroke="#A78BFA"
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeDasharray={`${pulse} ${length}`}

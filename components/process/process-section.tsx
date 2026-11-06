@@ -6,25 +6,27 @@ import ProcessCard3 from "./process-card3";
 export default function ProcessSection() {
     return (
         <div id="our-process" className="mt-6 flex w-full flex-col items-center px-4 sm:mt-8 sm:px-6">
-        <section className="flex w-full max-w-6xl flex-col items-start gap-2 text-left">
-            <SectionHeading align="start" className="text-3xl font-medium sm:text-5xl">
-                Our Process
-            </SectionHeading>
-            <p className="max-w-lg text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">A thoughtful, structured approach to turning complex challenges into practical, scalable solutions.</p>
-        </section>
+            <section className="flex w-full max-w-6xl flex-col items-center gap-2 text-center">
+                <SectionHeading align="center" className="text-3xl font-medium sm:text-5xl">
+                    Our Process
+                </SectionHeading>
+                <p className="max-w-lg text-sm leading-6 text-[#616161] sm:text-lg sm:leading-7">
+                    A thoughtful, structured approach to turning complex challenges into practical, scalable solutions.
+                </p>
+            </section>
 
-        <div className="-mx-4 mt-8 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-8 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:mt-10 sm:w-[calc(100%+3rem)] sm:px-6 md:mx-0 md:w-full md:max-w-6xl md:snap-none md:flex-col md:items-center md:gap-5 md:overflow-visible md:px-0 lg:flex-row lg:items-stretch lg:justify-center">
-            <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none md:w-full md:max-w-[380px] md:[&>div]:max-w-[380px]">
-                <ProcessCard1 />
-            </div>
-            <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none md:w-full md:max-w-[380px] md:[&>div]:max-w-[380px]">
-                <ProcessCard2 />
-            </div>
-            <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none md:w-full md:max-w-[380px] md:[&>div]:max-w-[380px]">
-                <ProcessCard3 />
+            <div className="-mx-4 mt-8 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-8 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:mt-10 sm:w-[calc(100%+3rem)] sm:px-6 md:mx-0 md:w-full md:max-w-6xl md:snap-none md:flex-col md:items-center md:gap-5 md:overflow-visible md:px-0 lg:flex-row lg:items-stretch lg:justify-center">
+                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none md:w-full md:max-w-[380px] md:[&>div]:max-w-[380px]">
+                    <ProcessCard1 />
+                </div>
+                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none md:w-full md:max-w-[380px] md:[&>div]:max-w-[380px]">
+                    <ProcessCard2 />
+                </div>
+                <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none md:w-full md:max-w-[380px] md:[&>div]:max-w-[380px]">
+                    <ProcessCard3 />
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 

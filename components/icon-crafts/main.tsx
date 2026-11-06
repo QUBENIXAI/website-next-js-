@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 export default function IconCraft({ icon }: { icon: React.ReactNode }) {
     const sizedIcon = isValidElement(icon)
         ? cloneElement(icon as ReactElement<{ className?: string }>, {
-              className: "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-blue-500",
+              className: "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#3C32AC]",
           })
         : icon
     return (

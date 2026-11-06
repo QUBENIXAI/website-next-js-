@@ -50,7 +50,7 @@ export default function TeamBrief() {
 
                 {/* <Link
                     href="/our-team"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#036DFF] px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#005bd5] active:scale-[0.98]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#3F46B5] px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#343A9A] active:scale-[0.98]"
                 >
                     <span>Meet the Whole Team</span>
                     <ArrowBendUpRightIcon size={16} weight="bold" />

@@ -65,7 +65,7 @@ export default function Footer() {
                         backgroundRepeat: "no-repeat",
                     }}
                 >
-                    <div className="relative isolate grid size-14 place-items-center overflow-hidden rounded-lg border-2 border-white bg-linear-to-b from-[#77B0FF] to-[#036DFF] sm:size-16 sm:rounded-xl md:size-20">
+                    <div className="relative isolate grid size-14 place-items-center overflow-hidden rounded-lg border-2 border-white bg-linear-to-b from-[#A78BFA] to-[#3C32AC] sm:size-16 sm:rounded-xl md:size-20">
                         <Image
                             src="/footerlogo.png"
                             alt="logo"
@@ -119,7 +119,7 @@ export default function Footer() {
                                     href={link}
                                     target="_blank"
                                     aria-label={label}
-                                    className="border border-[#ff] shadow-[0_8px_8px_-2px_rgba(0,0,0,0.25)] grid size-9 place-items-center rounded-sm text-white bg-gradient-to-b from-[#77B0FF] to-[#036DFF]"
+                                    className="border border-[#ff] shadow-[0_8px_8px_-2px_rgba(0,0,0,0.25)] grid size-9 place-items-center rounded-sm text-white bg-gradient-to-b from-[#A78BFA] to-[#3C32AC]"
                                 >
                                     <Icon size={16} />
                                 </a>
@@ -156,7 +156,7 @@ export default function Footer() {
 const BigText = () => {
     return (
         <div className="relative mt-16 w-full overflow-hidden select-none sm:mt-20 lg:mt-24">
-            <h1 className="text-center text-[clamp(4.5rem,18vw,16rem)] font-bold leading-[0.75] tracking-[-0.08em] text-blue-500 translate-y-[8%]">
+            <h1 className="text-center text-[clamp(4.5rem,18vw,16rem)] font-bold leading-[0.75] tracking-[-0.08em] text-[#3C32AC] translate-y-[8%]">
                 Qubenix
             </h1>
 

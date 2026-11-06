@@ -90,10 +90,10 @@ function usePopScale() {
 function FrameCorners() {
     return (
         <>
-            <span className="absolute -top-1 -left-1 size-2 bg-[#2F6BFF]" />
-            <span className="absolute -top-1 -right-1 size-2 bg-[#2F6BFF]" />
-            <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F6BFF]" />
-            <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F6BFF]" />
+            <span className="absolute -top-1 -left-1 size-2 bg-[#A78BFA]" />
+            <span className="absolute -top-1 -right-1 size-2 bg-[#A78BFA]" />
+            <span className="absolute -bottom-1 -left-1 size-2 bg-[#A78BFA]" />
+            <span className="absolute -right-1 -bottom-1 size-2 bg-[#A78BFA]" />
         </>
     )
 }
@@ -119,9 +119,9 @@ function TeamCard({
             aria-expanded={popped}
             animate={{ scale: popped ? popScale : 1 }}
             transition={popSpring}
-            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2F6BFF] ${popped ? "z-50" : ""} ${blurred ? "blur-sm sm:blur-md" : ""}`}
+            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A78BFA] ${popped ? "z-50" : ""} ${blurred ? "blur-sm sm:blur-md" : ""}`}
         >
-            <div className="relative border border-dashed border-[#2F6BFF] bg-white">
+            <div className="relative border border-dashed border-[#A78BFA] bg-white">
                 <FrameCorners />
                 <AnimatePresence>
                     {popped && (
@@ -130,7 +130,7 @@ function TeamCard({
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={popSpring}
-                            className="absolute top-0 left-1/2 z-10 w-max max-w-[calc(100%-0.75rem)] -translate-x-1/2 -translate-y-1/2 bg-[#2F6BFF] px-2 py-0.5 text-center text-[11px] leading-4 font-medium text-white sm:px-3 sm:py-1 sm:text-sm"
+                            className="absolute top-0 left-1/2 z-10 w-max max-w-[calc(100%-0.75rem)] -translate-x-1/2 -translate-y-1/2 bg-[#A78BFA] px-2 py-0.5 text-center text-[11px] leading-4 font-medium text-white sm:px-3 sm:py-1 sm:text-sm"
                         >
                             {member.designation}
                         </motion.span>
