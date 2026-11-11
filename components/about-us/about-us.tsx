@@ -79,28 +79,42 @@ function BlueStatsCard() {
     )
 }
 
+
+
 function ChairImageCard() {
     return (
-        <div className="relative flex min-h-[240px] sm:min-h-[280px] flex-[1.6] flex-col justify-end overflow-hidden rounded-2xl sm:rounded-[1rem] p-5 sm:p-6">
+        <div className="relative flex min-h-[240px] sm:min-h-[280px] flex-[1.6] flex-col justify-end overflow-hidden rounded-2xl sm:rounded-[1rem]">
+
             <Image
-                src="https://i.pinimg.com/736x/23/f5/6a/23f56afac7d5b7b69ac735d93dab7ee1.jpg"
+                src="https://i.pinimg.com/1200x/43/01/a1/4301a100d2dad3eee18a401229a7e841.jpg"
                 alt="Less Busy Work, More Meaningful Work"
                 fill
                 sizes="(min-width: 1024px) 35vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover"
             />
 
-            <div className="relative z-10 text-white">
-                <h3 className="text-base sm:text-lg font-medium leading-snug text-white">
-                    Providing Meaningful Impacts
+            {/* Soft black blur layer */}
+            <div className="absolute inset-x-0 bottom-[-20px] h-[65%] bg-black/20 blur-2xl" />
+
+            {/* Bottom gradient for readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+
+            {/* Text above both layers */}
+            <div className="relative z-10 text-white p-5 sm:p-6">
+                <h3 className="text-base sm:text-md font-medium leading-snug">
+                    Less Busy Work, More Meaningful Work
                 </h3>
+
                 <p className="mt-1 text-xs sm:text-[12px] text-white/90 leading-relaxed max-w-xs">
-                    Combining thoughtful engineering and intelligent automation to help business move forward
+                    Combining thoughtful engineering and intelligent automation to help business move forward.
                 </p>
             </div>
+
         </div>
     )
 }
+
+
 
 function QuoteCard() {
     return (

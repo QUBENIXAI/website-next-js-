@@ -65,15 +65,15 @@ export default function Footer() {
                         backgroundRepeat: "no-repeat",
                     }}
                 >
-                    <div className="relative isolate grid size-14 place-items-center overflow-hidden rounded-lg border-2 border-white bg-linear-to-b from-[#A78BFA] to-[#3C32AC] sm:size-16 sm:rounded-xl md:size-20">
+                    {/* <div className="relative isolate grid size-14 place-items-center overflow-hidden rounded-lg border-2 border-white bg-linear-to-b from-[#A78BFA] to-[#3C32AC] sm:size-16 sm:rounded-xl md:size-20">
                         <Image
                             src="/footerlogo.png"
                             alt="logo"
-                            width={50}
-                            height={50}
-                            className="relative size-8 mix-blend-screen sm:size-10 md:size-[3.125rem]"
+                            width={100}
+                            height={100}
+                            className="absolute inset-0 m-auto size-12 object-contain mix-blend-screen sm:size-14 md:size-16"
                         />
-                    </div>
+                    </div> */}
 
                     <h2 className="mt-6 text-xl font-medium leading-tight text-white sm:mt-8 sm:text-3xl lg:text-4xl">
                         Every great solution starts
@@ -102,8 +102,9 @@ export default function Footer() {
 
                 <div className="relative z-0 mt-16 grid w-full gap-12 bg-background lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-16">
                     <div>
-                        <p className="text-base font-semibold tracking-tight sm:text-lg">QUBENIX</p>
-                        <h2 className="mt-6 text-xl font-medium leading-tight tracking-tight sm:mt-8 sm:text-2xl">
+                        {/* <p className="text-base font-semibold tracking-tight sm:text-lg">QUBENIX</p> */}
+                        <Image src={"/Logo.png"} alt={"logo"} width={100} height={100} />
+                        <h2 className="mt-6 text-xl font-medium leading-tight tracking-tight sm:mt-5 sm:text-2xl">
                             Automate. Integrate.
                             <br />
                             Elevate.

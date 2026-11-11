@@ -16,6 +16,9 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Qubenix AI: Automate. Integrate. Elevate.",
   description: "Qubenix helps businesses streamline operations through AI-powered automation, intelligent integrations, and scalable digital solutions built for growth.",
+  icons: {
+    icon: "/Icon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

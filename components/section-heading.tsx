@@ -21,23 +21,23 @@ export default function SectionHeading({
             viewport={{ amount: 0.7 }}
         >
             <motion.span
-                className="pointer-events-none absolute inset-0 border border-dashed border-[#8063D8]"
+                className="pointer-events-none absolute inset-0 border border-dashed border-[#2F1BB1]"
                 variants={{
                     rest: { opacity: 0, scale: 0.94 },
                     active: { opacity: 1, scale: 1 },
                 }}
                 transition={spring}
             >
-                <span className="absolute -top-1 -left-1 size-2 bg-[#8063D8]" />
-                <span className="absolute -top-1 -right-1 size-2 bg-[#8063D8]" />
-                <span className="absolute -bottom-1 -left-1 size-2 bg-[#8063D8]" />
-                <span className="absolute -right-1 -bottom-1 size-2 bg-[#8063D8]" />
+                <span className="absolute -top-1 -left-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -top-1 -right-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F1BB1]" />
             </motion.span>
             <motion.span
                 className="relative"
                 variants={{
                     rest: { color: "#171717" },
-                    active: { color: "#8063D8" },
+                    active: { color: "#2F1BB1" },
                 }}
                 transition={{ duration: 0.2 }}
             >

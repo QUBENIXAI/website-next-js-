@@ -20,7 +20,7 @@ function GrowthHighlight() {
         >
             <motion.span
                 aria-hidden
-                className="pointer-events-none absolute -inset-x-1.5 -inset-y-1 border border-dashed border-[#A78BFA] bg-white"
+                className="pointer-events-none absolute -inset-x-1.5 -inset-y-1 border border-dashed border-[#2F1BB1] bg-white"
                 style={{ originX: 0, originY: 0 }}
                 variants={{
                     rest: { scale: 0, opacity: 0 },
@@ -28,16 +28,16 @@ function GrowthHighlight() {
                 }}
                 transition={highlightSpring}
             >
-                <span className="absolute -top-1 -left-1 size-2 bg-[#A78BFA]" />
-                <span className="absolute -top-1 -right-1 size-2 bg-[#A78BFA]" />
-                <span className="absolute -bottom-1 -left-1 size-2 bg-[#A78BFA]" />
-                <span className="absolute -right-1 -bottom-1 size-2 bg-[#A78BFA]" />
+                <span className="absolute -top-1 -left-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -top-1 -right-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F1BB1]" />
             </motion.span>
             <motion.span
                 className="relative"
                 variants={{
                     rest: { color: "#171717" },
-                    active: { color: "#8063D8" },
+                    active: { color: "#2F1BB1" },
                 }}
                 transition={{ duration: 0.25, delay: 0.12 }}
             >
