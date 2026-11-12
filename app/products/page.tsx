@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
     return (
-        <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-4 py-8 sm:px-6">
+        <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center px-4 py-8 sm:px-6">
             <Portfolio />
         </main>
     );
