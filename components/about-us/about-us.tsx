@@ -221,7 +221,7 @@ function TechStackCard() {
                         <div
                             key={tech.name}
                             title={tech.name}
-                            className="relative size-9 shrink-0 overflow-hidden rounded-lg bg-neutral-100 shadow-sm transition-transform duration-200 hover:scale-105 sm:size-12 sm:rounded-xl"
+                            className=" border border-neutral-200 relative size-9 shrink-0 overflow-hidden rounded-lg bg-neutral-100 shadow-sm transition-transform duration-200 hover:scale-105 sm:size-12 sm:rounded-xl"
                         >
                             <Image
                                 src={tech.image}

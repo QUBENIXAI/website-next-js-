@@ -18,7 +18,7 @@ const Links = {
 }
 
 const labels: Record<keyof typeof Links, string> = {
-    Products: "Products",
+    Products: "Portfolio",
     OurTeam: "Our Team",
     Blog: "Blogs",
     Consultancy: "Consultancy",
