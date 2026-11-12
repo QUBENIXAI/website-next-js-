@@ -19,15 +19,16 @@ interface OurTeamProps {
 const TeamMembers: OurTeamProps[] = [
     {
         name: "Survasamir Jena",
-        designation: "Founder & CEO",
+        designation: "Director and CTO",
         description: "Architects and directs the core engineering philosophy at Qubenix, uniting multi-agent reasoning, deterministic backend systems, and mission-critical automation into a single cohesive operating layer.",
         profileImage: "/team/Surva.png",
     },
     {
-        name: "Bharat",
-        designation: "Head of International Business",
-        description: "Leads international client acquisition and relationship management, bridging global enterprise markets with Qubenix's automation and software engineering solutions.",
-        profileImage: "/team/Bharat.png",
+        name: "Pritam Kumar Rout",
+        designation: "Founder and CEO",
+        description:
+            "A technology entrepreneur and ex Co-Founder of Nexathread Pvt. Ltd., with experience in business strategy, operations, marketing, and technology. He has contributed to strategic decision-making, brand growth, and digital product development, combining technical expertise.",
+        profileImage: "/team/Pritam.png",
     },
     {
         name: "Manshi Mishra",
@@ -59,12 +60,12 @@ const TeamMembers: OurTeamProps[] = [
         description: "Heads content strategy and creative campaign development, directing messaging across enterprise campaigns, tutorials, and partner enablement.",
         profileImage: "/team/Smiti.png",
     },
-    {
-        name: "Sanket Panda",
-        designation: "Marketing Intern",
-        description: "Contributes to marketing analytics, multi-channel distribution, audience research, and data-driven growth initiatives.",
-        profileImage: "/team/Sanket.png",
-    },
+    // {
+    //     name: "Sanket Panda",
+    //     designation: "Marketing Intern",
+    //     description: "Contributes to marketing analytics, multi-channel distribution, audience research, and data-driven growth initiatives.",
+    //     profileImage: "/team/Sanket.png",
+    // },
 ]
 
 const popSpring = { type: "spring" as const, stiffness: 320, damping: 30 }
@@ -119,7 +120,7 @@ function TeamCard({
             aria-expanded={popped}
             animate={{ scale: popped ? popScale : 1 }}
             transition={popSpring}
-            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A78BFA] ${popped ? "z-50" : ""} ${blurred ? "blur-sm sm:blur-md" : ""}`}
+            className={`relative w-full min-w-0 cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A78BFA] transition-[filter,opacity] duration-300 ${popped ? "z-50" : ""} ${blurred ? "opacity-65 blur-sm sm:blur-md" : ""}`}
         >
             <div className="relative border border-dashed border-[#A78BFA] bg-white">
                 <FrameCorners />
@@ -185,6 +186,17 @@ export default function OurTeam() {
         return () => {
             delete root.dataset.teamPop
         }
+    }, [poppedMember])
+
+    useEffect(() => {
+        if (!poppedMember) return
+        const onPointerDown = (event: PointerEvent) => {
+            const target = event.target as HTMLElement | null
+            if (target?.closest("[data-team-card]")) return
+            setPoppedMember(null)
+        }
+        document.addEventListener("pointerdown", onPointerDown)
+        return () => document.removeEventListener("pointerdown", onPointerDown)
     }, [poppedMember])
 
     useEffect(() => {
@@ -280,19 +292,6 @@ export default function OurTeam() {
 
     return (
         <>
-            <AnimatePresence>
-                {poppedMember && (
-                    <motion.button
-                        type="button"
-                        aria-label="Close team member"
-                        className="fixed inset-0 z-30 bg-background/45"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setPoppedMember(null)}
-                    />
-                )}
-            </AnimatePresence>
             <motion.div
                 className="relative isolate w-full"
                 initial={{ filter: "blur(18px)", opacity: 0.65 }}
@@ -303,7 +302,7 @@ export default function OurTeam() {
                 <CornerDotGrids corners="top" />
                 <div className="relative z-0 mx-auto flex w-full max-w-6xl flex-col items-center bg-background px-4 py-10 sm:px-6 sm:py-16">
                     <IconCraft icon={<UsersFourIcon />} />
-                    <div className={`w-full max-w-2xl mt-5 ${poppedMember ? "blur-sm sm:blur-md" : ""}`}>
+                    <div className={`w-full max-w-2xl mt-5 transition-[filter,opacity] duration-300 ${poppedMember ? "opacity-65 blur-sm sm:blur-md" : ""}`}>
                         <h1 className="text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
                             Meet Our Team
                         </h1>
