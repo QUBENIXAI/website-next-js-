@@ -86,7 +86,7 @@ function ChairImageCard() {
         <div className="relative flex min-h-[240px] sm:min-h-[280px] flex-[1.6] flex-col justify-end overflow-hidden rounded-2xl sm:rounded-[1rem]">
 
             <Image
-                src="https://i.pinimg.com/1200x/43/01/a1/4301a100d2dad3eee18a401229a7e841.jpg"
+                src="https://i.pinimg.com/1200x/61/5a/7d/615a7d81ad4f3b55f1b1f44872854077.jpg"
                 alt="Less Busy Work, More Meaningful Work"
                 fill
                 sizes="(min-width: 1024px) 35vw, (min-width: 768px) 50vw, 100vw"
