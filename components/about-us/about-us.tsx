@@ -8,7 +8,7 @@ import { InfiniteSlider } from "../infinite-slider"
 
 export default function AboutUs() {
     return (
-        <section id="about" className="flex w-full flex-col items-center px-4 sm:px-6 sm:mt-8">
+        <section id="about" className="flex w-full flex-col items-center px-4 sm:px-6">
             {/* Header: Heading and Subheading */}
             <div className="flex w-full max-w-6xl flex-col items-center gap-2 text-center">
                 <SectionHeading align="center" className="text-3xl font-medium sm:text-5xl">

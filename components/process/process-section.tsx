@@ -5,7 +5,7 @@ import ProcessCard3 from "./process-card3";
 
 export default function ProcessSection() {
     return (
-        <div id="our-process" className="mt-6 flex w-full flex-col items-center px-4 sm:mt-8 sm:px-6">
+        <div id="our-process" className="flex w-full flex-col items-center px-4 sm:px-6">
             <section className="flex w-full max-w-6xl flex-col items-center gap-2 text-center">
                 <SectionHeading align="center" className="text-3xl font-medium sm:text-5xl">
                     Our Process

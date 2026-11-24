@@ -170,7 +170,7 @@ export default function TestimonialSection() {
     )
 
     return (
-        <main className="w-full overflow-hidden py-16 sm:py-24">
+        <main className="w-full overflow-hidden">
             <section className="mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-8">
                 <SectionHeading className="text-3xl font-medium tracking-tight sm:text-5xl">
                     What people say

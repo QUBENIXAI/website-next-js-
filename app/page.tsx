@@ -12,9 +12,9 @@ import TestimonialSection from "@/components/testimonials";
 
 export default function Home() {
   return (
-    <div className="flex w-full flex-1 flex-col items-center gap-10 bg-background font-sans sm:gap-16">
+    <div className="flex w-full flex-1 flex-col items-center gap-16 bg-background font-sans sm:gap-24">
       <HeroSection />
-      <section id="services" className="mt-6 flex w-full flex-col items-center px-4 sm:mt-8 sm:px-6">
+      <section id="services" className="flex w-full flex-col items-center px-4 sm:px-6">
         <div className="flex w-full max-w-6xl flex-col items-center gap-2 text-center">
           <SectionHeading align="center" className="text-3xl font-medium sm:text-5xl">
             Our Services
