@@ -56,6 +56,20 @@ export default function Header() {
     useEffect(() => {
         setMenuOpen(false)
     }, [pathname])
+
+    useEffect(() => {
+        if (!menuOpen) return
+        const onKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setMenuOpen(false)
+        }
+        const previousOverflow = document.body.style.overflow
+        document.body.style.overflow = "hidden"
+        window.addEventListener("keydown", onKeyDown)
+        return () => {
+            document.body.style.overflow = previousOverflow
+            window.removeEventListener("keydown", onKeyDown)
+        }
+    }, [menuOpen])
     if (pathname.startsWith("/blog/") || pathname.startsWith("/legal")) return null
     return (
         <header
@@ -65,7 +79,7 @@ export default function Header() {
                 }`}
         >
             <motion.div
-                className="pointer-events-auto relative grid w-full max-w-5xl grid-cols-[1fr_auto] items-center border px-3 py-2 sm:px-4 md:grid-cols-[1fr_auto_1fr]"
+                className="pointer-events-auto relative z-50 grid w-full max-w-5xl grid-cols-[1fr_auto] items-center border px-3 py-2 sm:px-4 md:grid-cols-[1fr_auto_1fr]"
                 style={{
                     backgroundColor,
                     borderColor,
@@ -175,56 +189,70 @@ export default function Header() {
             {/* Mobile Navigation */}
             <AnimatePresence>
                 {menuOpen && (
-                    <motion.nav
-                        id="mobile-nav"
-                        className="pointer-events-auto mt-2 flex w-full max-w-xs flex-col border border-black/10 bg-background/95 p-2 backdrop-blur-xl md:hidden"
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        {Object.entries(Links).map(([key, value]) => {
-                            const name = key as keyof typeof Links
-                            const active = currentLink === name
+                    <>
+                        <motion.div
+                            key="mobile-nav-backdrop"
+                            aria-hidden
+                            className="pointer-events-auto fixed inset-0 z-30 bg-neutral-950/20 backdrop-blur-md md:hidden"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                            onClick={() => setMenuOpen(false)}
+                        />
 
-                            return (
-                                <Link
-                                    href={value}
-                                    key={key}
-                                    aria-current={active ? "page" : undefined}
-                                    className={`px-3 py-2.5 text-sm font-medium ${active
-                                        ? "text-[#8063D8]"
-                                        : "text-[#171717]"
-                                        }`}
-                                    onClick={() => setMenuOpen(false)}
+                        <motion.nav
+                            key="mobile-nav"
+                            id="mobile-nav"
+                            className="pointer-events-auto fixed top-[4.5rem] right-3 bottom-4 z-40 flex w-[calc(100vw-1.5rem)] max-w-xs flex-col overflow-y-auto border border-black/10 bg-background/95 p-2 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:right-5 sm:w-[calc(100vw-2.5rem)] md:hidden"
+                            initial={{ x: "110%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "110%" }}
+                            transition={{ type: "spring", stiffness: 320, damping: 34 }}
+                        >
+                            {Object.entries(Links).map(([key, value]) => {
+                                const name = key as keyof typeof Links
+                                const active = currentLink === name
+
+                                return (
+                                    <Link
+                                        href={value}
+                                        key={key}
+                                        aria-current={active ? "page" : undefined}
+                                        className={`px-3 py-2.5 text-sm font-medium ${active
+                                            ? "text-[#8063D8]"
+                                            : "text-[#171717]"
+                                            }`}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {labels[name]}
+                                    </Link>
+                                )
+                            })}
+
+                            {/* Mobile CTA */}
+                            <div className="px-2 pt-2 pb-1">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setMenuOpen(false)
+                                        scrollToFooter()
+                                    }}
+                                    className="w-full rounded-md p-0.5 text-white"
                                 >
-                                    {labels[name]}
-                                </Link>
-                            )
-                        })}
+                                    <span className="flex items-center justify-center gap-1.5 rounded-sm border border-white bg-linear-to-b from-[#A78BFA] to-[#3C32AC] px-3 py-2 shadow-[0_10px_8px_-2px_rgba(0,0,0,0.25)] sm:gap-2 sm:px-4 sm:py-3">
+                                        <p className="text-xs font-medium sm:text-sm">
+                                            Schedule a Call
+                                        </p>
 
-                        {/* Mobile CTA */}
-                        <div className="px-2 pt-2 pb-1">
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setMenuOpen(false)
-                                    scrollToFooter()
-                                }}
-                                className="w-full rounded-md p-0.5 text-white"
-                            >
-                                <span className="flex items-center justify-center gap-1.5 rounded-sm border border-white bg-linear-to-b from-[#A78BFA] to-[#3C32AC] px-3 py-2 shadow-[0_10px_8px_-2px_rgba(0,0,0,0.25)] sm:gap-2 sm:px-4 sm:py-3">
-                                    <p className="text-xs font-medium sm:text-sm">
-                                        Schedule a Call
-                                    </p>
-
-                                    <span className="flex [&_svg]:size-3.5 sm:[&_svg]:size-4">
-                                        <CalendarDotIcon />
+                                        <span className="flex [&_svg]:size-3.5 sm:[&_svg]:size-4">
+                                            <CalendarDotIcon />
+                                        </span>
                                     </span>
-                                </span>
-                            </button>
-                        </div>
-                    </motion.nav>
+                                </button>
+                            </div>
+                        </motion.nav>
+                    </>
                 )}
             </AnimatePresence>
         </header>
