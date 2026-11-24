@@ -4,52 +4,86 @@ import { motion } from 'motion/react'
 import IconCraft from './icon-crafts/main'
 import { ArrowUpRightIcon, StackSimpleIcon } from '@phosphor-icons/react'
 import Image from 'next/image'
+import { SectionHighlight } from './section-heading'
 
 
-const Products = [
+type Product = {
+    image: string
+    // controls the frame's aspect ratio so the artwork is never cropped
+    className: string
+    // show the tinted backdrop through transparent artwork
+    backdrop?: boolean
+    title: string
+    highlight: string
+    description: string
+    status: string
+    productLink: string
+}
+
+const Products: Product[] = [
     {
-        image: "/products/QubenixHR.png",
+        image: "/AIHR.webp",
+        // 2000 × 1333 (transparent mockup, resized from the 25146 × 16764 source)
+        className: "aspect-[3/2]",
+        backdrop: true,
         title: "Qubenix AI HR",
+        highlight: "Qubenix AI",
         description:
             "A human resource management platform designed to organise employee records, streamline HR workflows, manage attendance, and simplify everyday people operations.",
         status: "Planned",
         productLink: "",
     },
     {
-        image: "",
+        image: "/Finance.png",
+        // 1024 × 696
+        className: "aspect-[128/87]",
         title: "Qubenix AI Finance",
+        highlight: "Qubenix AI",
         description:
             "A financial management platform designed to bring invoices, expenses, payments, cash flow, and financial reporting into one organised workspace with AI-assisted insights.",
         status: "Planned",
         productLink: "",
     },
     {
-        image: "",
+        image: "/QubenixCompliance.png",
+        // 3762 × 3762
+        className: "aspect-square",
         title: "Qubenix AI Compliance",
+        highlight: "Qubenix AI",
         description:
             "A compliance management solution designed to organise regulatory obligations, important documents, deadlines, and internal follow-ups through a centralised workspace.",
         status: "Planned",
         productLink: "",
     },
     {
-        image: "",
+        image: "/AIEmployee.png",
+        // 6705 × 3432
+        className: "aspect-[6705/3432]",
         title: "Qubenix AI Employee",
+        highlight: "Qubenix AI",
         description:
             "An AI workforce platform featuring specialised digital assistants for customer support, sales, research, HR, and operations, helping businesses automate repetitive tasks.",
         status: "Planned",
         productLink: "",
     },
     {
-        image: "",
+        image: "/QMAC.webp",
+        // 2000 × 1279 (transparent mockup, resized from the 19155 × 12252 source)
+        className: "aspect-[2000/1279]",
+        backdrop: true,
         title: "QMAC",
+        highlight: "QMAC",
         description:
             "A lightweight native macOS productivity utility designed to make everyday keyboard actions and desktop workflows more accessible through a simple menu bar experience.",
         status: "In Development",
         productLink: "",
     },
     {
-        image: "",
+        image: "/Brain.png",
+        // 5643 × 5646
+        className: "aspect-square",
         title: "Qubenix AI Brain",
+        highlight: "Qubenix AI",
         description:
             "An intelligent AI orchestration layer envisioned to connect business knowledge, AI models, specialised agents, and external tools into coordinated workflows.",
         status: "Concept",
@@ -103,11 +137,9 @@ const Works: Work[] = [
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
-type Product = (typeof Products)[number]
-
 export default function Portfolio() {
     return (
-        <main>
+        <main className="flex w-full flex-col">
             <section className="flex w-full flex-col items-center gap-4 pb-10 text-center sm:py-16">
                 <div className="flex flex-col items-center gap-5">
                     <IconCraft icon={<StackSimpleIcon />} />
@@ -130,76 +162,123 @@ export default function Portfolio() {
     )
 }
 
+const productSkins = [
+    "radial-gradient(120% 120% at 0% 0%, #e6d6c8 0%, #dcd3ea 45%, #b9c9ea 100%)",
+    "radial-gradient(120% 120% at 100% 0%, #d9e7f7 0%, #cfdcf4 45%, #bcc6ee 100%)",
+    "radial-gradient(120% 120% at 0% 100%, #e4e7f8 0%, #d7ddf3 45%, #c2cdf0 100%)",
+    "radial-gradient(120% 120% at 100% 100%, #dcecdf 0%, #d3e3f2 45%, #c0c9ef 100%)",
+    "radial-gradient(120% 120% at 0% 0%, #f4e7d6 0%, #e6dcf2 45%, #c3c9ef 100%)",
+    "radial-gradient(120% 120% at 100% 0%, #f0dcdf 0%, #e2d8f2 45%, #c0c9ee 100%)",
+]
+
 const ProductShowCase = () => {
     return (
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 sm:gap-6">
+        <section id="products" className="mx-auto flex w-full max-w-6xl flex-col gap-8 sm:gap-10">
             <h2 className="text-xs font-medium uppercase tracking-[0.12em] text-[#8a8a8a] sm:text-sm sm:tracking-[0.18em]">
                 Side Products we have been building
             </h2>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+            <div className="flex flex-col gap-12 sm:gap-16 lg:gap-20">
                 {Products.map((product, index) => (
-                    <ProductCard key={product.title} product={product} index={index} />
+                    <ProductRow key={product.title} product={product} index={index} />
                 ))}
             </div>
-        </div>
+        </section>
     )
 }
 
-const ProductCard = ({ product, index }: { product: Product; index: number }) => {
+const ProductRow = ({ product, index }: { product: Product; index: number }) => {
+    const flip = index % 2 === 1
+    const number = String(index + 1).padStart(2, "0")
+    const remainder = product.title.replace(product.highlight, "").trim()
+    const wordmark = product.title.split(" ")[0]
+    const skin = productSkins[index % productSkins.length]
+
     return (
-        <motion.div
-            initial="rest"
-            animate="rest"
-            whileHover="hover"
-            className="group relative aspect-[4/3] min-h-[320px] w-full overflow-hidden rounded-xl bg-neutral-900 sm:min-h-[380px] lg:min-h-[420px]"
+        <motion.article
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease }}
+            className="group grid items-center gap-7 md:grid-cols-2 md:gap-10 lg:gap-16"
         >
-            <motion.div
-                variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }}
-                transition={{ duration: 0.9, ease }}
-                className="absolute inset-0"
+            <div className={`flex flex-col items-start ${flip ? "md:order-2" : "md:order-1"}`}>
+                <div className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.16em] sm:text-xs">
+                    <span className="text-[#2F1BB1]">/ {number}</span>
+                    <span aria-hidden className="h-px w-5 bg-black/15" />
+                    <span className="text-[#8a8a8a]">{product.status}</span>
+                </div>
+
+                <h3 className="mt-3 max-w-md text-2xl font-medium leading-[1.25] tracking-tight text-black sm:text-3xl lg:text-4xl">
+                    <SectionHighlight>{product.highlight}</SectionHighlight>
+                    {remainder && <> {remainder}</>}
+                </h3>
+
+                <p className="mt-3 max-w-md text-sm leading-6 text-[#616161] sm:text-base sm:leading-7">
+                    {product.description}
+                </p>
+
+                <ProductLink product={product} />
+            </div>
+
+            <div
+                className={`relative w-full overflow-hidden rounded-2xl bg-[#eef2fb] ring-1 ring-black/5 ${product.className} ${
+                    flip ? "md:order-1" : "md:order-2"
+                }`}
+                style={product.backdrop || !product.image ? { background: skin } : undefined}
             >
-                {product.image ? (
-                    <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        priority={index < 2}
-                        sizes="(min-width: 640px) 50vw, 100vw"
-                        className="object-cover"
-                    />
-                ) : (
-                    <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_0%_0%,#e6d6c8_0%,#dcd3ea_45%,#b9c9ea_100%)]" />
-                )}
-            </motion.div>
-
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                <div className="relative flex flex-col items-start">
-                    {/* Soft black blur layer behind the text (filter blur, not backdrop blur) */}
-                    <div
-                        aria-hidden
-                        className="pointer-events-none absolute -inset-x-10 -top-8 -bottom-12 rounded-[2rem] bg-black/60 blur-2xl sm:-inset-x-12 sm:-top-10 sm:-bottom-14"
-                    />
-
-                    <h3 className="relative text-lg font-medium tracking-tight text-white drop-shadow-sm sm:text-xl">
-                        {product.title}
-                    </h3>
-
-                    <motion.div
-                        variants={{
-                            rest: { height: 0, opacity: 0, y: 6 },
-                            hover: { height: "auto", opacity: 1, y: 0 },
-                        }}
-                        transition={{ duration: 0.45, ease }}
-                        className="relative w-full overflow-hidden max-sm:h-auto! max-sm:opacity-100!"
-                    >
-                        <p className="max-w-md pt-1 text-sm leading-6 text-white/80 drop-shadow-sm">
-                            {product.description}
-                        </p>
-                    </motion.div>
+                <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]">
+                    {product.image ? (
+                        <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            priority={index < 2}
+                            sizes="(min-width: 768px) 50vw, 100vw"
+                            className="object-cover"
+                        />
+                    ) : (
+                        <>
+                            <div className="absolute inset-0 flex items-center justify-center px-6">
+                                <span className="whitespace-nowrap text-[clamp(2rem,7vw,3.75rem)] font-semibold leading-none tracking-tight text-black/10">
+                                    {wordmark}
+                                </span>
+                            </div>
+                            <div
+                                aria-hidden
+                                className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-white/60 blur-3xl"
+                            />
+                        </>
+                    )}
                 </div>
             </div>
-        </motion.div>
+        </motion.article>
+    )
+}
+
+const ProductLink = ({ product }: { product: Product }) => {
+    const className =
+        "mt-6 inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black transition-colors duration-300"
+
+    if (!product.productLink) {
+        return (
+            <span className={`${className} cursor-default`} aria-disabled>
+                Learn More
+                <ArrowUpRightIcon className="h-3.5 w-3.5" weight="bold" />
+            </span>
+        )
+    }
+
+    return (
+        <a
+            href={product.productLink}
+            target="_blank"
+            rel="noreferrer"
+            className={`${className} hover:border-black hover:bg-black hover:text-white`}
+        >
+            Learn More
+            <ArrowUpRightIcon className="h-3.5 w-3.5" weight="bold" />
+        </a>
     )
 }
 

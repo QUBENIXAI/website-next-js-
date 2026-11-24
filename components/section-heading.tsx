@@ -4,6 +4,48 @@ import { motion } from "motion/react"
 
 const spring = { type: "spring" as const, stiffness: 380, damping: 32 }
 
+export function SectionHighlight({
+    children,
+    className = "",
+}: {
+    children: React.ReactNode
+    className?: string
+}) {
+    return (
+        <motion.span
+            className={`relative inline-block bg-white ${className}`}
+            initial="rest"
+            whileInView="active"
+            viewport={{ once: true, amount: 0.7 }}
+        >
+            <motion.span
+                aria-hidden
+                className="pointer-events-none absolute -inset-x-1.5 -inset-y-0.5 border border-dashed border-[#2F1BB1] bg-white"
+                variants={{
+                    rest: { opacity: 0, scale: 0.94 },
+                    active: { opacity: 1, scale: 1 },
+                }}
+                transition={spring}
+            >
+                <span className="absolute -top-1 -left-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -top-1 -right-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -bottom-1 -left-1 size-2 bg-[#2F1BB1]" />
+                <span className="absolute -right-1 -bottom-1 size-2 bg-[#2F1BB1]" />
+            </motion.span>
+            <motion.span
+                className="relative"
+                variants={{
+                    rest: { color: "#171717" },
+                    active: { color: "#2F1BB1" },
+                }}
+                transition={{ duration: 0.2 }}
+            >
+                {children}
+            </motion.span>
+        </motion.span>
+    )
+}
+
 export default function SectionHeading({
     children,
     className = "",

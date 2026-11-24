@@ -16,7 +16,7 @@ interface OurTeamProps {
     profileImage: string
 }
 
-const TeamMembers: OurTeamProps[] = [
+export const TeamMembers: OurTeamProps[] = [
     {
         name: "Survasamir Jena",
         designation: "Director and CTO",
