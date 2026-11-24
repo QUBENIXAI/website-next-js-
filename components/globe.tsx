@@ -79,9 +79,11 @@ export function GlobeAnalytics({
     }
     window.addEventListener("pointermove", handlePointerMove, { passive: true })
     window.addEventListener("pointerup", handlePointerUp, { passive: true })
+    window.addEventListener("pointercancel", handlePointerUp, { passive: true })
     return () => {
       window.removeEventListener("pointermove", handlePointerMove)
       window.removeEventListener("pointerup", handlePointerUp)
+      window.removeEventListener("pointercancel", handlePointerUp)
     }
   }, [handlePointerUp])
 
@@ -91,6 +93,17 @@ export function GlobeAnalytics({
     let globe: ReturnType<typeof createGlobe> | null = null
     let animationId: number
     let phi = 0
+    let isVisible = true
+
+    // Stop painting the globe while it is offscreen so it doesn't compete
+    // with scrolling.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry?.isIntersecting ?? true
+      },
+      { rootMargin: "120px" },
+    )
+    observer.observe(canvas)
 
     function init() {
       const width = canvas.offsetWidth
@@ -110,6 +123,10 @@ export function GlobeAnalytics({
       arcWidth: 0.5, arcHeight: 0.25, opacity: 0.7,
     })
     function animate() {
+      if (!isVisible) {
+        animationId = requestAnimationFrame(animate)
+        return
+      }
       if (!isPausedRef.current) phi += speed
       globe!.update({
         phi: phi + phiOffsetRef.current + dragOffset.current.phi,
@@ -134,6 +151,7 @@ export function GlobeAnalytics({
     }
 
     return () => {
+      observer.disconnect()
       if (animationId) cancelAnimationFrame(animationId)
       if (globe) globe.destroy()
     }
@@ -146,7 +164,7 @@ export function GlobeAnalytics({
         onPointerDown={handlePointerDown}
         style={{
           width: "100%", height: "100%", cursor: "grab", opacity: 0,
-          transition: "opacity 1.2s ease", borderRadius: "50%", touchAction: "none",
+          transition: "opacity 1.2s ease", borderRadius: "50%",
         }}
       />
       {data.map((m) => (

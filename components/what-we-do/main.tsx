@@ -15,7 +15,7 @@ export default function WhatWeProvide() {
                 </p>
             </section>
 
-            <div className="-mx-4 mt-8 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-8 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:mt-10 sm:w-[calc(100%+3rem)] sm:px-6 md:hidden">
+            <div className="-mx-4 carousel-inset mt-8 flex w-[calc(100%+2rem)] snap-x snap-mandatory gap-8 overflow-x-auto overscroll-x-contain scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:none] sm:-mx-6 sm:mt-10 sm:w-[calc(100%+3rem)] md:hidden [&::-webkit-scrollbar]:hidden">
                 <div className="w-[calc(100%-3.25rem)] shrink-0 snap-start [&>div]:w-full [&>div]:max-w-none">
                     <Card1 />
                 </div>

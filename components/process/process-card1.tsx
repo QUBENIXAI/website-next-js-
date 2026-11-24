@@ -10,7 +10,7 @@ export default function ProcessCard1() {
             <div className="absolute inset-x-0 bottom-0 px-4 pt-6 pb-4 sm:px-5 sm:pt-10 sm:pb-8">
                 <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 backdrop-blur-xl"
+                    className="pointer-events-none absolute inset-0 backdrop-blur-xl max-md:[backdrop-filter:none]"
                     style={{
                         background: "linear-gradient(to top, rgba(255,255,255,0.96) 55%, rgba(255,255,255,0.55) 100%)",
                         maskImage: "linear-gradient(to top, black 62%, transparent)",

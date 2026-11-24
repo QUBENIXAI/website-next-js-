@@ -34,7 +34,7 @@ const lines: {d: string, startsAtCenter: boolean}[] = [
 
 const Card3Visual = () => {
     const ref = useRef<SVGSVGElement>(null)
-    const inView = useInView(ref, { once: true, amount: 0.4 })
+    const inView = useInView(ref, { amount: 0.4 })
 
     return (
         <svg ref={ref} className="h-auto w-full" viewBox="0 0 350 87" fill="none" xmlns="http://www.w3.org/2000/svg">

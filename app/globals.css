@@ -153,3 +153,25 @@ body {
     @apply font-sans;
   }
 }
+
+@layer components {
+  /*
+   * Full-bleed horizontal carousels. The start inset matches the centered
+   * intro copy (max-w-lg) above the carousel, so the first snapped card lines
+   * up with that copy while the next card still peeks at the viewport edge.
+   * scroll-padding keeps the same alignment after a snap.
+   */
+  .carousel-inset {
+    padding-inline-start: max(1rem, calc((100vw - 32rem) / 2));
+    padding-inline-end: 1rem;
+    scroll-padding-inline-start: max(1rem, calc((100vw - 32rem) / 2));
+  }
+
+  @media (min-width: 40rem) {
+    .carousel-inset {
+      padding-inline-start: max(1.5rem, calc((100vw - 32rem) / 2));
+      padding-inline-end: 1.5rem;
+      scroll-padding-inline-start: max(1.5rem, calc((100vw - 32rem) / 2));
+    }
+  }
+}
