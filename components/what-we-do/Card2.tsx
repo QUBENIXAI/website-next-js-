@@ -74,13 +74,13 @@ function RisingBar({ bar, delay, active }: { bar: (typeof bars)[number]; delay: 
             <rect
                 width="30"
                 height={value}
-                fill="#F6F6F6"
+                fill="#EDE9FE"
                 transform={`matrix(0.866025 0.5 0 1 ${bar.left[0]} ${bar.left[1] + shift})`}
             />
             <rect
                 width="30"
                 height={value}
-                fill="#CDCDCD"
+                fill="#A78BFA"
                 transform={`matrix(0.866025 -0.5 0 1 ${bar.right[0]} ${bar.right[1] + shift})`}
             />
         </g>
