@@ -204,7 +204,7 @@ export default function Header() {
                         <motion.nav
                             key="mobile-nav"
                             id="mobile-nav"
-                            className="pointer-events-auto fixed top-[4.5rem] right-3 bottom-4 z-40 flex w-[calc(100vw-1.5rem)] max-w-xs flex-col overflow-y-auto border border-black/10 bg-background/95 p-2 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:right-5 sm:w-[calc(100vw-2.5rem)] md:hidden"
+                            className="pointer-events-auto fixed top-20 right-3 bottom-4 z-40 flex w-[calc(100vw-1.5rem)] max-w-xs flex-col overflow-y-auto border border-black/10 bg-background/95 p-2 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:right-5 sm:w-[calc(100vw-2.5rem)] md:hidden"
                             initial={{ x: "110%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "110%" }}
@@ -263,16 +263,16 @@ export const HeaderLogo = () => {
     return (
         <main className="flex items-center gap-2">
             <Image
-                src="/Icon.png"
-                alt="Qubenix"
-                width={40}
-                height={40}
-                priority
-                className="size-8 shrink-0 object-contain sm:size-9 md:size-10"
-            />
-            <h1 className="font-sans text-lg font-semibold sm:text-xl text-[#2F1BB1]">
+  src="/Header.png"
+  alt="Qubenix"
+  width={500}
+  height={120}
+  priority
+  className="h-7 w-auto shrink-0 object-contain sm:h-8 md:h-7 lg:h-9"
+/>
+            {/* <h1 className="font-sans text-lg font-semibold sm:text-xl text-[#2F1BB1]">
                 QUBENIX
-            </h1>
+            </h1> */}
         </main>
     )
 }
