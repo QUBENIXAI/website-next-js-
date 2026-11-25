@@ -1,6 +1,5 @@
 import { getPosts } from "@/lib/blog"
 import type { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import BlogIcon from "@/components/icon-crafts/blog-icon"
 
@@ -24,36 +23,30 @@ export default async function BlogPage() {
                 </p>
             </section>
 
-            <section className="mt-14 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            <section className="mt-14 flex w-full flex-col">
                 {posts.map((post) => (
-                    <Link key={post.slug} href={`/blog/${post.slug}`} className="flex flex-col">
-                        <div
-                            className="aspect-[4/3] overflow-hidden bg-cover bg-center p-4 sm:p-5"
-                            style={{ backgroundImage: "url('https://i.pinimg.com/1200x/75/8b/48/758b48719aa2f37ca9951f7a6da75811.jpg')" }}
-                        >
-                            <div className="relative h-full w-full bg-white">
-                                <Image
-                                    src={post.image}
-                                    alt={post.imageAlt}
-                                    fill
-                                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                                    className="object-contain"
-                                />
-                            </div>
+                    <Link
+                        key={post.slug}
+                        href={`/blog/${post.slug}`}
+                        className="group flex flex-col gap-2 border-t border-[#ececec] py-6 last:border-b sm:flex-row sm:items-baseline sm:justify-between sm:gap-10"
+                    >
+                        <div className="min-w-0">
+                            <h2 className="text-lg font-medium tracking-tight text-black transition-colors duration-200 group-hover:text-[#3C32AC] sm:text-xl">
+                                {post.title}
+                            </h2>
+                            <p className="mt-1.5 max-w-2xl text-sm leading-6 text-[#6b6b6b]">
+                                {post.description}
+                            </p>
                         </div>
-                        <h2 className="mt-5 text-base font-medium tracking-tight text-black sm:text-lg">
-                            {post.title}
-                        </h2>
-                        <p className="mt-3 text-sm text-[#6b6b6b]">{post.readingTime}</p>
+                        <p className="shrink-0 text-xs text-[#8a8a8a] sm:text-sm">
+                            {post.date}
+                            <span className="px-1.5">·</span>
+                            {post.readingTime}
+                        </p>
                     </Link>
                 ))}
             </section>
         </main>
         </div>
     )
-}
-
-
-const BlogFooter = () => {
-    
 }

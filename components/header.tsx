@@ -10,18 +10,20 @@ import Image from "next/image";
 
 const Links = {
     Products: "/products",
-    OurTeam: "/our-team",
-    Consultancy: "",
+    Industry: "/industries",
+    // Consultancy: "",
     Blog: "/blog",
+    OurTeam: "/our-team",
     // Prompts: "/prompts",
     careers: "/careers",
 }
 
 const labels: Record<keyof typeof Links, string> = {
     Products: "Portfolio",
-    OurTeam: "Our Team",
+    Industry: "Industry",
+    // Consultancy: "Consultancy",
     Blog: "Blogs",
-    Consultancy: "Consultancy",
+    OurTeam: "Our Team",
     // Prompts: "Prompts",
     careers: "Careers",
 }
@@ -79,7 +81,7 @@ export default function Header() {
                 }`}
         >
             <motion.div
-                className="pointer-events-auto relative z-50 grid w-full max-w-5xl grid-cols-[1fr_auto] items-center border px-3 py-2 sm:px-4 md:grid-cols-[1fr_auto_1fr]"
+                className="pointer-events-auto relative z-50 grid w-full max-w-5xl grid-cols-[1fr_auto] items-center border px-3 py-2 sm:px-4 lg:grid-cols-[1fr_auto_1fr]"
                 style={{
                     backgroundColor,
                     borderColor,
@@ -96,7 +98,7 @@ export default function Header() {
                 {/* Desktop Navigation */}
                 <LayoutGroup>
                     <nav
-                        className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex"
+                        className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex"
                         onMouseLeave={() => setHoveredLink(null)}
                     >
                         {Object.entries(Links).map(([key, value]) => {
@@ -145,7 +147,7 @@ export default function Header() {
                 <div className="flex items-center justify-end gap-2 md:col-start-3">
 
                     {/* Desktop CTA */}
-                    <div className="hidden md:block">
+                    <div className="hidden lg:block">
                         <button
                             type="button"
                             onClick={() =>
@@ -171,7 +173,7 @@ export default function Header() {
                     {/* Mobile Menu Toggle */}
                     <button
                         type="button"
-                        className="inline-flex size-9 items-center justify-center text-[#171717] md:hidden"
+                        className="inline-flex size-9 items-center justify-center text-[#171717] lg:hidden"
                         aria-expanded={menuOpen}
                         aria-controls="mobile-nav"
                         aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -193,7 +195,7 @@ export default function Header() {
                         <motion.div
                             key="mobile-nav-backdrop"
                             aria-hidden
-                            className="pointer-events-auto fixed inset-0 z-30 bg-neutral-950/20 backdrop-blur-md md:hidden"
+                            className="pointer-events-auto fixed inset-0 z-30 bg-neutral-950/20 backdrop-blur-md lg:hidden"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -204,7 +206,7 @@ export default function Header() {
                         <motion.nav
                             key="mobile-nav"
                             id="mobile-nav"
-                            className="pointer-events-auto fixed top-20 right-3 bottom-4 z-40 flex w-[calc(100vw-1.5rem)] max-w-xs flex-col overflow-y-auto border border-black/10 bg-background/95 p-2 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:right-5 sm:w-[calc(100vw-2.5rem)] md:hidden"
+                            className="pointer-events-auto fixed top-20 right-3 bottom-4 z-40 flex w-[calc(100vw-1.5rem)] max-w-xs flex-col overflow-y-auto border border-black/10 bg-background/95 p-2 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:right-5 sm:w-[calc(100vw-2.5rem)] lg:hidden"
                             initial={{ x: "110%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "110%" }}

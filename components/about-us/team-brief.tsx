@@ -218,13 +218,13 @@ function ConvergenceVisual() {
                     {/* Logo frame */}
                     <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-[24%] bg-white shadow-[0_2px_4px_rgba(23,23,23,0.06),0_10px_26px_-14px_rgba(63,70,181,0.4)] ring-1 ring-black/[0.05]">
     <Image
-        src="/Q.png"
+        src="/QLogo.png"
         alt="Qubenix"
-        width={100}
-        height={100}
+        width={2805}
+        height={2763}
         priority
         unoptimized
-        className="h-[84%] w-[84%] object-contain"
+        className="h-full w-full object-cover"
     />
 </div>
                 </div>

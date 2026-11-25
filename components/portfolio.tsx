@@ -115,7 +115,7 @@ type Work = {
     // where the artwork sits and slides in from
     artworkPlacement?: "right" | "top"
     // rendered illustration instead of the wordmark
-    visual?: "astrology"
+    visual?: "astrology" | "swabalambi"
     // static artwork shown centered with no animation
     still?: string
     stillWidth?: number
@@ -134,9 +134,7 @@ const Works: Work[] = [
         title: "Swabalambi Odisha",
         description:
             "A community platform empowering Odisha entrepreneurs through connections, collaboration, and opportunities.",
-        still: "/products/Odhisa.png",
-        stillWidth: 2577,
-        stillHeight: 1725,
+        visual: "swabalambi",
         background: "#ffffff",
         productLink:
             "https://share.google/Mx7nWknLt92mZDD1J",
@@ -422,6 +420,7 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
     const wordmark = work.title.split(" ")[0]
     const background = work.background ?? skin.background
     const ink = work.ink ?? skin.ink
+    const hasImageBackdrop = Boolean(work.cover || work.still) || work.visual === "swabalambi"
     const cardRef = useRef<HTMLDivElement>(null)
     const artInView = useInView(cardRef, { once: true, amount: 0.35 })
     const artFromTop = work.artworkPlacement === "top"
@@ -523,6 +522,20 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
                 </div>
             )}
 
+            {/* Swabalambi logo only */}
+            {work.visual === "swabalambi" && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <Image
+                        src="/swabalambi/logo.png"
+                        alt="Swabalambi Odisha"
+                        width={528}
+                        height={392}
+                        sizes="(min-width: 1024px) 30vw, 60vw"
+                        className="h-auto w-[58%] max-w-[400px] object-contain"
+                    />
+                </div>
+            )}
+
             {/* Illustrated astrology wheel */}
             {work.visual === "astrology" && (
                 <motion.div
@@ -544,12 +557,12 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
             )}
 
             {/* Title over the art, description on hover */}
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
                 <div className="relative flex flex-col items-start">
                     {/* Soft blur layer so the copy stays readable */}
                     <div
                         aria-hidden
-                        className={`pointer-events-none absolute -inset-x-10 -top-8 -bottom-12 rounded-[2rem] blur-2xl sm:-inset-x-12 sm:-top-10 sm:-bottom-14 ${work.darkBackdrop ? "bg-black/30" : "bg-white/45"}`}
+                        className={`pointer-events-none absolute -inset-x-10 -top-8 -bottom-12 rounded-[2rem] blur-2xl sm:-inset-x-12 sm:-top-10 sm:-bottom-14 ${work.darkBackdrop ? "bg-black/30" : hasImageBackdrop ? "bg-white/80" : "bg-white/45"}`}
                     />
 
                     <h3 className="relative text-lg font-medium tracking-tight sm:text-xl">
@@ -573,9 +586,11 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
 
             {hasLink && (
                 <>
-                    <span className="pointer-events-none absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white/50 text-current backdrop-blur-md transition-colors duration-300 group-hover:bg-white/80 sm:right-5 sm:top-5">
-                        <ArrowUpRightIcon className="h-4 w-4" weight="bold" />
-                    </span>
+                    {work.visual !== "swabalambi" && (
+                        <span className="pointer-events-none absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white/50 text-current backdrop-blur-md transition-colors duration-300 group-hover:bg-white/80 sm:right-5 sm:top-5">
+                            <ArrowUpRightIcon className="h-4 w-4" weight="bold" />
+                        </span>
+                    )}
                     <a
                         href={work.productLink}
                         target="_blank"
