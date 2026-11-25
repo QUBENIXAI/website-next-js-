@@ -5,6 +5,7 @@ import IconCraft from './icon-crafts/main'
 import { ArrowUpRightIcon, StackSimpleIcon } from '@phosphor-icons/react'
 import Image from 'next/image'
 import { SectionHighlight } from './section-heading'
+import Footer from './footer'
 
 
 type Product = {
@@ -157,8 +158,22 @@ export default function Portfolio() {
             <div className="flex w-full flex-col gap-16 sm:gap-20">
                 <WorksShowCase />
                 <ProductShowCase />
+                <MoreProductsDivider />
+                <Footer />
             </div>
         </main>
+    )
+}
+
+const MoreProductsDivider = () => {
+    return (
+        <div className="mx-auto flex w-full max-w-6xl items-center gap-4 sm:gap-6">
+            <span aria-hidden className="h-px flex-1 bg-black/10" />
+            <p className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.16em] text-[#8a8a8a] sm:text-xs sm:tracking-[0.18em]">
+                More products in the making
+            </p>
+            <span aria-hidden className="h-px flex-1 bg-black/10" />
+        </div>
     )
 }
 
