@@ -7,7 +7,6 @@ import { ArrowUpRightIcon, StackSimpleIcon } from '@phosphor-icons/react'
 import Image from 'next/image'
 import AstrologySVG from './astrology-svg'
 import { SectionHighlight } from './section-heading'
-import Footer from './footer'
 
 
 type Product = {
@@ -117,6 +116,12 @@ type Work = {
     artworkPlacement?: "right" | "top"
     // rendered illustration instead of the wordmark
     visual?: "astrology"
+    // static artwork shown centered with no animation
+    still?: string
+    stillWidth?: number
+    stillHeight?: number
+    // image that fills the whole card, with the copy layered above it
+    cover?: string
     // optional per-work palette overrides
     background?: string
     ink?: string
@@ -129,6 +134,10 @@ const Works: Work[] = [
         title: "Swabalambi Odisha",
         description:
             "A community platform empowering Odisha entrepreneurs through connections, collaboration, and opportunities.",
+        still: "/products/Odhisa.png",
+        stillWidth: 2577,
+        stillHeight: 1725,
+        background: "#ffffff",
         productLink:
             "https://share.google/Mx7nWknLt92mZDD1J",
     },
@@ -165,11 +174,15 @@ const Works: Work[] = [
         title: "Ride Handling App",
         description:
             "A mobile application designed to streamline ride management, bookings, and transportation operations.",
+        cover: "/products/Ride.png",
+        ink: "#FFFFFF",
+        darkBackdrop: true,
     },
     {
         title: "Real Estate Dashboard",
         description:
             "A centralised dashboard for managing real estate properties, tracking operations, and monitoring property data.",
+        cover: "/products/Estate.png",
     }
  
 ]
@@ -197,7 +210,6 @@ export default function Portfolio() {
                 <WorksShowCase />
                 <ProductShowCase />
                 <MoreProductsDivider />
-                <Footer />
             </div>
         </main>
     )
@@ -417,15 +429,22 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
 
     return (
         <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, ease }}
+            className={span}
+        >
+        <motion.div
             ref={cardRef}
             initial="rest"
             animate="rest"
             whileHover="hover"
-            className={`group relative overflow-hidden rounded-2xl ${span}`}
+            className="group relative h-full w-full overflow-hidden rounded-2xl"
             style={{ background, color: ink }}
         >
             {/* Soft light bloom, shifts on hover */}
-            {!work.artwork && !work.visual && (
+            {!work.artwork && !work.visual && !work.still && !work.cover && (
                 <motion.div
                     aria-hidden
                     variants={{
@@ -438,7 +457,7 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
             )}
 
             {/* Oversized wordmark in the middle of the tile */}
-            {!work.artwork && !work.visual && (
+            {!work.artwork && !work.visual && !work.still && !work.cover && (
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                     <motion.span
                         variants={{
@@ -475,6 +494,33 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
                         className={`max-w-none object-contain ${artFromTop ? "h-auto w-[64%]" : "h-full w-auto"}`}
                     />
                 </motion.div>
+            )}
+
+            {/* Full-bleed cover image, copy layered above it */}
+            {work.cover && (
+                <div className="absolute inset-0">
+                    <Image
+                        src={work.cover}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 60vw, 100vw"
+                        className="object-cover"
+                    />
+                </div>
+            )}
+
+            {/* Static artwork, top centre */}
+            {work.still && (
+                <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-center px-4 pt-6 sm:pt-8">
+                    <Image
+                        src={work.still}
+                        alt=""
+                        width={work.stillWidth ?? 1600}
+                        height={work.stillHeight ?? 1000}
+                        sizes="(min-width: 1024px) 30vw, 60vw"
+                        className="h-auto w-[66%] max-w-[480px] object-contain"
+                    />
+                </div>
             )}
 
             {/* Illustrated astrology wheel */}
@@ -539,6 +585,7 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
                     />
                 </>
             )}
+        </motion.div>
         </motion.div>
     )
 }

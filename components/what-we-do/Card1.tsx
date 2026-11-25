@@ -13,7 +13,7 @@ export default function Card1() {
                     Expert guidance to help you navigate global opportunities, make informed decisions, and move forward with confidence.
                 </p>
             </div>
-            <div className="absolute -right-[72px] -bottom-[88px] w-[280px] sm:-right-[120px] sm:-bottom-[150px] sm:w-[440px]">
+            <div className="absolute -right-[72px] -bottom-[88px] w-[310px] sm:-right-[120px] sm:-bottom-[150px] sm:w-[480px]">
                 <GlobeAnalytics markers={[]} />
             </div>
         </div>

@@ -92,7 +92,7 @@ const Card2Visual = () => {
     const inView = useInView(ref, { once: true, amount: 0.4 })
 
     return (
-        <svg ref={ref} className="h-auto w-[120px] sm:w-[177px]" viewBox="0 0 177 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg ref={ref} className="h-auto w-[132px] sm:w-[195px]" viewBox="0 0 177 201" fill="none" xmlns="http://www.w3.org/2000/svg">
             {bars.map((bar, index) => (
                 <RisingBar key={bar.height} bar={bar} delay={(bars.length - 1 - index) * 0.08} active={inView} />
             ))}

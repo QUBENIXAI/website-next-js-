@@ -103,7 +103,7 @@ export default function Footer() {
                 <div className="relative z-0 mt-16 grid w-full gap-12 bg-background lg:grid-cols-[minmax(0,16rem)_1fr] lg:gap-16">
                     <div>
                         {/* <p className="text-base font-semibold tracking-tight sm:text-lg">QUBENIX</p> */}
-                        <Image src={"/Logo.png"} alt={"logo"} width={100} height={100} />
+                        <Image src={"/Header.png"} alt={"logo"} width={100} height={100} />
                         <h2 className="mt-6 text-xl font-medium leading-tight tracking-tight sm:mt-5 sm:text-2xl">
                             Automate. Integrate.
                             <br />
