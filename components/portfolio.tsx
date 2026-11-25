@@ -1,9 +1,11 @@
 "use client"
 
-import { motion } from 'motion/react'
+import { motion, useInView } from 'motion/react'
+import { useRef } from 'react'
 import IconCraft from './icon-crafts/main'
 import { ArrowUpRightIcon, StackSimpleIcon } from '@phosphor-icons/react'
 import Image from 'next/image'
+import AstrologySVG from './astrology-svg'
 import { SectionHighlight } from './section-heading'
 import Footer from './footer'
 
@@ -14,6 +16,10 @@ type Product = {
     className: string
     // show the tinted backdrop through transparent artwork
     backdrop?: boolean
+    // per-product gradient, matched to the artwork's palette
+    gradient?: string
+    // inset the artwork on the gradient so it reads as a framed screenshot
+    imageInset?: boolean
     title: string
     highlight: string
     description: string
@@ -27,6 +33,7 @@ const Products: Product[] = [
         // 2000 × 1333 (transparent mockup, resized from the 25146 × 16764 source)
         className: "aspect-[3/2]",
         backdrop: true,
+        gradient: "radial-gradient(120% 120% at 0% 0%, #f3ebff 0%, #e7dcfc 45%, #c8c5f5 100%)",
         title: "Qubenix AI HR",
         highlight: "Qubenix AI",
         description:
@@ -38,6 +45,8 @@ const Products: Product[] = [
         image: "/Finance.png",
         // 1024 × 696
         className: "aspect-[128/87]",
+        gradient: "radial-gradient(120% 120% at 100% 0%, #e8f1ff 0%, #dde6fb 45%, #bccbf2 100%)",
+        imageInset: true,
         title: "Qubenix AI Finance",
         highlight: "Qubenix AI",
         description:
@@ -49,6 +58,8 @@ const Products: Product[] = [
         image: "/QubenixCompliance.png",
         // 3762 × 3762
         className: "aspect-square",
+        gradient: "radial-gradient(120% 120% at 0% 100%, #e2f4ff 0%, #cfe5ff 45%, #a9c2f2 100%)",
+        imageInset: true,
         title: "Qubenix AI Compliance",
         highlight: "Qubenix AI",
         description:
@@ -83,6 +94,8 @@ const Products: Product[] = [
         image: "/Brain.png",
         // 5643 × 5646
         className: "aspect-square",
+        gradient: "radial-gradient(120% 120% at 100% 100%, #f4ebff 0%, #e9dffb 45%, #cec6f3 100%)",
+        imageInset: true,
         title: "Qubenix AI Brain",
         highlight: "Qubenix AI",
         description:
@@ -96,6 +109,19 @@ type Work = {
     title: string
     description: string
     productLink?: string
+    // optional artwork that replaces the wordmark backdrop
+    artwork?: string
+    artworkWidth?: number
+    artworkHeight?: number
+    // where the artwork sits and slides in from
+    artworkPlacement?: "right" | "top"
+    // rendered illustration instead of the wordmark
+    visual?: "astrology"
+    // optional per-work palette overrides
+    background?: string
+    ink?: string
+    // dark cards need a dark scrim behind the copy instead of a white one
+    darkBackdrop?: boolean
 }
 
 const Works: Work[] = [
@@ -110,6 +136,11 @@ const Works: Work[] = [
         title: "Cravsy",
         description:
             "A homemade food platform connecting people with delicious, freshly prepared meals made with love.",
+        artwork: "/products/Cravsy.png",
+        artworkWidth: 1401,
+        artworkHeight: 1962,
+        artworkPlacement: "top",
+        background: "linear-gradient(to bottom, #FFFDBC 0%, #FFC2C2 100%)",
         productLink:
             "https://share.google/s2N34nOSSVHpiJFkg",
     },
@@ -117,11 +148,18 @@ const Works: Work[] = [
         title: "EV Applications",
         description:
             "Mobile applications designed to simplify electric vehicle management and everyday EV operations.",
+        artwork: "/products/Scooty.png",
+        artworkPlacement: "right",
+        background: "linear-gradient(to bottom, #008A00 0%, #002B02 100%)",
+        ink: "#F3FFF3",
+        darkBackdrop: true,
     },
     {
         title: "Astrology App",
         description:
             "An astrology application offering personalised insights, horoscope readings, and astrological guidance.",
+        background: "#EFAA00",
+        visual: "astrology",
     },
     {
         title: "Ride Handling App",
@@ -133,7 +171,7 @@ const Works: Work[] = [
         description:
             "A centralised dashboard for managing real estate properties, tracking operations, and monitoring property data.",
     }
-
+ 
 ]
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
@@ -240,31 +278,41 @@ const ProductRow = ({ product, index }: { product: Product; index: number }) => 
                 className={`relative w-full overflow-hidden rounded-2xl bg-[#eef2fb] ring-1 ring-black/5 ${product.className} ${
                     flip ? "md:order-1" : "md:order-2"
                 }`}
-                style={product.backdrop || !product.image ? { background: skin } : undefined}
+                style={
+                    product.gradient
+                        ? { background: product.gradient }
+                        : product.backdrop || !product.image
+                          ? { background: skin }
+                          : undefined
+                }
             >
                 <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]">
-                    {product.image ? (
-                        <Image
-                            src={product.image}
-                            alt={product.title}
-                            fill
-                            priority={index < 2}
-                            sizes="(min-width: 768px) 50vw, 100vw"
-                            className="object-cover"
-                        />
-                    ) : (
-                        <>
-                            <div className="absolute inset-0 flex items-center justify-center px-6">
-                                <span className="whitespace-nowrap text-[clamp(2rem,7vw,3.75rem)] font-semibold leading-none tracking-tight text-black/10">
-                                    {wordmark}
-                                </span>
-                            </div>
-                            <div
-                                aria-hidden
-                                className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-white/60 blur-3xl"
-                            />
-                        </>
-                    )}
+                    <div className={`relative h-full w-full overflow-hidden ${product.imageInset ? "p-3 sm:p-4" : ""}`}>
+                        <div className={`relative h-full w-full overflow-hidden ${product.imageInset ? "rounded-lg sm:rounded-xl" : ""}`}>
+                            {product.image ? (
+                                <Image
+                                    src={product.image}
+                                    alt={product.title}
+                                    fill
+                                    priority={index < 2}
+                                    sizes="(min-width: 768px) 50vw, 100vw"
+                                    className="object-cover"
+                                />
+                            ) : (
+                                <>
+                                    <div className="absolute inset-0 flex items-center justify-center px-6">
+                                        <span className="whitespace-nowrap text-[clamp(2rem,7vw,3.75rem)] font-semibold leading-none tracking-tight text-black/10">
+                                            {wordmark}
+                                        </span>
+                                    </div>
+                                    <div
+                                        aria-hidden
+                                        className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-white/60 blur-3xl"
+                                    />
+                                </>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
         </motion.article>
@@ -333,8 +381,8 @@ const orderedWorks = [...Works].sort(
 const workSpans = [
     "min-h-[260px] sm:col-span-2 sm:min-h-[300px] lg:col-span-4 lg:row-span-2 lg:min-h-0",
     "min-h-[220px] sm:col-span-2 sm:min-h-[260px] lg:col-span-2 lg:row-span-2 lg:min-h-0",
-    "min-h-[220px] lg:col-span-3 lg:min-h-0",
-    "min-h-[220px] lg:col-span-3 lg:min-h-0",
+    "min-h-[220px] lg:col-span-3 lg:min-h-[320px]",
+    "min-h-[220px] lg:col-span-3 lg:min-h-[320px]",
     "min-h-[220px] lg:col-span-2 lg:min-h-0",
     "min-h-[220px] lg:col-span-4 lg:min-h-0",
 ]
@@ -346,7 +394,7 @@ const WorksShowCase = () => {
                 Works
             </h2>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:auto-rows-[236px] lg:grid-cols-6">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:auto-rows-[minmax(236px,auto)] lg:grid-cols-6">
                 {orderedWorks.map((work, index) => (
                     <WorkShowCard key={work.title} work={work} index={index} />
                 ))}
@@ -360,40 +408,94 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
     const span = workSpans[index % workSpans.length]
     const hasLink = Boolean(work.productLink)
     const wordmark = work.title.split(" ")[0]
+    const background = work.background ?? skin.background
+    const ink = work.ink ?? skin.ink
+    const cardRef = useRef<HTMLDivElement>(null)
+    const artInView = useInView(cardRef, { once: true, amount: 0.35 })
+    const artFromTop = work.artworkPlacement === "top"
+    const artOffscreen = artFromTop ? { y: "-110%" } : { x: "115%" }
 
     return (
         <motion.div
+            ref={cardRef}
             initial="rest"
             animate="rest"
             whileHover="hover"
             className={`group relative overflow-hidden rounded-2xl ${span}`}
-            style={{ background: skin.background, color: skin.ink }}
+            style={{ background, color: ink }}
         >
             {/* Soft light bloom, shifts on hover */}
-            <motion.div
-                aria-hidden
-                variants={{
-                    rest: { scale: 1, x: 0, y: 0, opacity: 0.5 },
-                    hover: { scale: 1.15, x: -12, y: 10, opacity: 0.75 },
-                }}
-                transition={{ duration: 1, ease }}
-                className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-white blur-3xl"
-            />
+            {!work.artwork && !work.visual && (
+                <motion.div
+                    aria-hidden
+                    variants={{
+                        rest: { scale: 1, x: 0, y: 0, opacity: 0.5 },
+                        hover: { scale: 1.15, x: -12, y: 10, opacity: 0.75 },
+                    }}
+                    transition={{ duration: 1, ease }}
+                    className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-white blur-3xl"
+                />
+            )}
 
             {/* Oversized wordmark in the middle of the tile */}
-            <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                <motion.span
-                    variants={{
-                        rest: { scale: 1, letterSpacing: "-0.04em" },
-                        hover: { scale: 1.06, letterSpacing: "-0.02em" },
-                    }}
+            {!work.artwork && !work.visual && (
+                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                    <motion.span
+                        variants={{
+                            rest: { scale: 1, letterSpacing: "-0.04em" },
+                            hover: { scale: 1.06, letterSpacing: "-0.02em" },
+                        }}
+                        transition={{ duration: 0.9, ease }}
+                        className="max-w-full whitespace-nowrap text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-none"
+                        style={{ color: ink, opacity: 0.9 }}
+                    >
+                        {wordmark}
+                    </motion.span>
+                </div>
+            )}
+
+            {/* Artwork slides in from the right / top edge */}
+            {work.artwork && (
+                <motion.div
+                    initial={artOffscreen}
+                    animate={artInView ? { x: 0, y: 0 } : artOffscreen}
                     transition={{ duration: 0.9, ease }}
-                    className="max-w-full whitespace-nowrap text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-none"
-                    style={{ color: skin.ink, opacity: 0.9 }}
+                    className={
+                        artFromTop
+                            ? "pointer-events-none absolute inset-x-0 top-0 flex justify-center"
+                            : "pointer-events-none absolute right-0 bottom-0 h-[88%] w-auto"
+                    }
                 >
-                    {wordmark}
-                </motion.span>
-            </div>
+                    <Image
+                        src={work.artwork}
+                        alt=""
+                        width={work.artworkWidth ?? 1722}
+                        height={work.artworkHeight ?? 1413}
+                        sizes="(min-width: 1024px) 30vw, 60vw"
+                        className={`max-w-none object-contain ${artFromTop ? "h-auto w-[64%]" : "h-full w-auto"}`}
+                    />
+                </motion.div>
+            )}
+
+            {/* Illustrated astrology wheel */}
+            {work.visual === "astrology" && (
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={artInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.9, ease }}
+                    className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                >
+                    <AstrologySVG className="h-[92%] w-auto sm:h-full" />
+                </motion.div>
+            )}
+
+            {/* Keep the copy legible where the artwork runs underneath it */}
+            {work.artwork && (
+                <div
+                    aria-hidden
+                    className={`pointer-events-none absolute inset-x-0 bottom-0 h-3/5 sm:hidden ${work.darkBackdrop ? "bg-linear-to-t from-black/85 via-black/45 to-transparent" : "bg-linear-to-t from-white/90 via-white/50 to-transparent"}`}
+                />
+            )}
 
             {/* Title over the art, description on hover */}
             <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
@@ -401,7 +503,7 @@ const WorkShowCard = ({ work, index }: { work: Work; index: number }) => {
                     {/* Soft blur layer so the copy stays readable */}
                     <div
                         aria-hidden
-                        className="pointer-events-none absolute -inset-x-10 -top-8 -bottom-12 rounded-[2rem] bg-white/45 blur-2xl sm:-inset-x-12 sm:-top-10 sm:-bottom-14"
+                        className={`pointer-events-none absolute -inset-x-10 -top-8 -bottom-12 rounded-[2rem] blur-2xl sm:-inset-x-12 sm:-top-10 sm:-bottom-14 ${work.darkBackdrop ? "bg-black/30" : "bg-white/45"}`}
                     />
 
                     <h3 className="relative text-lg font-medium tracking-tight sm:text-xl">
