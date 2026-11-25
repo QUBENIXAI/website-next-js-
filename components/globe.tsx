@@ -167,6 +167,12 @@ export function GlobeAnalytics({
           transition: "opacity 1.2s ease", borderRadius: "50%",
         }}
       />
+      {/* Tints only the dark map dots; the globe surface stays white */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-full"
+        style={{ background: "#A78BFA", mixBlendMode: "color" }}
+      />
       {data.map((m) => (
         <div
           key={m.id}
